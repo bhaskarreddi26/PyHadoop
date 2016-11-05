@@ -16,3 +16,5 @@ https://www.cs.duke.edu/courses/fall15/compsci290.1/TA_Material/jungkang/how_to_
 http://blog.madhukaraphatak.com/pipe-in-spark/
 
 http://www.openkb.info/2015/01/scala-on-spark-cheatsheet.html
+
+http://blog.jaceklaskowski.pl/2015/07/20/real-time-data-processing-using-apache-kafka-and-spark-streaming.html
