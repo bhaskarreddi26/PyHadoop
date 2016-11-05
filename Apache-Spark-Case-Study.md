@@ -3,7 +3,8 @@ http://projects.spring.io/spring-xd/
 http://sparkbigdata.com/tutorials/104-case-studies
 http://events.linuxfoundation.org/sites/events/files/slides/Boost%20real%20world%20appliations%20using%20Apache%20Spark_0.pdf
 https://aws.amazon.com/emr/details/spark/
-
+https://azure.microsoft.com/en-us/documentation/articles/hdinsight-apache-spark-eventhub-streaming/
+http://www.codeproject.com/Articles/1023037/Introduction-to-Apache-Spark
 
 
 This piece of writing will present a real-life study case of Hadoop or Spark used in a unique approach to process large datasets such as Big Data.
