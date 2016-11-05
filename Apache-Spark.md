@@ -1,5 +1,7 @@
 https://dzone.com/refcardz/apache-spark
 
+https://dzone.com/storage/assets/3151-rd204-010d-spark_0.pdf
+
 http://spark.apache.org/docs/latest/programming-guide.html
 
 
