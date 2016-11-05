@@ -8,3 +8,5 @@ http://stackoverflow.com/questions/32808053/spark-shell-command-lines
 http://blog.brakmic.com/data-science-for-losers-part-3-scala-apache-spark/
 
 http://alvinalexander.com/scala/analyzing-apache-access-logs-files-spark-scala
+
+http://www.robertomarchetto.com/spark_java_maven_example
