@@ -30,3 +30,5 @@ http://homepage.cs.latrobe.edu.au/zhe/files/SparkAPIMaster.pdf
 http://ampcamp.berkeley.edu/5/exercises/data-exploration-using-spark-sql.html
 
 https://spark-summit.org/2014/wp-content/uploads/2014/06/Testing-Spark-Best-Practices-Anupama-Shetty-Neil-Marshall.pdf
+
+https://dzone.com/articles/analytics-with-apache-spark-tutorial-part-2-spark
