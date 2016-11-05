@@ -24,3 +24,9 @@ http://www.markhneedham.com/blog/2014/11/16/spark-parse-csv-file-and-group-by-co
 http://snowplowanalytics.com/blog/2015/06/10/spark-streaming-example-project-0.1.0-released/
 
 http://eugenezhulenev.com/blog/2014/10/18/run-tests-in-standalone-spark-cluster/
+
+http://homepage.cs.latrobe.edu.au/zhe/files/SparkAPIMaster.pdf
+
+http://ampcamp.berkeley.edu/5/exercises/data-exploration-using-spark-sql.html
+
+https://spark-summit.org/2014/wp-content/uploads/2014/06/Testing-Spark-Best-Practices-Anupama-Shetty-Neil-Marshall.pdf
