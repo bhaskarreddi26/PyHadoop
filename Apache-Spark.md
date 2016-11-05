@@ -14,3 +14,5 @@ http://www.robertomarchetto.com/spark_java_maven_example
 https://www.cs.duke.edu/courses/fall15/compsci290.1/TA_Material/jungkang/how_to_run_spark_app.pdf
 
 http://blog.madhukaraphatak.com/pipe-in-spark/
+
+http://www.openkb.info/2015/01/scala-on-spark-cheatsheet.html
