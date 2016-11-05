@@ -20,3 +20,7 @@ http://www.openkb.info/2015/01/scala-on-spark-cheatsheet.html
 http://blog.jaceklaskowski.pl/2015/07/20/real-time-data-processing-using-apache-kafka-and-spark-streaming.html
 
 http://www.markhneedham.com/blog/2014/11/16/spark-parse-csv-file-and-group-by-column-value/
+
+http://snowplowanalytics.com/blog/2015/06/10/spark-streaming-example-project-0.1.0-released/
+
+http://eugenezhulenev.com/blog/2014/10/18/run-tests-in-standalone-spark-cluster/
