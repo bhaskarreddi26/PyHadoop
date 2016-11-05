@@ -2,7 +2,7 @@ http://hortonworks.com/blog/spark-data-science-case-study/
 http://projects.spring.io/spring-xd/
 http://sparkbigdata.com/tutorials/104-case-studies
 http://events.linuxfoundation.org/sites/events/files/slides/Boost%20real%20world%20appliations%20using%20Apache%20Spark_0.pdf
-
+https://aws.amazon.com/emr/details/spark/
 
 
 
