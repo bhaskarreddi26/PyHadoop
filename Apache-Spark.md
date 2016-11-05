@@ -18,3 +18,5 @@ http://blog.madhukaraphatak.com/pipe-in-spark/
 http://www.openkb.info/2015/01/scala-on-spark-cheatsheet.html
 
 http://blog.jaceklaskowski.pl/2015/07/20/real-time-data-processing-using-apache-kafka-and-spark-streaming.html
+
+http://www.markhneedham.com/blog/2014/11/16/spark-parse-csv-file-and-group-by-column-value/
