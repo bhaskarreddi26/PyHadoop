@@ -5,3 +5,9 @@
 
 
 https://docs.cloud.databricks.com/docs/latest/databricks_guide/index.html#02%20Product%20Overview/07%20Tables.html
+
+
+
+
+
+https://docs.cloud.databricks.com/docs/latest/databricks_guide/index.html#00%20Welcome%20to%20Databricks.html
