@@ -21,7 +21,7 @@ Apache Spark's first abstraction was the RDD or Resilient Distributed Dataset. E
 
 
 **Transformation :**
-![](http://training.databricks.com/databricks_guide/gentle_introduction/trans_and_actions.png")
 
+![](http://training.databricks.com/databricks_guide/gentle_introduction/trans_and_actions.png)
 
 
