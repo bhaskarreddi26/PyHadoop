@@ -20,7 +20,8 @@ The DataFrame is collection of distributed  <code>Row</code> types. These provid
 Apache Spark's first abstraction was the RDD or Resilient Distributed Dataset. Essentially it is an interface to a sequence of data objects that consist of one or more types that are located across a variety of machines in a cluster. RDD's can be created in a variety of ways and are the "lowest level" API available to the user. While this is the original data structure made available, new users should focus on Datasets as those will be supersets of the current RDD functionality.
 
 
-
+**Transformation :**
+![](http://training.databricks.com/databricks_guide/gentle_introduction/trans_and_actions.png")
 
 
 
