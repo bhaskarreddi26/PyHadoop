@@ -1,4 +1,3 @@
-Even i have been looking in the web to learn about how spark computes the DAG from the RDD and subsequently executes the task.
 
 At high level, when any action is called on the RDD, Spark creates the DAG and submits it to the DAG scheduler.
 
