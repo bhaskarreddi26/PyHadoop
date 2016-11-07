@@ -53,3 +53,4 @@ Advanced Apache Spark- Sameer Farooqui (Databricks)
 A Deeper Understanding of Spark Internals - Aaron Davidson (Databricks)
 Introduction to AmpLab Spark Internals
 
+[http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd](http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd)
