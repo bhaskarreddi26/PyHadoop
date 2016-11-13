@@ -21,3 +21,22 @@ Here are some public data sets I have gathered over time
 * https://aws.amazon.com/public-datasets/
 
 * http://myjourneythroughhadoop.blogspot.in/2013/07/how-to-download-weather-data-for-your.html
+
+
+
+**Copy a remote dataset from the internet to DBFS in my Spark cluster?**
+
+You can use wget to pull the file down to your Driver, then copy this file to your cluster in Scala or Python using dbutils.cp() as follows:
+import sys.process._
+
+"wget -P /tmp http://vincentarelbundock.github.io/Rdatasets/csv/datasets/iris.csv" !!
+
+val localpath="file:/tmp/iris.csv"
+
+dbutils.fs.mkdirs("dbfs:/datasets/")
+
+dbutils.fs.cp(localpath, "dbfs:/datasets/")
+
+display(dbutils.fs.ls("dbfs:/datasets/iris.csv"))
+
+Note that the local file is referenced using file:/ and the distributed dbfs file is referenced using dbfs:/.
