@@ -19,3 +19,5 @@ Here are some public data sets I have gathered over time
 * http://data.cityofsantacruz.com/
 * http://bitly.com/bundles/hmason/1
 * https://aws.amazon.com/public-datasets/
+
+* http://myjourneythroughhadoop.blogspot.in/2013/07/how-to-download-weather-data-for-your.html
