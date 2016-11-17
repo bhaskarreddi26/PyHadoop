@@ -8,3 +8,5 @@ https://www.cloudera.com/documentation/enterprise/5-6-x/topics/spark_sparksql.ht
 
 
 http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014
+
+http://www.meetup.com/Bangalore-Spark-Enthusiasts/events/227008581/
