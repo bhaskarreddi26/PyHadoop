@@ -50,24 +50,22 @@ The scala example below shows equivalent code – one using Sparks RDD APIs and 
 case class People(firstname: String, lastname: String, age: Intger)
 val people = rdd.map(p => (people.firstname, people.age)).cache()
 
-// RDD Code
-val minAgeByFN = people.reduceByKey( scala.math.min(_, _) )
-val maxAgeByFN = people.reduceByKey( scala.math.max(_, _) )
-val avgAgeByFN = people.mapValues(x => (x, 1))
-.reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
-val countByFN =  people.mapValues(x => 1).reduceByKey(_ + _)
+    // RDD Code
+    val minAgeByFN = people.reduceByKey( scala.math.min(_, _) )
+    val maxAgeByFN = people.reduceByKey( scala.math.max(_, _) )
+    val avgAgeByFN = people.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
+    val countByFN =  people.mapValues(x => 1).reduceByKey(_ + _)
 
-// Data Frame Code
-df = people.toDF
-people = df.groupBy("firstname").agg(
-min("age"),
-max("age"),
-avg("age"),
-count("*"))
+    // Data Frame Code
+    df = people.toDF
+    people = df.groupBy("firstname").agg(
+    min("age"),
+    max("age"),
+    avg("age"),
+    count("*"))
 
 Data Frames are faster than using the plain RDDs due to the catalyst optimizer. DataFrames provide the same operations as relational query languages like SQL and Pig.
 
 Approach to solving Streaming Analytics with Spark SQL
-
-The diagram below shows thinking behind our approach of using Spark SQL for doing Real Time Analytics. This follows the well know pattern of Lambda Architecture for building Real Time Analytic systems for big streaming data.
+**Data Frames are faster than using the plain RDDs due to the catalyst optimizer. DataFrames provide the same operations as relational query languages like SQL and Pig.**
 
