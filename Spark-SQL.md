@@ -10,3 +10,13 @@ https://www.cloudera.com/documentation/enterprise/5-6-x/topics/spark_sparksql.ht
 http://www.slideshare.net/jeykottalam/spark-sqlamp-camp2014
 
 http://www.meetup.com/Bangalore-Spark-Enthusiasts/events/227008581/
+
+
+
+Spark SQL architecture contains three layers namely, Language API, Schema RDD, and Data Sources.
+
+Language API − Spark is compatible with different languages and Spark SQL. It is also, supported by these languages- API (python, scala, java, HiveQL).
+
+Schema RDD − Spark Core is designed with special data structure called RDD. Generally, Spark SQL works on schemas, tables, and records. Therefore, we can use the Schema RDD as temporary table. We can call this Schema RDD as Data Frame.
+
+Data Sources − Usually the Data source for spark-core is a text file, Avro file, etc. However, the Data Sources for Spark SQL is different. Those are Parquet file, JSON document, HIVE tables, and Cassandra database.
