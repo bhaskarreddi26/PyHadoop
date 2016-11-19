@@ -1,0 +1,7 @@
+Attend the webinar: Introduction to Spark Developer Training
+Join Diana Carroll, author of the new Cloudera course, for an introductory webinar at 10am PT (1pm ET) on Wednesday, July 23, 2014. To register, please visit: [http://university.cloudera.com/webinar](http://university.cloudera.com/webinar)
+Find more details on the new course and register for a class date:[http://cloudera.com/content/cloudera/en/training/courses/spark-training.html](http://cloudera.com/content/cloudera/en/training/courses/spark-training.html)
+View the full course overview and curriculum:[http://cloudera.com/content/dam/cloudera/Resources/PDF/Datasheet/Cloudera_Spark_Training.pdf](http://cloudera.com/content/dam/cloudera/Resources/PDF/Datasheet/Cloudera_Spark_Training.pdf)
+Explore the developer learning path towards Hadoop expertise:[http://cloudera.com/content/cloudera/en/training/roles/developers.html](http://cloudera.com/content/cloudera/en/training/roles/developers.html)
+Read about Cloudera Certified professional credentials: [http://cloudera.com/content/cloudera/en/training/certification.html](http://cloudera.com/content/cloudera/en/training/certification.html)
+Learn more about Cloudera University’s training and certification programs: [http://cloudera.com/content/cloudera/en/training.html](http://cloudera.com/content/cloudera/en/training.html)
