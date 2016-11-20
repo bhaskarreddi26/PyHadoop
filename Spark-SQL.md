@@ -33,3 +33,5 @@ Data Sources − Usually the Data source for spark-core is a text file, Avro fil
 
 **Test Data :+1: 
 [https://www.mapr.com/blog/using-apache-spark-dataframes-processing-tabular-data](https://www.mapr.com/blog/using-apache-spark-dataframes-processing-tabular-data)
+**Good Notes:**
+[https://www.supergloo.com/fieldnoteshttps://www.supergloo.com/fieldnotes](https://www.supergloo.com/fieldnotes)
