@@ -20,3 +20,6 @@ Language API − Spark is compatible with different languages and Spark SQL. It 
 Schema RDD − Spark Core is designed with special data structure called RDD. Generally, Spark SQL works on schemas, tables, and records. Therefore, we can use the Schema RDD as temporary table. We can call this Schema RDD as Data Frame.
 
 Data Sources − Usually the Data source for spark-core is a text file, Avro file, etc. However, the Data Sources for Spark SQL is different. Those are Parquet file, JSON document, HIVE tables, and Cassandra database.
+
+
+[https://rklicksolutions.wordpress.com/2016/03/03/tutorial-spark-1-6-sql-and-dataframe-operations/](https://rklicksolutions.wordpress.com/2016/03/03/tutorial-spark-1-6-sql-and-dataframe-operations/)
