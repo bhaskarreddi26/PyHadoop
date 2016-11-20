@@ -23,3 +23,6 @@ Data Sources − Usually the Data source for spark-core is a text file, Avro fil
 
 
 [https://rklicksolutions.wordpress.com/2016/03/03/tutorial-spark-1-6-sql-and-dataframe-operations/](https://rklicksolutions.wordpress.com/2016/03/03/tutorial-spark-1-6-sql-and-dataframe-operations/)
+
+**Build Spark :**
+[http://mbonaci.github.io/mbo-spark/](http://mbonaci.github.io/mbo-spark/)
