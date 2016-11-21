@@ -14,3 +14,7 @@
 
 **Run Hive online**
 * [http://demo.gethue.com/beeswax/](http://demo.gethue.com/beeswax/)
+
+**PIG or HIVE **
+
+* [https://developer.yahoo.com/blogs/hadoop/pig-hive-yahoo-464.html](https://developer.yahoo.com/blogs/hadoop/pig-hive-yahoo-464.html)
