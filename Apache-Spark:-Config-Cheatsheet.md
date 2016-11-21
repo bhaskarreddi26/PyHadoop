@@ -1,0 +1,1 @@
+[http://c2fo.io/c2fo/spark/aws/emr/2016/07/06/apache-spark-config-cheatsheet//](http://c2fo.io/c2fo/spark/aws/emr/2016/07/06/apache-spark-config-cheatsheet//)
