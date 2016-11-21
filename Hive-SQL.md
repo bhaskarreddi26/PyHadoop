@@ -11,3 +11,6 @@
 * [https://www.quora.com/What-are-some-good-examples-tutorials-for-learning-Hive](https://www.quora.com/What-are-some-good-examples-tutorials-for-learning-Hive)
 
 * [https://www.tutorialspoint.com/hive/](https://www.tutorialspoint.com/hive/)
+
+**Run Hive online**
+* [http://demo.gethue.com/beeswax/](http://demo.gethue.com/beeswax/)
