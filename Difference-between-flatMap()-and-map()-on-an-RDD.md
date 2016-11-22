@@ -63,3 +63,27 @@ sorted(lines.flatMap(lambda line: line.split()).map(lambda w: (w,1)).reduceByKey
 [('Birthday', 1), ('Day', 1), ('Evening', 1), ('Good', 3), ('Happy', 2), ('Morning', 1), ('New', 1), ('Year', 1)]
 
 LikeDifference between map and flatMap transformations in Spark (pySpark)Comment
+
+
+
+[https://www.quora.com/What-is-the-difference-between-Map-and-FlatMap-in-Apache-Spark](https://www.quora.com/What-is-the-difference-between-Map-and-FlatMap-in-Apache-Spark)
+
+
+
+This example below demonstrates the difference b/w map() & flatMap() operation in RDD using Scala Shell. A flatMap flattens multiple Array into one Single Array
+
+mountain@mountain:~/sbook$ cat words.txt 
+line1 word1
+line2 word2 word1 
+line3 word3 word4
+line4 word1
+
+scala> val lines = sc.textFile("words.txt");
+...
+scala> lines.map(_.split(" ")).take(3)
+res4: Array[Array[String]] = Array(Array(line1, word1), Array(line2, word2, word1), Array(line3, word3, word4))
+
+A flatMap() flattens multiple list into one single List
+
+scala> lines.flatMap(_.split(" ")).take(3)
+res5: Array[String] = Array(line1, word1, line2)
