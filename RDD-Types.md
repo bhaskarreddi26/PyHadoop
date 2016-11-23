@@ -71,3 +71,7 @@ It would probably do you good to read the link at the bottom, from which I shame
 
 
 * [https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html](https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html)
+
+****Apache Spark Functions****
+
+[http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
