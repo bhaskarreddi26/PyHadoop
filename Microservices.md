@@ -9,3 +9,7 @@
 * [http://www.martinfowler.com/articles/microservices.html](http://www.martinfowler.com/articles/microservices.html)
 
 * [http://microservices.io/patterns/microservices.html](http://microservices.io/patterns/microservices.html)
+
+* [http://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html](http://www.ibm.com/developerworks/websphere/library/techarticles/1601_clark-trs/1601_clark.html)
+
+* [http://www.vinaysahni.com/best-practices-for-building-a-microservice-architecture](http://www.vinaysahni.com/best-practices-for-building-a-microservice-architecture)
