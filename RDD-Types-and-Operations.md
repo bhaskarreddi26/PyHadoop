@@ -20,21 +20,21 @@ it requires that you have your entire dataset in memory on one machine.
 Example parallelize() method in Python
     lines = sc.parallelize(["pandas", "i like pandas"])
 
-Example parallelize() method in Scala
+    Example parallelize() method in Scala
     val lines = sc.parallelize(List("pandas", "i like pandas"))
 
-Example parallelize() method in Java
+    Example parallelize() method in Java
     JavaRDD<String> lines = sc.parallelize(Arrays.asList("pandas", "i like pandas"));
 
 A more common way to create RDDs is to load data from external storage. we already saw one method that loads a text file as an RDD of strings, SparkContext.textFile(), whichis shown in Examples.
 
-Example textFile() method in Python
+    Example textFile() method in Python
     lines = sc.textFile("/path/to/README.md")
 
-Example textFile() method in Scala
+    Example textFile() method in Scala
     val lines = sc.textFile("/path/to/README.md")
 
-Example textFile() method in Java
+    Example textFile() method in Java
     JavaRDD<String> lines = sc.textFile("/path/to/README.md");
 
 
