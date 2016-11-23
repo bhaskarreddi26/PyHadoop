@@ -5,9 +5,9 @@
 
 **Driver and Worker: **A driver is incharge of the process of running the main() function of an application and creating the SparkContext. A worker, on the other hand, is any node that can run program in the cluster. If a process is launched for an application, then this application acquires executors at worker node.
 
-**Cluster Manager: **Cluster manager allocates resources to each application in driver program. There are three types of cluster managers supported by Apache Spark – Standalone, Mesos and YARN. Apache Spark is agnostic to the underlying cluster manager, so we can install any cluster manager, each has its own unique advantages depending upon the goal. They all are different in terms of scheduling, security and monitoring. Once SparkContext connects to the cluster manager, it acquires executors on a cluster node, these executors are worker nodes on cluster which work independently on each tasks and interact with each other.
+**Cluster Manager:**   Cluster manager allocates resources to each application in driver program. There are three types of cluster managers supported by Apache Spark – Standalone, Mesos and YARN. Apache Spark is agnostic to the underlying cluster manager, so we can install any cluster manager, each has its own unique advantages depending upon the goal. They all are different in terms of scheduling, security and monitoring. Once SparkContext connects to the cluster manager, it acquires executors on a cluster node, these executors are worker nodes on cluster which work independently on each tasks and interact with each other.
 
-Hadoop Mapreduce vs Spark 
+**Hadoop Mapreduce vs Spark **
 
 In Hadoop, tasks are distributed among the nodes of a cluster, which in turn save data on disk. When that data is required for processing, each node has to load the data from the disk and save the data into disk after performing operation. This process ends up adding cost in terms of speed and time, because disk operations are far slower than RAM operations. It also requires time to convert the data in a particular format when writing the data from RAM to disk. This conversion is known as Serialization and reverse is Deserialization.
 
@@ -33,21 +33,23 @@ RDDs are immutable distributed collection of elements of your data that can be s
 
 Below is an Apache Spark code snippet using Python and RDDs to perform a word count.
 
-# Open textFile for Spark Context RDD
-text_file = spark.textFile("hdfs://...")
-# Execute word count
-text_file.flatMap(lambda line: line.split())
+    # Open textFile for Spark Context RDD
+    text_file = spark.textFile("hdfs://...")
+    # Execute word count
+    text_file.flatMap(lambda line: line.split())
     .map(lambda word: (word, 1))
     .reduceByKey(lambda a, b: a+b)
+
 **3. DataFrame**
 Like an RDD, a DataFrame is an immutable distributed collection of data. Unlike an RDD, data is organized into named columns, like a table in a relational database. Designed to make large data sets processing even easier, DataFrame allows developers to impose a structure onto a distributed collection of data, allowing higher-level abstraction; it provides a domain specific language API to manipulate your distributed data; and makes Spark accessible to a wider audience, beyond specialized data engineers.
 
 Below is an Apache Spark code snippet using SQL and DataFrames to query and join different data sources.
 
-# Read JSON file and register temp view
-context.jsonFile("s3n://...").createOrReplaceTempView("json")
-# Execute SQL query
-results = context.sql("""SELECT * FROM people JOIN json ...""")
+    # Read JSON file and register temp view
+    context.jsonFile("s3n://...").createOrReplaceTempView("json")
+    # Execute SQL query
+    results = context.sql("""SELECT * FROM people JOIN json ...""")
+
 **4. Dataset**
 Introduced in Spark 1.6, the goal of Spark Datasets is to provide an API that allows users to easily express transformations on domain objects, while also providing the performance and benefits of the robust Spark SQL execution engine.
 
@@ -55,10 +57,12 @@ Note, starting in Spark 2.0, the DataFrame APIs will merge with Datasets APIs, u
 
 Screen Shot 2016-06-21 at 18.24.16
 
-// Define a case class that represents our type-specific Scala JVM Object
-case class Person (email: String, iq: Long, name: String)
-// Read JSON file and convert to Dataset using the case class
-val ds = spark.read.json("...").as[Person]
+    // Define a case class that represents our type-specific Scala JVM Object
+    case class Person (email: String, iq: Long, name: String)
+    // Read JSON file and convert to Dataset using the case class
+    val ds = spark.read.json("...").as[Person]
+
+
 **5. MLlib**
 Apache Spark provides a general machine learning library — MLlib — that is designed for simplicity, scalability, and easy integration with other tools. With the scalability, language compatibility, and speed of Spark, data scientists can solve and iterate through their data problems faster.
 
@@ -118,5 +122,5 @@ In Apache Spark 2.0, adding structure to Spark, through use of high-level DataFr
 
 As such you can build end-to-end continuous applications, in which you can issue the same queries to batch as to real-time data, perform ETL, generate reports, update or track specific data in the stream. This combined batch & real-time query-capabilities to a structured stream is a unique offering—not many streaming engines offer it yet.
 
-[https://databricks.com/blog/2016/06/22/apache-spark-key-terms-explained.html](https://databricks.com/blog/2016/06/22/apache-spark-key-terms-explained.html)
+* [https://databricks.com/blog/2016/06/22/apache-spark-key-terms-explained.html](https://databricks.com/blog/2016/06/22/apache-spark-key-terms-explained.html)
 
