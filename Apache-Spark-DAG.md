@@ -46,7 +46,7 @@ The DAG scheduler will then submit the stages into the task scheduler. The numbe
 
 Task execustion
 
-[http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd](http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd)
+* [http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd](http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd)
 
 
-[https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark](https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark)
+* [https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark](https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark)
