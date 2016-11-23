@@ -93,7 +93,7 @@ JavaPairRDD<String, String> pairs = lines.mapToPair(keyData);
     **SparkContext.parallelize()**
 
 
-**Difference and use-cases of RDD and Pair RDD**
+**Difference between RDD and Pair RDD**
 
 Pair RDD is just a way of referring to an RDD containing key/value pairs, i.e. tuples of data. It's not really a matter of using one as opposed to using the other. For instance, if you want to calculate something based on an ID, you'd group your input together by ID. This example just splits a line of text and returns a Pair RDD using the first word as the key [1]:
 
@@ -117,4 +117,24 @@ It would probably do you good to read the link at the bottom, from which I shame
 
 
 https://docs.google.com/spreadsheets/d/1F7NYBMvaH8Pq0rcF3ZfHFyjcaQIRoXnaqZQQsy-deAU/edit#gid=0
+
+
+**Understand RDD operations: transformations and actions**
+
+**Transformation** 
+
+
+* filter(f: T => Boolean)	Return a FilteredRDD[T] having elemnts that f return true
+
+* mapPartitions(Iterator[T] => Iterator[U])	Return a new MapPartitionsRDD[U] by applying a function to each partition
+* sample(withReplacement, fraction, seed)	Return a new PartitionwiseSampledRDD[T] which is a sampled subset
+* union(otherRdd[T])	Return a new UnionRDD[T] by making union with another Rdd
+* intersection(otherRdd[T])	Return a new RDD[T] by making intersection with another Rdd
+* distinct()	Return a new RDD[T] containing distinct elements
+* groupByKey()	Being called on (K,V) Rdd, return a new RDD[([K], Iterable[V])]
+* reduceByKey(f: (V, V) => V)	Being called on (K, V) Rdd, return a new RDD[(K, V)] by aggregating values using feg: reduceByKey(_+_)
+* sortByKey([ascending])	Being called on (K,V) Rdd where K implements Ordered, return a new RDD[(K, V)] sorted by K
+* join(other: RDD[(K, W))	Being called on (K,V) Rdd, return a new RDD[(K, (V, W))] by joining them
+* cogroup(other: RDD[(K, W))	Being called on (K,V) Rdd, return a new RDD[(K, (Iterable[V], Iterable[W]))] such that for each key k in this & other, get a tuple with the list of values for that key in this as well as other
+* cartesian(other: RDD[U])	 Return a  new RDD[(T, U)] by applying product
 
