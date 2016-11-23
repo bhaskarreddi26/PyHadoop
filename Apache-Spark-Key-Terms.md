@@ -1,6 +1,5 @@
 **Spark Architecture**
 
-![](https://www.mapr.com/ebooks/spark/images/spark-stack-diagram.png)
 
 ![](http://www.teckstory.com/wp-content/uploads/2015/08/Spark-Architecture.png)
 
