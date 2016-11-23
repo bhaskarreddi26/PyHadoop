@@ -74,4 +74,6 @@ It would probably do you good to read the link at the bottom, from which I shame
 
 ****Apache Spark Functions****
 
-[http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
+* [http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
+
+* [http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/](http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/)
