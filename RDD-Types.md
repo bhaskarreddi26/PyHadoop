@@ -7,16 +7,16 @@ One reason why Spark has lately become a very popular system for processing big 
 
 The basic RDD API considers each data item as a single value. However, users often want to work with key-value pairs. Therefore Spark extended the interface of RDD to provide additional functions (PairRDDFunctions), which explicitly work on key-value pairs. Currently, there are four extensions to the RDD API available in spark. They are as follows:
 
-**DoubleRDDFunctions **
+****DoubleRDDFunctions ****
 This extension contains many useful methods for aggregating numeric values. They become available if the data items of an RDD are implicitly convertible to the Scala data-type double.
 
-**PairRDDFunctions **
+****PairRDDFunctions ****
 Methods defined in this interface extension become available when the data items have a two component tuple structure. Spark will interpret the first tuple item (i.e. tuplename. 1) as the key and the second item (i.e. tuplename. 2) as the associated value.
 
-**OrderedRDDFunctions **
+****OrderedRDDFunctions ****
 Methods defined in this interface extension become available if the data items are two-component tuples where the key is implicitly sortable.
 
-**SequenceFileRDDFunctions **
+****SequenceFileRDDFunctions ****
 This extension contains several methods that allow users to create Hadoop sequence- les from RDDs. The data items must be two compo- nent key-value tuples as required by the PairRDDFunctions. However, there are additional requirements considering the convertibility of the tuple components to Writable types.
 
 
