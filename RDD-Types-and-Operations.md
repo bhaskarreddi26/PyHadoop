@@ -7,6 +7,38 @@ One reason why Spark has lately become a very popular system for processing big 
 
 The basic RDD API considers each data item as a single value. However, users often want to work with key-value pairs. Therefore Spark extended the interface of RDD to provide additional functions (PairRDDFunctions), which explicitly work on key-value pairs. Currently, there are four extensions to the RDD API available in spark. They are as follows:
 
+
+**Creating RDDs**
+
+Spark provides two ways to create RDDs: loading an external dataset and parallelizing a collection in your driver program.
+
+The simplest way to create RDDs is to take an existing collection in your program and pass it to SparkContext’s parallelize() method.
+
+This approach is very useful when you are learning Spark, since you can quickly create your own RDDs in the shell and perform operations on them. Keep in mind, however, that outside of prototyping and testing, this is not widely used since
+it requires that you have your entire dataset in memory on one machine.
+
+Example parallelize() method in Python
+    lines = sc.parallelize(["pandas", "i like pandas"])
+
+Example parallelize() method in Scala
+    val lines = sc.parallelize(List("pandas", "i like pandas"))
+
+Example parallelize() method in Java
+    JavaRDD<String> lines = sc.parallelize(Arrays.asList("pandas", "i like pandas"));
+
+A more common way to create RDDs is to load data from external storage. we already saw one method that loads a text file as an RDD of strings, SparkContext.textFile(), whichis shown in Examples.
+
+Example textFile() method in Python
+    lines = sc.textFile("/path/to/README.md")
+
+Example textFile() method in Scala
+    val lines = sc.textFile("/path/to/README.md")
+
+Example textFile() method in Java
+    JavaRDD<String> lines = sc.textFile("/path/to/README.md");
+
+
+
 ****DoubleRDDFunctions ****
 This extension contains many useful methods for aggregating numeric values. They become available if the data items of an RDD are implicitly convertible to the Scala data-type double.
 
@@ -77,3 +109,6 @@ It would probably do you good to read the link at the bottom, from which I shame
 * [http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html](http://homepage.cs.latrobe.edu.au/zhe/ZhenHeSparkRDDAPIExamples.html)
 
 * [http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/](http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/)
+
+
+
