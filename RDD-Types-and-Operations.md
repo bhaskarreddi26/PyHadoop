@@ -38,7 +38,7 @@ A more common way to create RDDs is to load data from external storage. we alrea
     JavaRDD<String> lines = sc.textFile("/path/to/README.md");
 
 
-
+******Type of RDDs******
 ****DoubleRDDFunctions ****
 This extension contains many useful methods for aggregating numeric values. They become available if the data items of an RDD are implicitly convertible to the Scala data-type double.
 
