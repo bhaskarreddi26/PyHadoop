@@ -45,5 +45,7 @@ It would probably do you good to read the link at the bottom, from which I shame
 
 * https://www.safaribooksonline.com/library/view/learning-spark/9781449359034/ch04.html
 
-shar
+**How Many Partitions Does An RDD Have?**
 
+
+* [https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html](https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html)
