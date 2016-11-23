@@ -30,3 +30,20 @@ Creating a pair RDD using the first word as the key in Java
     }
     };
 JavaPairRDD<String, String> pairs = lines.mapToPair(keyData);
+
+    **SparkContext.parallelize()**
+
+
+**Difference and use-cases of RDD and Pair RDD**
+
+Pair RDD is just a way of referring to an RDD containing key/value pairs, i.e. tuples of data. It's not really a matter of using one as opposed to using the other. For instance, if you want to calculate something based on an ID, you'd group your input together by ID. This example just splits a line of text and returns a Pair RDD using the first word as the key [1]:
+
+    val pairs = lines.map(x => (x.split(" ")(0), x))
+The Pair RDD that you end up with allows you to reduce values or to sort data based on the key, to name a few examples.
+
+It would probably do you good to read the link at the bottom, from which I shamelessly copied the example, since the understanding of Pair RDDs and how to work with tuples is quite fundamental to many of the things that you will do in Spark. Read up on 'Transformations on Pair RDDs' to get an understanding of what you typically would want to do once you have your pairs.
+
+* https://www.safaribooksonline.com/library/view/learning-spark/9781449359034/ch04.html
+
+shar
+
