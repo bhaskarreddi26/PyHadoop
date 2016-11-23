@@ -116,4 +116,5 @@ It would probably do you good to read the link at the bottom, from which I shame
 * [http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/](http://alvinhenrick.com/2016/07/10/apache-spark-user-defined-functions/)
 
 
+https://docs.google.com/spreadsheets/d/1F7NYBMvaH8Pq0rcF3ZfHFyjcaQIRoXnaqZQQsy-deAU/edit#gid=0
 
