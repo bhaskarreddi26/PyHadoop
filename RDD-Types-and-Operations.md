@@ -127,14 +127,25 @@ https://docs.google.com/spreadsheets/d/1F7NYBMvaH8Pq0rcF3ZfHFyjcaQIRoXnaqZQQsy-d
 * filter(f: T => Boolean)	Return a FilteredRDD[T] having elemnts that f return true
 
 * mapPartitions(Iterator[T] => Iterator[U])	Return a new MapPartitionsRDD[U] by applying a function to each partition
+
 * sample(withReplacement, fraction, seed)	Return a new PartitionwiseSampledRDD[T] which is a sampled subset
+
 * union(otherRdd[T])	Return a new UnionRDD[T] by making union with another Rdd
+
 * intersection(otherRdd[T])	Return a new RDD[T] by making intersection with another Rdd
+
 * distinct()	Return a new RDD[T] containing distinct elements
+
 * groupByKey()	Being called on (K,V) Rdd, return a new RDD[([K], Iterable[V])]
-* reduceByKey(f: (V, V) => V)	Being called on (K, V) Rdd, return a new RDD[(K, V)] by aggregating values using feg: reduceByKey(_+_)
+
+* reduceByKey(f: (V, V) => V)	Being called on (K, V) Rdd, return a new RDD[(K, V)] by aggregating values using feg: 
+reduceByKey(_+_)
+
 * sortByKey([ascending])	Being called on (K,V) Rdd where K implements Ordered, return a new RDD[(K, V)] sorted by K
+
 * join(other: RDD[(K, W))	Being called on (K,V) Rdd, return a new RDD[(K, (V, W))] by joining them
+
 * cogroup(other: RDD[(K, W))	Being called on (K,V) Rdd, return a new RDD[(K, (Iterable[V], Iterable[W]))] such that for each key k in this & other, get a tuple with the list of values for that key in this as well as other
+
 * cartesian(other: RDD[U])	 Return a  new RDD[(T, U)] by applying product
 
