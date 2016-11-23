@@ -218,9 +218,7 @@ We can now quickly summarize:
 
 [RDD Dependency types and the optimization at DAGScheduler:](RDD Dependency types and the optimization at DAGScheduler:)
 
-
-[https://trongkhoanguyenblog.files.wordpress.com/2014/11/dependencies.png](https://trongkhoanguyenblog.files.wordpress.com/2014/11/dependencies.png)
-
+![](https://trongkhoanguyenblog.files.wordpress.com/2014/11/dependencies.png)
 
 
 – Narrow dependency:  each partition of the parent RDD is used by at most one partition of the child RDD. This means the task can be executed locally and we don’t have to shuffle. (Eg: map, flatMap, Filter, sample)
