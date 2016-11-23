@@ -42,16 +42,16 @@ A more common way to create RDDs is to load data from external storage. we alrea
 
 
 * ****DoubleRDDFunctions ****
-* This extension contains many useful methods for aggregating numeric values. They become available if the data items of an RDD are implicitly convertible to the Scala data-type double.
+  This extension contains many useful methods for aggregating numeric values. They become available if the data items of an RDD are implicitly convertible to the Scala data-type double.
 
 * ****PairRDDFunctions ****
-* Methods defined in this interface extension become available when the data items have a two component tuple structure. Spark will interpret the first tuple item (i.e. tuplename. 1) as the key and the second item (i.e. tuplename. 2) as the associated value.
+  Methods defined in this interface extension become available when the data items have a two component tuple structure. Spark will interpret the first tuple item (i.e. tuplename. 1) as the key and the second item (i.e. tuplename. 2) as the associated value.
 
 * ****OrderedRDDFunctions ****
-* Methods defined in this interface extension become available if the data items are two-component tuples where the key is implicitly sortable.
+  Methods defined in this interface extension become available if the data items are two-component tuples where the key is implicitly sortable.
 
 * ****SequenceFileRDDFunctions ****
-* This extension contains several methods that allow users to create Hadoop sequence- les from RDDs. The data items must be two compo- nent key-value tuples as required by the PairRDDFunctions. However, there are additional requirements considering the convertibility of the tuple components to Writable types.
+  This extension contains several methods that allow users to create Hadoop sequence- les from RDDs. The data items must be two compo- nent key-value tuples as required by the PairRDDFunctions. However, there are additional requirements considering the convertibility of the tuple components to Writable types.
 
 
 
