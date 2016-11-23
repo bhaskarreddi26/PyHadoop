@@ -227,6 +227,8 @@ We can now quickly summarize:
 Thanks to the lazy evaluation technique, the Scheduler will be able to optimize the stages before submitting the job: pipelines narrow operations within a stage, picks join algorithms based on partitioning (try to minimize shuffles), reuses previously cached data.
 
 
+![](https://trongkhoanguyenblog.files.wordpress.com/2014/11/scheduler.png)
+
 * [https://trongkhoanguyenblog.wordpress.com/2015/01/05/source-code-analysis-narrow-dependency-wide-dependency-implementation-in-spark/](https://trongkhoanguyenblog.wordpress.com/2015/01/05/source-code-analysis-narrow-dependency-wide-dependency-implementation-in-spark/)
 * [http://www.trongkhoanguyen.com/](http://www.trongkhoanguyen.com/)
 
