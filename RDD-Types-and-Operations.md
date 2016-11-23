@@ -149,3 +149,35 @@ reduceByKey(_+_)
 
 * cartesian(other: RDD[U])	 Return a  new RDD[(T, U)] by applying product
 
+
+
+**Actions**
+
+* reduce(f: (T, T) => T)	 return T by reducing the elements using specified commutative and associative binary operator
+* Example:
+*     1 rdd = sc.parallelize(Array(1, 2, 3, 4, 5))
+*     2 rdd.reduce((a, b) => a + b)
+
+* collect()	Return an Array[T] containing all elements
+
+* count()	Return the number of elements
+
+* first()	Return the first element
+
+* take(num)	Return an Array[T] taking first num elements
+
+* takeSample(withReplacement, fraction, seed)	Return an Array[T] which is a sampled subset
+
+* takeOrdered(num)(order)	Return an Array[T] having num smallest or biggest (depend on order) elements
+
+* saveAsTextFile(fileName)
+
+* saveAsSequenceFile(fileName)
+
+* saveAsObjectFile(fileName)	Save (serialized) Rdd
+
+* countByValue()	Return a Map[T, Long] having the count of each unique value
+
+* countByKey()	Return a Map[K, Long] counting the number of elements for each key
+
+* foreach(f: T=>Unit)	Apply function f to each element
