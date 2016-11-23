@@ -1,4 +1,4 @@
-Caching
+**Caching**
 
 We can use persist() to tell spark to store the partitions
 On node failures (that persist data), lost partitions are recomputed by spark
@@ -16,7 +16,7 @@ tungston
 
 
 
-Pair RDD
+**Pair RDD**
 
 Exercise 1
 
@@ -24,60 +24,60 @@ Goal
 
 Understand different ways of creating Pair RDD's
 Problem(s)
-Problem 1: Create a Pair RDD of this collection Seq("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog")?
-Problem 2: Create Pair RDD's from external storages.
+    Problem 1: Create a Pair RDD of this collection Seq("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy",     "dog")?
+    Problem 2: Create Pair RDD's from external storages.
 Answer(s)
-Answer 1
-In general, we can extract a key from the data by running a map() transformation on it. Pair's are represented using Tuples (key, value).+
+    Answer 1
+    In general, we can extract a key from the data by running a map() transformation on it. Pair's are represented using     Tuples (key, value).+
 
-scala> val words=sc.parallelize(Seq("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"))
-words: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[45] at parallelize at <console>:27
+    scala> val words=sc.parallelize(Seq("the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"))
+    words: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[45] at parallelize at <console>:27
 
-scala> val wordPair=words.map( w => (w.charAt(0), w) )
-wordPair: org.apache.spark.rdd.RDD[(Char, String)] = MapPartitionsRDD[46] at map at <console>:29
+    scala> val wordPair=words.map( w => (w.charAt(0), w) )
+    wordPair: org.apache.spark.rdd.RDD[(Char, String)] = MapPartitionsRDD[46] at map at <console>:29
 
-scala> wordPair.foreach(println)
-(o,over)
-(l,lazy)
-(d,dog)
-(t,the)
-(j,jumps)
-(t,the)
-(f,fox)
-(b,brown)
-(q,quick)
-
-
+    scala> wordPair.foreach(println)
+    (o,over)
+    (l,lazy)
+    (d,dog)
+    (t,the)
+    (j,jumps)
+    (t,the)
+    (f,fox)
+    (b,brown)
+    (q,quick)
 
 
-Pair RDD - Transformations
+
+
+**Pair RDD - Transformations**
 
 Reference: http://spark.apache.org/docs/latest/programming-guide.html#transformations
 Excercise 1
 
-Goal
+**Goal**
 
 Understand the usage of reduceByKey() transformation.
-reduceByKey(func, [numTasks]): When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using the given reduce function func, which must be of type (V,V) => V. Like in groupByKey, the number of reduce tasks is configurable through an optional second argument.
+   reduceByKey(func, [numTasks]): When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the     values for each key are aggregated using the given reduce function func, which must be of type (V,V) => V. Like in       groupByKey, the number of reduce tasks is configurable through an optional second argument.
 Problem(s)
 Problem 1: Calculate page views by day for the star wars video (download link).
 Problem 2: Word count
 Answer(s)
 Answer 1
-scala> val logs=sc.textFile("file:///c:/_home/swk_small.log")
-logs: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[50] at textFile at <console>:27
+    scala> val logs=sc.textFile("file:///c:/_home/swk_small.log")
+    logs: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[50] at textFile at <console>:27
 
-scala> val parsedLogs=logs.map(line => parseAccessLog(line))
-parsedLogs: org.apache.spark.rdd.RDD[scala.collection.mutable.Map[String,String]] = MapPartitionsRDD[51] at map at <console>:31
+    scala> val parsedLogs=logs.map(line => parseAccessLog(line))
+    parsedLogs: org.apache.spark.rdd.RDD[scala.collection.mutable.Map[String,String]] = MapPartitionsRDD[51] at map at    <console>:31
 
-scala> //create a pair RDD and do reduceByKey() transformation
+    scala> //create a pair RDD and do reduceByKey() transformation
 
-scala> val viewsByDate=parsedLogs.map( m => (m.getOrElse("accessDate","unknown"), 1)).reduceByKey((x,y) => x+y)
-viewsByDate: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[55] at reduceByKey at <console>:33
+   scala> val viewsByDate=parsedLogs.map( m => (m.getOrElse("accessDate","unknown"), 1)).reduceByKey((x,y) => x+y)
+   viewsByDate: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[55] at reduceByKey at <console>:33
 
-scala> viewsByDate.foreach(println)
-(03-02-2003,1)
-(05-04-2003,1)
+    scala> viewsByDate.foreach(println)
+    (03-02-2003,1)
+    (05-04-2003,1)
 (12-04-2003,1913)
 (02-03-2003,1)
 (26-02-2003,2)
