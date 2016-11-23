@@ -1,6 +1,8 @@
-**Spark Architecture **
+**Spark Architecture**
 
 ![](https://www.mapr.com/ebooks/spark/images/spark-stack-diagram.png)
+
+![](http://www.teckstory.com/wp-content/uploads/2015/08/Spark-Architecture.png)
 
 **Spark Core:** This is the heart of Spark, and is responsible for management functions such as task scheduling. Spark Core implements and depends upon a programming abstraction known as Resilient Distributed Datasets (RDDs), which are discussed in more detail below.
 
