@@ -17,7 +17,7 @@ The simplest way to create RDDs is to take an existing collection in your progra
 This approach is very useful when you are learning Spark, since you can quickly create your own RDDs in the shell and perform operations on them. Keep in mind, however, that outside of prototyping and testing, this is not widely used since
 it requires that you have your entire dataset in memory on one machine.
 
-Example parallelize() method in Python
+    Example parallelize() method in Python
     lines = sc.parallelize(["pandas", "i like pandas"])
 
     Example parallelize() method in Scala
