@@ -154,7 +154,8 @@ reduceByKey(_+_)
 **Actions**
 
 * reduce(f: (T, T) => T)	 return T by reducing the elements using specified commutative and associative binary operator
-* Example:
+Example:
+
 *     1 rdd = sc.parallelize(Array(1, 2, 3, 4, 5))
 *     2 rdd.reduce((a, b) => a + b)
 
@@ -181,3 +182,53 @@ reduceByKey(_+_)
 * countByKey()	Return a Map[K, Long] counting the number of elements for each key
 
 * foreach(f: T=>Unit)	Apply function f to each element
+
+
+
+**Transformation & lazy evaluation will bring us more chance of optimizing our job**
+
+![https://trongkhoanguyenblog.files.wordpress.com/2014/11/schedule-process.png?w=640](https://trongkhoanguyenblog.files.wordpress.com/2014/11/schedule-process.png?w=640)
+
+
+
+Suppose we are running a simple word count job:
+
+    /* SimpleApp.scala */
+    val logFile = "YOUR_SPARK_HOME/README.md"
+    val conf = new SparkConf().setAppName("Simple Application")
+    val sc = new SparkContext(conf)
+    val logData = sc.textFile(logFile, 2).cache()
+    val numAs = logData.filter(line => line.contains("a")).count()
+    println("Lines with a: %s".format(numAs))
+
+Starting by creating a Rdd object by using SparkContext, then we transform it with the filter transformation and finally call action count. When an action is called on rdd, the SparkContext will submit a job to the DAGScheduler – where the very first optimizations happen.
+
+The DAGSchedule receives target Rdds, functions to run on each partition (pipe the transformations, action), and a listener for results. It will:
+ – build Stages of Task objects (code + preferred location)
+ – submit them to TaskScheduler as ready
+ – Resubmit failed Stages if outputs are lost
+
+The TaskScheduler is responsible for launching tasks at executors in our cluster, re-launch failed tasks several times, return the result to DAGScheduler.
+
+We can now quickly summarize:
++ We submit a jar application which contains jobs
++ The job gets submitted to DAGScheduler via SparkContext will be split in to Stages. The DAGScheduler schedules the run order of these stages.
++ A Stage contains a set of tasks to run on Executors. The TaskScheduler schedules the run of tasks.
+
+
+[RDD Dependency types and the optimization at DAGScheduler:](RDD Dependency types and the optimization at DAGScheduler:)
+
+
+[https://trongkhoanguyenblog.files.wordpress.com/2014/11/dependencies.png](https://trongkhoanguyenblog.files.wordpress.com/2014/11/dependencies.png)
+
+
+
+– Narrow dependency:  each partition of the parent RDD is used by at most one partition of the child RDD. This means the task can be executed locally and we don’t have to shuffle. (Eg: map, flatMap, Filter, sample)
+– Wide dependency: multiple child partitions may depend on one partition of the parent RDD. This means we have to shuffle data unless the parents are hash-partitioned (Eg: sortByKey, reduceByKey, groupByKey, cogroupByKey, join, cartesian)
+
+Thanks to the lazy evaluation technique, the Scheduler will be able to optimize the stages before submitting the job: pipelines narrow operations within a stage, picks join algorithms based on partitioning (try to minimize shuffles), reuses previously cached data.
+
+
+* [https://trongkhoanguyenblog.wordpress.com/2015/01/05/source-code-analysis-narrow-dependency-wide-dependency-implementation-in-spark/](https://trongkhoanguyenblog.wordpress.com/2015/01/05/source-code-analysis-narrow-dependency-wide-dependency-implementation-in-spark/)
+* [http://www.trongkhoanguyen.com/](http://www.trongkhoanguyen.com/)
+
