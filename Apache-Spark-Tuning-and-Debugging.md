@@ -1,5 +1,31 @@
+* https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/
 * http://www.slideshare.net/pwendell/tuning-and-debugging-in-apache-spark
 * https://sparkhub.databricks.com/video/tuning-and-debugging-apache-spark/
+
+****Configuring Spark with SparkConf****
+
+
+    Creating an application using a SparkConf in Scala
+    // Construct a conf
+    val conf = new SparkConf()
+    conf.set("spark.app.name", "My Spark App")
+    conf.set("spark.master", "local[4]")
+    conf.set("spark.ui.port", "36000") // Override the default port
+
+    // Create a SparkContext with this configuration
+    val sc = new SparkContext(conf)
+   
+
+    Example Creating an application using a SparkConf in Java
+    // Construct a conf
+    SparkConf conf = new SparkConf();
+    conf.set("spark.app.name", "My Spark App");
+    conf.set("spark.master", "local[4]");
+    conf.set("spark.ui.port", "36000"); // Override the default port
+    // Create a SparkContext with this configuration
+    JavaSparkContext sc = JavaSparkContext(conf);
+
+
 
 The following are the key performance considerations:
 
