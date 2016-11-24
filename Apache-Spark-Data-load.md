@@ -98,3 +98,37 @@ Loading the data as a text file and then parsing the JSON data is an approach th
     JavaRDD<String> formatted = result.mapPartitions(new WriteJson());
     formatted.saveAsTextFile(outfile);
 
+
+
+****Loading CSV****
+
+    Loading CSV with textFile() in Scala
+    import Java.io.StringReader
+    import au.com.bytecode.opencsv.CSVReader
+
+    val input = sc.textFile(inputFile)
+    val result = input.map{ line =>    val reader = new CSVReader(new StringReader(line));     reader.readNext();
+    }
+
+
+
+    Example Loading CSV with textFile() in Java
+    import au.com.bytecode.opencsv.CSVReader;
+    import Java.io.StringReader;
+
+    public static class ParseLine implements Function<String, String[]>
+    {
+    public String[] call(String line) throws Exception {
+    CSVReader reader = new CSVReader(new StringReader(line));
+    return reader.readNext();
+    }
+    }
+
+    JavaRDD<String> csvFile1 = sc.textFile(inputFil e);
+    JavaPairRDD<String[]> csvData = csvFile1.map(new ParseLine());
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
