@@ -207,3 +207,82 @@ Saving a SequenceFile in Scala
      Saving a SequenceFile in Scala
      val data = sc.parallelize(List(("Panda", 3), ("Kay", 6), ("Snail", 2)))
      data.saveAsSequenceFile(outputFile)
+
+
+
+******Object Files******
+
+Object files are a deceptively simple wrapper around SequenceFiles that allows us to save our RDDs containing just values. Unlike with SequenceFiles, with object files the values are written out using Java Serialization
+
+Using Java Serialization for object files has a number of implications. Unlike with normal SequenceFiles, the output will be different than Hadoop outputting the same objects. Unlike the other formats, object files are mostly intended to be used for Spark jobs communicating with other Spark jobs. Java Serialization can also be quite slow.
+
+Saving an object file is as simple as calling saveAsObjectFile on an RDD. Reading an object file back is also quite simple: the function objectFile() on the SparkContext takes in a path and returns an RDD.
+
+******Hadoop Input and Output Formats******
+
+In addition to the formats Spark has wrappers for, we can also interact with any Hadoop-supported formats. Spark supports both the “old” and “new” Hadoop file APIs, providing a great amount of flexibility.
+
+Loading with other Hadoop input formats
+To read in a file using the new Hadoop API we need to tell Spark a few things. ThenewAPI HadoopFile takes a path, and three classes. The first class is the “format” class,which is the class representing our input format. A similar function, hadoopFile(),exists for working with Hadoop input formats implemented with the older API. 
+
+The next class is the class for our key, and the final class is the class of our value. If we need to specify additional Hadoop configuration properties, we can also pass in a conf object.
+
+
+    Loading KeyValueTextInputFormat() with old-style API in Scala
+    val input = sc.hadoopFile[Text, Text, KeyValueTextInputFormat](inputFile).map{
+    case (x, y) => (x.toString, y.toString)
+    }
+
+
+LZO support requires you to install the hadoop-lzo package and point Spark to its native libraries. If you install the Debian package,adding 
+--driver-library-path /usr/lib/hadoop/lib/native/
+--driver-class-path /usr/lib/hadoop/lib/ to your sparksubmit
+invocation should do the trick.
+
+    Loading LZO-compressed JSON with Elephant Bird in Scala
+    val input = sc.newAPIHadoopFile(inputFile, classOf[LzoJsonInputFormat],
+    classOf[LongWritable], classOf[MapWritable], conf)
+    // Each MapWritable in "input" represents a JSON object
+
+
+
+    Saving a SequenceFile in Java
+    public static class ConvertToWritableTypes implements
+    PairFunction<Tuple2<String, Integer>, Text, IntWritable> {
+    public Tuple2<Text, IntWritable> call(Tuple2<String, Integer> record) {
+    return new Tuple2(new Text(record._1), new IntWritable(record._2));
+   }
+   }
+    JavaPairRDD<String, Integer> rdd = sc.parallelizePairs(input);
+    JavaPairRDD<Text, IntWritable> result = rdd.mapToPair(new ConvertToWritableTypes());
+    result.saveAsHadoopFile(fileName, Text.class, IntWritable.class,SequenceFileOutputFormat.class);
+
+
+******NOTE :While Spark supports loading files from the local filesystem, it requires that the files******
+******are available at the same path on all nodes in your cluster.******
+
+
+If your file isn’t already on all nodes in the cluster, you can load it locally on the driver without going through Spark and then call parallelize to distribute the contents to workers. This approach can be slow, however, so we recommend putting your files in a shared filesystem like HDFS, NFS, or S3.
+
+******Databases******
+
+Java Database Connectivity
+Spark can load data from any relational database that supports Java Database Connectivity (JDBC), including MySQL, Postgres, and other systems. To access this data, we construct an org.apache.spark.rdd.JdbcRDD and provide it with our SparkContext and the other parameters. Example walks you through using JdbcRDD for a MySQL database.
+
+
+     Example JdbcRDD in Scala
+     def createConnection() = {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        DriverManager.getConnection("jdbc:mysql://localhost/test?user=holden");
+     }
+
+     def extractValues(r: ResultSet) = {
+     (r.getInt(1), r.getString(2))
+     }
+     val data = new JdbcRDD(sc,
+     createConnection, "SELECT * FROM panda WHERE ? <= id AND id <= ?",
+     lowerBound = 1, upperBound = 3, numPartitions = 2, mapRow = extractValues)
+     println(data.collect().toList)
+
+
+
