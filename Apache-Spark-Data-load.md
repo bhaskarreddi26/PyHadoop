@@ -187,7 +187,6 @@ Corresponding Hadoop Writable types
 * Map[A, B] Map<A, B> MapWritable<AW, BW>3
 
 
-
     Example Loading a SequenceFile in Scala
     val data = sc.sequenceFile(inFile, classOf[Text], classOf[IntWritable]).
     map{case (x, y) => (x.toString, y.get())}
@@ -202,7 +201,6 @@ Corresponding Hadoop Writable types
 
     JavaPairRDD<Text, IntWritable> input = sc.sequenceFile(fileName, Text.class,IntWritable.class);
     JavaPairRDD<String, Integer> result = input.mapToPair(new ConvertToNativeTypes());
-
 
 Saving a SequenceFile in Scala
 
