@@ -187,11 +187,11 @@ Corresponding Hadoop Writable types
 * Map[A, B] Map<A, B> MapWritable<AW, BW>3
 
 
-    Example Loading a SequenceFile in Scala
+    //Example Loading a SequenceFile in Scala
     val data = sc.sequenceFile(inFile, classOf[Text], classOf[IntWritable]).
     map{case (x, y) => (x.toString, y.get())}
 
-    Example Loading a SequenceFile in Java
+    // Example Loading a SequenceFile in Java
     public static class ConvertToNativeTypes implements
     PairFunction<Tuple2<Text, IntWritable>, String, Integer> {
     public Tuple2<String, Integer> call(Tuple2<Text, IntWritable> record) {
