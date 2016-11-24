@@ -130,5 +130,83 @@ Loading the data as a text file and then parsing the JSON data is an approach th
 
 
 
+Aother example 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    Loading CSV in full in Scala
+    case class Person(name: String, favoriteAnimal: String)
+    val input = sc.wholeTextFiles(inputFile)
+    val result = input.flatMap{ case (_, txt) =>
+    val reader = new CSVReader(new StringReader(txt));
+    reader.readAll().map(x => Person(x(0), x(1)))
+     }
+                             
+
+
+     Loading CSV in full in Java
+    public static class ParseLine
+    implements FlatMapFunction<Tuple2<String, String>, String[]> {
+    public Iterable<String[]> call(Tuple2<String, String> file) throws Exception {
+    CSVReader reader = new CSVReader(new StringReader(file._2()));
+    return reader.readAll();
+    }
+    }
+
+    JavaPairRDD<String, String> csvData = sc.wholeTextFiles(inputFile);
+    JavaRDD<String[]> keyedRDD = csvData.flatMap(new ParseLine());  
+
+
+Saving CSV file
+
+    Writing CSV in Scala
+     pandaLovers.map(person => List(person.name, person.favoriteAnimal).toArray)
+     .mapPartitions{people =>
+     val stringWriter = new StringWriter();
+     val csvWriter = new CSVWriter(stringWriter);
+     csvWriter.writeAll(people.toList)
+     Iterator(stringWriter.toString)
+    }.saveAsTextFile(outFile)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+
+******SequenceFiles******
+
+SequenceFiles are a popular Hadoop format composed of flat files with key/value pairs. SequenceFiles have sync markers that allow Spark to seek to a point in the file and then resynchronize with the record boundaries. This allows Spark to efficiently read SequenceFiles in parallel from multiple nodes. SequenceFiles are a common input/output format for Hadoop MapReduce jobs as well, so if you are working with an existing Hadoop system there is a good chance your data will be available as a SequenceFile.
+SequenceFiles consist of elements that implement Hadoop’s Writable interface, as Hadoop uses a custom serialization framework.
+
+
+Corresponding Hadoop Writable types
+
+* Int Integer IntWritable or VIntWritable2
+* Long Long LongWritable or VLongWritable2
+* Float Float FloatWritable
+* Double Double DoubleWritable
+* Boolean Boolean BooleanWritable
+* Array[Byte] byte[] BytesWritable
+* String String Text
+* Array[T] T[] ArrayWritable<TW>3
+* List[T] List<T> ArrayWritable<TW>3
+* Map[A, B] Map<A, B> MapWritable<AW, BW>3
+
+
+
+    Example Loading a SequenceFile in Scala
+    val data = sc.sequenceFile(inFile, classOf[Text], classOf[IntWritable]).
+    map{case (x, y) => (x.toString, y.get())}
+
+
+
+    Example Loading a SequenceFile in Java
+    public static class ConvertToNativeTypes implements
+    PairFunction<Tuple2<Text, IntWritable>, String, Integer> {
+    public Tuple2<String, Integer> call(Tuple2<Text, IntWritable> record) {
+    return new Tuple2(record._1.toString(), record._2.get());
+    }
+    }
+
+    JavaPairRDD<Text, IntWritable> input = sc.sequenceFile(fileName, Text.class,IntWritable.class);
+    JavaPairRDD<String, Integer> result = input.mapToPair(new ConvertToNativeTypes());
+
+Saving a SequenceFile in Scala
+
+     Saving a SequenceFile in Scala
+     val data = sc.parallelize(List(("Panda", 3), ("Kay", 6), ("Snail", 2)))
+     data.saveAsSequenceFile(outputFile)
