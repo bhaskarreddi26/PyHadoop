@@ -73,9 +73,10 @@ recommend using org.apache.spark.seri alizer.KryoSerializer and configuring Kryo
 * spark.eventLog.dir file:///tmp/sparkevents The storage location used for event logging, if enabled. This needs to be in a globally visible filesystem such as HDFS.
 
 
+**NOTE :Almost all Spark configurations occur through the SparkConf construct, but one important option doesn’t. To set the local storage directories for Spark to use for shuffle data (necessary for standalone and Mesos modes), you export the  
+**SPARK_LOCAL_DIRS environment variable inside of conf/spark-env.sh to a commaseparated list of storage locations.**
 
-
-
+----------------**----------------------**-------------------**--------------------------
 
 The following are the key performance considerations:
 
