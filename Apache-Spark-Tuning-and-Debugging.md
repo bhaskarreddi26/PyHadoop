@@ -36,6 +36,47 @@
      spark-submit also supports loading configuration values from a file.
 
 
+
+Note : By default, spark-submit will look for a file called conf/spark-defaults.conf
+
+
+**Common Spark configuration values**
+
+* spark.executor.memory  (--executor-memory)  512m  Amount of memory to use per executor process, in the same format as JVM memory strings (e.g.,512m, 2g). 
+
+* spark.executor.cores(--executor-cores) 
+spark.cores.max(--totalexecutor-cores) 1(none) Configurations for bounding the number of cores used by the application. In YARN mode
+
+* spark.executor.cores will assign a specific number of cores to each executor. In standalone and Mesos modes, you can upper-bound the total number of cores across all executors using spark.cores.max.
+
+* spark.speculation false Setting to true will enable speculative execution of tasks. This means tasks that are running slowly will have a second copy launched on another node. Enabling this can help cut down on straggler tasks
+in large clusters.
+
+* spark.storage.blockMana 
+ gerTimeoutIntervalMs 45000 An internal timeout used for tracking the liveness of executors. For jobs that have long garbage collection pauses, tuning this to be 100 seconds (a value of 100000) or higher can prevent thrashing.
+ In future versions of Spark this may be replaced with a general timeout setting, so check current documentation.
+
+* spark.executor.extraJavaOptions
+ spark.executor.extraClassPath
+ spark.executor.extraLibraryPath (empty) These three options allow you to customize thelaunch behavior of executor JVMs. The three flags add extra Java options, classpath entries, or path entries for the JVM library path. These parameters
+should be specified as strings (e.g.,spark.executor.extraJavaOptions="-XX:+PrintGCDetails-XX:+PrintGCTimeStamps").
+Note that while this allows you to manually augment the executor classpath, the recommended way to add dependencies is through the --jars flag to spark-submit (not using this option).
+
+* spark.serializer org.apache.spark.seri
+ alizer.JavaSerializer Class to use for serializing objects that will be sent over the network or need to be cached in serialized form. The default of Java Serialization works with any serializable Java object but is quite slow, so we
+recommend using org.apache.spark.seri alizer.KryoSerializer and configuring Kryo serialization when speed is necessary. Can be any subclass of org.apache.spark.Serializer.
+
+* spark.[X].port (random) Allows setting integer port values to be used by a running Spark applications. This is useful in clusters where network access is secured. The possible values of X are driver, fileserver, broad cast, replClassServer, blockManager,and executor.
+
+* spark.eventLog.enabled false Set to true to enable event logging, which allows completed Spark jobs to be viewed using a historyserver. For more information about Spark’s history server, see the official documentation.
+
+* spark.eventLog.dir file:///tmp/sparkevents The storage location used for event logging, if enabled. This needs to be in a globally visible filesystem such as HDFS.
+
+
+
+
+
+
 The following are the key performance considerations:
 
 **1.      Parallelism level**
