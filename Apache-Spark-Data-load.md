@@ -49,6 +49,7 @@ Loading the data as a text file and then parsing the JSON data is an approach th
     }})
 
 
+
     Example Loading JSON in Java
     class ParseJson implements FlatMapFunction<Iterator<String>, Person> {
     public Iterable<Person> call(Iterator<String> lines) throws Exception {
@@ -76,6 +77,8 @@ Loading the data as a text file and then parsing the JSON data is an approach th
 
     Saving JSON in Scala
     result.filter(p => P.lovesPandas).map(mapper.writeValueAsString(_)).saveAsTextFile(outputFile)
+
+
 
 
     Example Saving JSON in Java
