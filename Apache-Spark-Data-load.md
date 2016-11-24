@@ -188,22 +188,20 @@ Corresponding Hadoop Writable types
 
 
 
-      Example Loading a SequenceFile in Scala
-      val data = sc.sequenceFile(inFile, classOf[Text], classOf[IntWritable]).
-      map{case (x, y) => (x.toString, y.get())}
+    Example Loading a SequenceFile in Scala
+    val data = sc.sequenceFile(inFile, classOf[Text], classOf[IntWritable]).
+    map{case (x, y) => (x.toString, y.get())}
 
+    Example Loading a SequenceFile in Java
+    public static class ConvertToNativeTypes implements
+    PairFunction<Tuple2<Text, IntWritable>, String, Integer> {
+    public Tuple2<String, Integer> call(Tuple2<Text, IntWritable> record) {
+    return new Tuple2(record._1.toString(), record._2.get());
+    }
+    }
 
-
-     Example Loading a SequenceFile in Java
-     public static class ConvertToNativeTypes implements
-     PairFunction<Tuple2<Text, IntWritable>, String, Integer> {
-     public Tuple2<String, Integer> call(Tuple2<Text, IntWritable> record) {
-     return new Tuple2(record._1.toString(), record._2.get());
-     }
-     }
-
-     JavaPairRDD<Text, IntWritable> input = sc.sequenceFile(fileName, Text.class,IntWritable.class);
-     JavaPairRDD<String, Integer> result = input.mapToPair(new ConvertToNativeTypes());
+    JavaPairRDD<Text, IntWritable> input = sc.sequenceFile(fileName, Text.class,IntWritable.class);
+    JavaPairRDD<String, Integer> result = input.mapToPair(new ConvertToNativeTypes());
 
 
 Saving a SequenceFile in Scala
