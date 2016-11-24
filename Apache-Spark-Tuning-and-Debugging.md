@@ -1,6 +1,7 @@
 * https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/
 * http://www.slideshare.net/pwendell/tuning-and-debugging-in-apache-spark
 * https://sparkhub.databricks.com/video/tuning-and-debugging-apache-spark/
+* https://spark-summit.org/2014/training/
 
 ****Configuring Spark with SparkConf****
 
