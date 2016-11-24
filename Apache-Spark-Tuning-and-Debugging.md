@@ -29,11 +29,11 @@
 
     Setting configuration values at runtime using flags
     $ bin/spark-submit \
-   --class com.example.MyApp \
-   --master local[4] \
-   --name "My Spark App" \
-   --conf spark.ui.port=36000 \myApp.jar
-    spark-submit also supports loading configuration values from a file.
+    --class com.example.MyApp \
+    --master local[4] \
+    --name "My Spark App" \
+    --conf spark.ui.port=36000 \myApp.jar
+     spark-submit also supports loading configuration values from a file.
 
 
 The following are the key performance considerations:
