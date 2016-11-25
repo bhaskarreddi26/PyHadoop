@@ -1,11 +1,11 @@
 There is two different ways to compute counts:
 
-val words = Array("one", "two", "two", "three", "three", "three")
-val wordPairsRDD = sc.parallelize(words).map(word => (word, 1))
+    val words = Array("one", "two", "two", "three", "three", "three")
+    val wordPairsRDD = sc.parallelize(words).map(word => (word, 1))
 
-val wordCountsWithReduce = wordPairsRDD .reduceByKey(_ + _) .collect()
+    val wordCountsWithReduce = wordPairsRDD .reduceByKey(_ + _) .collect()
 ​
-val wordCountsWithGroup = wordPairsRDD .groupByKey() .map(t => (t._1, t._2.sum)) .collect()
+    val wordCountsWithGroup = wordPairsRDD .groupByKey() .map(t => (t._1, t._2.sum)) .collect()
 
 reduceByKey will aggregate y key before shuffling, and groupByKey will shuffle all the value key pairs as the diagrams show.  On large size data the difference is obvious.
 
