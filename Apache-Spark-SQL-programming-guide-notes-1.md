@@ -43,17 +43,17 @@ As an example, the following creates a DataFrame based on the content of a JSON 
 * Datasets are similar to RDDs, however, instead of using Java serialization or Kryo they use a specialized Encoder to serialize the objects for processing or transmitting over the network.
 
 
-     case class Person(name: String, age: Long)
+         case class Person(name: String, age: Long)
 
-     // Encoders are created for case classes
-     val caseClassDS = Seq(Person("Andy", 32)).toDS()
-     caseClassDS.show()
+         // Encoders are created for case classes
+         val caseClassDS = Seq(Person("Andy", 32)).toDS()
+         caseClassDS.show()
 
-     // Encoders for most common types are automatically provided by importing spark.implicits._
-     val primitiveDS = Seq(1, 2, 3).toDS()
-     primitiveDS.map(_ + 1).collect() // Returns: Array(2, 3, 4)
+        // Encoders for most common types are automatically provided by importing spark.implicits._
+        val primitiveDS = Seq(1, 2, 3).toDS()
+        primitiveDS.map(_ + 1).collect() // Returns: Array(2, 3, 4)
 
-     // DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name
-     val path = "examples/src/main/resources/people.json"
-     val peopleDS = spark.read.json(path).as[Person]
-     peopleDS.show()
+       // DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name
+       val path = "examples/src/main/resources/people.json"
+       val peopleDS = spark.read.json(path).as[Person]
+       peopleDS.show()
