@@ -52,3 +52,16 @@
 
 
 
+**RDD Operations**
+
+  1. Transformations, which create a new dataset from an existing one(All transformations Lazy not executed until call action).
+  1. Actions, which return a value to the driver program after running a computation on the dataset.
+
+**NOTE:By default, each transformed RDD may be recomputed each time you run an action on it. However, you may also persist an RDD in memory using the persist (or cache) method, in which case Spark will keep the elements around on the cluster for much faster access the next time you query it. There is also support for persisting RDDs on disk, or replicated across multiple nodes.**
+
+**Passing Functions to Spark**
+Spark’s API relies heavily on passing functions in the driver program to run on the cluster. There are two recommended ways to do this
+
+  1. Anonymous function syntax, which can be used for short pieces of code. 
+  1. Static methods in a global singleton object. 
+
