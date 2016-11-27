@@ -86,3 +86,9 @@ http://localhost:4040
      val accum = sc.longAccumulator("My Accumulator")
      sc.parallelize(Array(1, 2, 3, 4)).foreach(x => accum.add(x))
      accum.value
+
+
+For accumulator updates performed inside actions only, Spark guarantees that each task’s update to the accumulator will only be applied once, i.e. restarted tasks will not update the value. In transformations, users should be aware of that each task’s update may be applied more than once if tasks or job stages are re-executed.
+
+Example:
+http://spark.apache.org/examples.html
