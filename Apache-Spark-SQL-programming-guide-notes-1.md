@@ -53,7 +53,7 @@ As an example, the following creates a DataFrame based on the content of a JSON 
         val primitiveDS = Seq(1, 2, 3).toDS()
         primitiveDS.map(_ + 1).collect() // Returns: Array(2, 3, 4)
 
-       // DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name
-       val path = "examples/src/main/resources/people.json"
-       val peopleDS = spark.read.json(path).as[Person]
-       peopleDS.show()
+            // DataFrames can be converted to a Dataset by providing a class. Mapping will be done by name
+            val path = "examples/src/main/resources/people.json"
+            val peopleDS = spark.read.json(path).as[Person]
+            peopleDS.show()
