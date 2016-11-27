@@ -41,3 +41,48 @@ The cache() method is a shorthand for using the default storage level, which is 
 1. MEMORY_ONLY_2, MEMORY_AND_DISK_2, etc. 	Same as the levels above, but replicate each partition on two cluster nodes.
 
 1. OFF_HEAP (experimental) 	Similar to MEMORY_ONLY_SER, but store the data in off-heap memory. This requires off-heap memory to be enabled. 
+
+
+**Which Storage Level to Choose?**
+
+Spark’s storage levels are meant to provide different trade-offs between memory usage and CPU efficiency. We recommend going through the following process to select one:
+
+If your RDDs fit comfortably with the default storage level (MEMORY_ONLY), leave them that way. This is the most CPU-efficient option, allowing operations on the RDDs to run as fast as possible.
+
+If not, try using MEMORY_ONLY_SER and selecting a fast serialization library to make the objects much more space-efficient, but still reasonably fast to access. (Java and Scala)
+
+Don’t spill to disk unless the functions that computed your datasets are expensive, or they filter a large amount of the data. Otherwise, recomputing a partition may be as fast as reading it from disk.
+
+Use the replicated storage levels if you want fast fault recovery (e.g. if using Spark to serve requests from a web application). All the storage levels provide full fault tolerance by recomputing lost data, but the replicated ones let you continue running tasks on the RDD without waiting to recompute a lost partition.
+
+**Removing Data**
+
+Spark automatically monitors cache usage on each node and drops out old data partitions in a least-recently-used (LRU) fashion. If you would like to manually remove an RDD instead of waiting for it to fall out of the cache, use the RDD.unpersist() method.
+
+
+**Shared Variables**
+
+When a function passed to a Spark operation (such as map or reduce) is executed on a remote cluster node, it works on separate copies of all the variables used in the function. These variables are copied to each machine, and no updates to the variables on the remote machine are propagated back to the driver program. Supporting general, read-write shared variables across tasks would be inefficient. However, Spark does provide two limited types of shared variables for two common usage patterns: 
+
+   1. Broadcast variables 
+   1. Accumulators.
+
+
+**Broadcast Variables**
+
+Broadcast variables allow the programmer to keep a read-only variable cached on each machine rather than shipping a copy of it with tasks. They can be used, for example, to give every node a copy of a large input dataset in an efficient manner. Spark also attempts to distribute broadcast variables using efficient broadcast algorithms to reduce communication cost.
+
+
+
+          val broadcastVar = sc.broadcast(Array(1, 2, 3))
+          broadcastVar.value
+
+**Accumulators**
+Accumulators are variables that are only “added” to through an associative and commutative operation and can therefore be efficiently supported in parallel. They can be used to implement counters (as in MapReduce) or sums. Spark natively supports accumulators of numeric types, and programmers can add support for new types.
+
+If accumulators are created with a name, they will be displayed in Spark’s UI. 
+http://localhost:4040
+
+     val accum = sc.longAccumulator("My Accumulator")
+     sc.parallelize(Array(1, 2, 3, 4)).foreach(x => accum.add(x))
+     accum.value
