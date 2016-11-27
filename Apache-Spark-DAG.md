@@ -46,6 +46,9 @@ Once the DAG is build, the Spark scheduler creates a physical execution plan. As
 
 The DAG scheduler will then submit the stages into the task scheduler. The number of tasks submitted depends on the number of partitions present in the textFile. Fox example consider we have 4 partitions in this example, then there will be 4 set of tasks created and submitted in parallel provided there are enough slaves/cores. Below diagram illustrates this in more detail:
 
+https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/spark-dagscheduler.html
+
+
 **Task execustion**
 
 * [http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd](http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd)
