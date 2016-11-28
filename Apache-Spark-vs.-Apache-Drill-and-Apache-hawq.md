@@ -11,3 +11,5 @@ https://slamdata.com/news-and-blog/2016/07/20/battle-of-open-source-analytics-sp
 https://drill.apache.org/faq/
 
 https://drill.apache.org/
+
+http://hawq.incubator.apache.org/
