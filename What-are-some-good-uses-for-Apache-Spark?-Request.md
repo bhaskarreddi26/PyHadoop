@@ -1,0 +1,1 @@
+https://www.quora.com/What-are-some-good-uses-for-Apache-Spark
