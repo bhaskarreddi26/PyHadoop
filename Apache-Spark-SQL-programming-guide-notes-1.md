@@ -57,3 +57,16 @@ As an example, the following creates a DataFrame based on the content of a JSON 
             val path = "examples/src/main/resources/people.json"
             val peopleDS = spark.read.json(path).as[Person]
             peopleDS.show()
+
+
+* Spark SQL introduces a tabular data abstraction called Dataset (that was previously DataFrame). 
+
+
+
+**Spark SQL defines three types of functions:**
+
+* Built-in functions or User-Defined Functions (UDFs) that take values from a single row as input to generate a single return value for every input row.
+
+* Aggregate functions that operate on a group of rows and calculate a single return value per group.
+
+* Windowed Aggregates (Windows) that operate on a group of rows and calculate a single return value for each row in a group.
