@@ -3,9 +3,11 @@ find all the prime numbers up to 2 million. We’ll do this very naively by firs
 We’ll find all composite numbers by taking every natural number from 2 to 2 million, then find all multiples of these numbers that are smaller than or equal to 2 million. We will have many duplicates (6 will show up in our multiples of both 2 and 3, for example),
 
       val n = 2000000
-      n: Int = 2000000
+
       val composite = sc.parallelize(2 to n, 8).map(x => (x, (2 to (n / x)))).flatMap(kv => kv._2.map(_ * kv._1))
+
       val prime = sc.parallelize(2 to n, 8).subtract(composite)
+
       prime.collect()
     
 
@@ -28,4 +30,4 @@ We’ll run the same thing as before, but insert .repartition(8) between the .ma
 ![](http://dev.sortable.com/images/spark-repartition/repartition_DAG.png)
 
 
-http://dev.sortable.com/spark-repartition/
+
