@@ -32,3 +32,43 @@ We’ll run the same thing as before, but insert .repartition(8) between the .ma
 
 
 
+****How Many Partitions Does An RDD Have?****
+
+For tuning and troubleshooting, it's often necessary to know how many paritions an RDD represents. There are a few ways to find this information:
+View Task Execution Against Partitions Using the UI
+
+When a stage executes, you can see the number of partitions for a given stage in the Spark UI. For example, the following simple job creates an RDD of 100 elements across 4 partitions, then distributes a dummy map task before collecting the elements back to the driver program:
+
+      val someRDD = sc.parallelize(1 to 100, 4)
+      someRDD.map(x => x).collect
+
+In Spark's application UI, you can see from the following screenshot that the "Total Tasks" represents the number of partitions:
+
+****View Partition Caching Using the UI****
+
+When persisting (a.k.a. caching) RDDs, it's useful to understand how many partitions have been stored. The example below is identical to the one prior, except that we'll now cache the RDD prior to processing it. After this completes, we can use the UI to understand what has been stored from this operation.
+
+       someRDD.setName("toy").cache
+
+
+       someRDD.map(x => x).collect
+
+
+
+****Inspect RDD Partitions Programatically****
+
+In the Scala API, an RDD holds a reference to it's Array of partitions, which you can use to find out how many partitions there are:
+
+      val someRDD = sc.parallelize(1 to 100, 30)
+      someRDD.partitions.size
+
+
+https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
+https://databricks.gitbooks.io/databricks-spark-knowledge-base
+http://ampcamp.berkeley.edu/wp-content/uploads/2012/06/matei-zaharia-amp-camp-2012-advanced-spark.pdf
+http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/
+
+
+
+
+
