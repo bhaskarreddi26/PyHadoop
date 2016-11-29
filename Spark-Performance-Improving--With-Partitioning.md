@@ -13,7 +13,8 @@ We’ll find all composite numbers by taking every natural number from 2 to 2 mi
 
 ![](http://dev.sortable.com/images/spark-repartition/no_repartition_DAG.png)
 
-**What is Wrong **
+
+****What is Wrong****
 
 When we ran sc.parallelize(2 to n, 8), Spark used a partitioning scheme that nicely divided the data into 8 even groups. It most likely used a range partitioner, where the numbers from 2-250000 were in the first partition, 250001-500000 in the second, etc. However, our map turned this into (key,value) pairs where the values had wildly different sizes. Each value was a list of all integers we needed to multiply the key by to find the multiples up to 2 million. For half of them (all keys greater than 1 million) this meant that the value was an empty list. Our largest value was for key 2, which had all integers from 2 to 1000000. This is why the first partition had most of the data and took the greatest amount of time, while the last four had no data.
 
