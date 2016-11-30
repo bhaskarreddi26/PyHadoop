@@ -109,5 +109,8 @@ Let’s say you have two sources of finding a receiver. You’ll ask both, but w
 As you can see, it's solved easily by acceptEither taking the two awaiting calculations and a Function that will be executed with the result of the first one to return.
 
 
+**Code Example :**
 
-
+https://gist.github.com/danveloper/5398943
+https://gist.github.com/mohanr/43a6204640aaf86a1c0b
+https://gist.github.com/ben-barbier/00133fbae5b18d6cd2020a8e1e6e78e9
