@@ -8,6 +8,7 @@ There are different streaming data processing frameworks as listed below:
 1. Storm
 1. Spark Streaming
 
+![](http://spark.apache.org/docs/latest/img/streaming-flow.png)
 
 The way Spark Streaming works is it divides the live stream of data into batches (called microbatches) of a pre-defined interval (N seconds) and then treats each batch of data as Resilient Distributed Datasets (RDDs). Then we can process these RDDs using the operations like map, reduce, reduceByKey, join and window. The results of these RDD operations are returned in batches. We usually store these results into a data store for further analytics and to generate reports and dashboards or sending event based alerts.
 
@@ -68,11 +69,14 @@ Finally, we wait for the streaming data processing to be stopped using the await
 
 **Reference Apps**
 
-https://github.com/databricks/reference-apps
-https://www.gitbook.com/book/databricks/databricks-spark-reference-applications/details
-ZIP:
-https://cdn.infoq.com/statics_s2_20161122-0331/resource/articles/apache-spark-streaming/en/resources/spark-streaming-kafka-sample-app.zip
+* https://github.com/databricks/reference-apps
+* https://www.gitbook.com/book/databricks/databricks-spark-reference-applications/details
+* ZIP:
+* https://cdn.infoq.com/statics_s2_20161122-0331/resource/articles/apache-spark-streaming/en/resources/spark-streaming-kafka-sample-app.zip
+* https://www.infoq.com/articles/apache-spark-streaming
 
 
+DStreams can be created either from input data streams from sources such as Kafka, Flume, and Kinesis, or by applying high-level operations on other DStreams. Internally, a DStream is represented as a sequence of RDDs.
 
-https://www.infoq.com/articles/apache-spark-streaming
+PPT:
+http://www.slideshare.net/frodriguezolivera/apache-spark-streaming
