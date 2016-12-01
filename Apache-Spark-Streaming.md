@@ -41,10 +41,11 @@ Import Spark Streaming Kafka into your project
 </dependency>
 For linking other Streaming sources like Flume, Kinesis, Twitter, and MQTT use the following for the artifactId:
 
-spark-streaming-flume_2.10
-spark-streaming-kinesis-asl_2.10
-spark-streaming-twitter_2.10
-spark-streaming-mqtt_2.10
+       spark-streaming-flume_2.10
+       spark-streaming-kinesis-asl_2.10
+       spark-streaming-twitter_2.10
+       spark-streaming-mqtt_2.10
+
 2 . The programing part: Initialize a Streaming Context, this is the entry point for all Spark Streaming functionalities. It can be created from a SparkConf object. SparkConf enables you to configure some properties such as Spark Master and application name, as well as arbitrary key-value pairs through the set() method.
 
 Spark Master is the cluster manager to connect to, some of the allowed URLs:
@@ -57,12 +58,12 @@ spark://HOST:PORT (Connect to a given cluster master. The port must match with y
 
 Setting up SparkConf and JavaStreamingContext
 
-import org.apache.spark.*;
-import org.apache.spark.streaming.api.java.*;
+                 import org.apache.spark.*;
+                 import org.apache.spark.streaming.api.java.*;
 
-SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
-JavaStreamingContext ssc = new JavaStreamingContext(conf, Duration(1000));
-String master is a special “local[*]” string to run in local mode.
+                SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
+                JavaStreamingContext ssc = new JavaStreamingContext(conf, Duration(1000));
+                String master is a special “local[*]” string to run in local mode.
 
 Duration(1000) is a batch interval this has to be set based on your performance needs. for more details on this check out this doc on Performance Tuning.
 
@@ -70,26 +71,28 @@ You can also create a JavaStreamingContext from a JavaSparkContext:
 
 Create JavaStreamingContext from JavaSparkContext
 
-import org.apache.spark.streaming.api.java.*;
+          import org.apache.spark.streaming.api.java.*;
 
-JavaSparkContext sc =new JavaSparkContext(); //existing JavaSparkContext
-JavaStreamingContext ssc = new JavaStreamingContext(sc, Durations.seconds(1));
+         JavaSparkContext sc =new JavaSparkContext(); //existing JavaSparkContext
+        JavaStreamingContext ssc = new JavaStreamingContext(sc, Durations.seconds(1));
 Then create an input DStrream:
 
 Create an input DStream
 
-import org.apache.spark.streaming.kafka.*;
+                 import org.apache.spark.streaming.kafka.*;
 
- JavaPairReceiverInputDStream<String, String> kafkaStream = 
-     KafkaUtils.createStream(streamingContext,
-     [ZK quorum], [consumer group id], [per-topic number of Kafka partitions to consume]);
+           JavaPairReceiverInputDStream<String, String> kafkaStream = 
+             KafkaUtils.createStream(streamingContext,
+    
+ [ZK quorum], [consumer group id], [per-topic number of Kafka partitions to consume]);
 DStream represents a chain of RDDs each RDD contains data from a certain time interval. The following represents a high level diagram of a DStream:
 
 3 . Finally for deploying your application, if you are using Scala or Java simply package spark-streaming-kafka_2.10 and its dependencies into the application JAR. Then use spark-submit to launch your application. For more details on deploying your spark streaming application visit this link deploying information
 
 To Spark submit your application
 
-./bin/spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.4.1 ...
+            ./bin/spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.4.1 ...
+
 The following is a simple example to demonstrate how to use Spark Streaming.
 
 Simple example on Spark Streaming
@@ -100,71 +103,78 @@ As mentioned previously first we need to create a JavaStreamingContext:
 
 Create JavaStreamingContext
 
-import org.apache.spark.*;
-import org.apache.spark.api.java.function.*;
-import org.apache.spark.streaming.*;
-import org.apache.spark.streaming.api.java.*;
-import scala.Tuple2;
+         import org.apache.spark.*;
+         import org.apache.spark.api.java.function.*;
+         import org.apache.spark.streaming.*;
+         import org.apache.spark.streaming.api.java.*;
+         import scala.Tuple2;
 
-// Create a local StreamingContext with two working thread and batch interval of 1 second
-SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount")
-JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1))
+                // Create a local StreamingContext with two working thread and batch interval of 1 second
+                SparkConf conf = new SparkConf().setMaster("local[2]").setAppName("NetworkWordCount")
+                JavaStreamingContext jssc = new JavaStreamingContext(conf, Durations.seconds(1))
+
 Then we need to create a DStream:
 
 Create a DStream
 
-// Create a DStream that will connect to hostname:port, like localhost:9999
-JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
+           // Create a DStream that will connect to hostname:port, like localhost:9999
+           JavaReceiverInputDStream<String> lines = jssc.socketTextStream("localhost", 9999);
+
 Note DStream lines will receive the data from the data server. Each block of data received is a line of words, remember we want to count the words so we need to transform the lines into words by looking for the spaces between the words and split them:
 
 Transform the lines DStream into a words DStream
 
-// Split each line into words
-JavaDStream<String> words = lines.flatMap(
-  new FlatMapFunction<String, String>() {
-    @Override public Iterable<String> call(String x) {
-      return Arrays.asList(x.split(" "));
-    }
-  });
+          // Split each line into words
+          JavaDStream<String> words = lines.flatMap(
+            new FlatMapFunction<String, String>() {
+             @Override public Iterable<String> call(String x) {
+               return Arrays.asList(x.split(" "));
+             }
+         });
+
 flatMap is a DStream method that will make a new DStream made of smaller blocks than the original stream in this case it is making lines into words.
 
 Then we need to count the words received:
 
 Counting the words
 
-// Count each word in each batch
-JavaPairDStream<String, Integer> pairs = words.mapToPair(
-  new PairFunction<String, String, Integer>() {
-    @Override public Tuple2<String, Integer> call(String s) {
-      return new Tuple2<String, Integer>(s, 1);
-    }
-  });
-JavaPairDStream<String, Integer> wordCounts = pairs.reduceByKey(
-  new Function2<Integer, Integer, Integer>() {
-    @Override public Integer call(Integer i1, Integer i2) {
-      return i1 + i2;
-    }
-  });
+          // Count each word in each batch
+           JavaPairDStream<String, Integer> pairs = words.mapToPair(
+           new PairFunction<String, String, Integer>() {
+             @Override public Tuple2<String, Integer> call(String s) {
+               return new Tuple2<String, Integer>(s, 1);
+             }
+            });
+
+         JavaPairDStream<String, Integer> wordCounts = pairs.reduceByKey(
+          new Function2<Integer, Integer, Integer>() {
+           @Override public Integer call(Integer i1, Integer i2) {
+           return i1 + i2;
+            }
+          });
 
 // Print the first ten elements of each RDD generated in this DStream to the console
-wordCounts.print();
+
+         wordCounts.print();
+
 To start the processing after all transformations are set up:
 
 Start the processing
 
-jssc.start();              // Start the computation
-jssc.awaitTermination();   // Wait for the computation to terminate
-MLlib
+          jssc.start();              // Start the computation
+         jssc.awaitTermination();   // Wait for the computation to terminate
+       
+**MLlib**
 
 MLlib is a part of Spark's ecosystem. MLlib is a machine learning framework its main goal is to make building a machine learning application easy, and scalable by learning from big data sets. MLlib consists of the following learning algorithms:
 
-Classification
-Dimensionality Reduction
-Clustering
-Regression
-Collaborative Filtering
-Recommendation
-Statistics
+* Classification
+* Dimensionality Reduction
+* Clustering
+* Regression
+* Collaborative Filtering
+* Recommendation
+* Statistics
 and many more...
 For a full list of algorithms with their descriptions visit the following MLlib guide.
 
@@ -195,7 +205,7 @@ It might be easy to write the code for the ML Workflow but it will be hard to re
 In order to improve the final result you might need to play with each step's parameter in the ML Workflow based on the data you have.
 To fix these problems, Spark came up with Pipelines. How does Pipelines make things easier?
 
-Pipelines
+**Pipelines**
 
 Pipelines will make use of the DataFrames, which were explained previously but to recap, DataFrames are basically RDDs that have named columns and types (schema), from our example we can have one column as the predictions and an other as the texts, it also provides a Domain Specific Language (DSL) for example we can filter all the predictions that are equal to 1 (Microservices topic) from the table. This Pipeline feature will take care of the first problem stated above; dealing with a lot of RDDs and data types.
 
