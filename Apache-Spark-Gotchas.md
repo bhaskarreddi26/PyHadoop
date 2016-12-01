@@ -1,0 +1,1 @@
+https://github.com/awesome-spark/spark-gotchas/blob/master/README.md
