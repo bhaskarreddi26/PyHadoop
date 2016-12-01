@@ -1,1 +1,0 @@
-https://www.infoq.com/articles/apache-spark-streaming
