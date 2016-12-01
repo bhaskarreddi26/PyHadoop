@@ -70,7 +70,8 @@ Finally, we wait for the streaming data processing to be stopped using the await
 
 https://github.com/databricks/reference-apps
 https://www.gitbook.com/book/databricks/databricks-spark-reference-applications/details
-
+ZIP:
+https://cdn.infoq.com/statics_s2_20161122-0331/resource/articles/apache-spark-streaming/en/resources/spark-streaming-kafka-sample-app.zip
 
 
 
