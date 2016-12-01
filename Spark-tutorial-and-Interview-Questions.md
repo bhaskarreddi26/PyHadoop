@@ -19,3 +19,5 @@
 * http://www.bigdataanalyst.in/spark-advanced-interview-questions/
 
 * https://www.quora.com/What-are-some-good-sources-for-the-Apache-Spark-interview-Q-A
+
+* http://hadooptutorial.info/zookeeper-commands.com
