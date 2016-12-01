@@ -229,4 +229,4 @@ References
 
 [3] https://databricks.com/blog/2014/12/08/pearson-uses-spark-streaming-for-next-generation-adaptive-learning-platform.html
 
-
+[4] https://www.infoq.com/articles/apache-spark-streaming
