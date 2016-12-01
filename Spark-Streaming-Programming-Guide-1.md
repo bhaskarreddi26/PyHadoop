@@ -66,6 +66,8 @@ Define the computations using the Sparking Streaming Transformations API like ma
 After streaming computation logic is defined, we can start receiving the data and process it using start method in StreamingContext object created earlier.
 Finally, we wait for the streaming data processing to be stopped using the awaitTermination method of StreamingContext object.
 
+https://www.gitbook.com/book/databricks/databricks-spark-reference-applications/details
+
 
 
 
