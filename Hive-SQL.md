@@ -18,3 +18,5 @@
 **PIG or HIVE **
 
 * [https://developer.yahoo.com/blogs/hadoop/pig-hive-yahoo-464.html](https://developer.yahoo.com/blogs/hadoop/pig-hive-yahoo-464.html)
+
+* http://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/
