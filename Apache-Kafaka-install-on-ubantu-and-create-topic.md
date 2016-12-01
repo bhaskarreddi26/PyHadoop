@@ -17,3 +17,58 @@ Kafka works like a distributed database and is based on a partitioned and replic
 https://devops.profitbricks.com/tutorials/install-and-configure-apache-kafka-on-ubuntu-1604-1/
 
 https://kafka.apache.org/quickstart
+
+**Kafka Cheat Sheet**
+
+ 
+       $ kafka-topics.sh --describe --zookeeper localhost:2181 --topic beacon
+
+    Topic:beacon    PartitionCount:6    ReplicationFactor:1 Configs:
+    Topic: beacon   Partition: 0    Leader: 1   Replicas: 1 Isr: 1
+    Topic: beacon   Partition: 1    Leader: 1   Replicas: 1 Isr: 1
+
+**Add Partitions to a Topic**
+
+        $ kafka-topics.sh --alter --zookeeper localhost:2181 --topic beacon --partitions 3
+
+WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affected
+Adding partitions succeeded!
+
+**Delete Topic**
+
+       $ kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
+
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic file_acquire_complete
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic job_result
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic trigger_match
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic event_result
+$ kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic job_result
+
+**Created topic "job_result".**
+
+         $ kafka-topics.sh --list --zookeeper localhost:2181
+
+**event_result**
+file_acquire_complete
+job_result
+**trigger_match**
+
+       $ kafka-console-producer.sh --broker-list localhost:9092 --topic test
+       $ kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+
+* https://kafka.apache.org/quickstart
+* http://events.linuxfoundation.org/sites/events/files/slides/The%20Best%20of%20Apache%20Kafka%20Architecture.pdf
+* http://events.linuxfoundation.org/sites/events/files/slides/developing.realtime.data_.pipelines.with_.apache.kafka_.pdf
+* https://cwiki.apache.org/confluence/display/KAFKA/Kafka+Command+Line+and+Related+Improvements
+
+Tutorial :+1: 
+* https://www.tutorialspoint.com/apache_kafka/
+* http://blog.cloudera.com/blog/2014/09/apache-kafka-for-beginners/
+* http://hortonworks.com/apache/kafka/
+* http://www.michael-noll.com/blog/2014/08/18/apache-kafka-training-deck-and-tutorial/
+* http://www.javaworld.com/article/3060078/big-data/big-data-messaging-with-kafka-part-1.html
+
+
+
+
+
