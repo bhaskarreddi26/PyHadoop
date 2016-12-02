@@ -114,7 +114,7 @@ String>>>() {
 
 
 
-http://spark.apache.org/docs/latest/streaming-kafka-integration.html
-https://www.confluent.io/blog/stream-data-platform-2/
-http://www.bluedata.com/blog/2016/02/real-time-data-pipelines-spark-kafka-cassandra-on-docker/
-https://rahuldausa.wordpress.com/2014/10/15/real-time-analytics-with-apache-kafka-and-spark/
+* http://spark.apache.org/docs/latest/streaming-kafka-integration.html
+* https://www.confluent.io/blog/stream-data-platform-2/
+* http://www.bluedata.com/blog/2016/02/real-time-data-pipelines-spark-kafka-cassandra-on-docker/
+* https://rahuldausa.wordpress.com/2014/10/15/real-time-analytics-with-apache-kafka-and-spark/
