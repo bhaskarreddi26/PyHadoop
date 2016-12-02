@@ -78,6 +78,23 @@ You can import more than one class or object from a single package, for example,
        import scala.collection.immutable.{TreeMap, TreeSet}
 
 
+
+***** Variable Scope****
+Variables in Scala can have three different scopes depending on the place where they are being used. They can exist as fields, as method parameters and as local variables. Below are the details about each type of scope.
+
+***** Fields****
+Fields are variables that belong to an object. The fields are accessible from inside every method in the object. Fields can also be accessible outside the object depending on what access modifiers the field is declared with. Object fields can be both mutable and immutable types and can be defined using either var or val.
+
+***** Method Parameters****
+Method parameters are variables, which are used to pass the value inside a method, when the method is called. Method parameters are only accessible from inside the method but the objects passed in may be accessible from the outside, if you have a reference to the object from outside the method. Method parameters are always immutable which are defined by val keyword.
+
+***** Local Variables****
+Local variables are variables declared inside a method. Local variables are only accessible from inside the method, but the objects you create may escape the method if you return them from the method. Local variables can be both mutable and immutable types and can be defined using either var or val.
+
+
+
+
+
 ****What is the difference between a var and val definition in Scala?****
 
 As so many others have said, the object assigned to a val cannot be replaced, and the object assigned to a var can. However, said object can have its internal state modified. For example:
