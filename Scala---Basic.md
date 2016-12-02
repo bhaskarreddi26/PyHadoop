@@ -58,19 +58,21 @@ Following are legal alphanumeric identifiers −
 
                age, salary, _value,  __1_value
 
-Scala Keywords
-The following list shows the reserved words in Scala. These reserved words may not be used as constant or variable or any other identifier names.
+* Scala Packages
+A package is a named module of code. For example, the Lift utility package is net.liftweb.util. The package declaration is the first non-comment line in the source file as follows −
 
-**abstract	case	catch	class**
-def	do	else	extends
-false	final	finally	for
-forSome	if	implicit	import
-lazy	match	new	Null
-object	override	package	private
-protected	return	sealed	super
-this	throw	trait	Try
-true	type	val	Var
-while	with	yield	 
--	:	=	=>
-<-	<:	<%	>:
-#	@		
+         package com.liftcode.stuff
+
+Scala packages can be imported so that they can be referenced in the current compilation scope. The following statement imports the contents of the scala.xml package −
+
+        import scala.xml._
+
+You can import a single class and object, for example, HashMap from the scala.collection.mutable package −
+
+        import scala.collection.mutable.HashMap
+
+You can import more than one class or object from a single package, for example, TreeMap and TreeSet from the 
+ 
+       scala.collection.immutable package −
+
+       import scala.collection.immutable.{TreeMap, TreeSet}
