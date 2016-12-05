@@ -7,6 +7,9 @@
 * http://conferences.oreilly.com/strata/big-data-conference-ca-2015/public/schedule/detail/38632
 
 
+
+
+
 * https://spark.apache.org/docs/latest/tuning.html
 * https://www.cloudera.com/documentation/enterprise/5-5-x/topics/admin_spark_tuning.html
 * http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/
