@@ -9,5 +9,27 @@ First, we import the packages needed for Spark ML K-means and SQL.
               import org.apache.spark.ml.clustering.KMeans
 
 
+We specify the schema with a Spark Structype (Please note that if you are using a notebook, then you do not have to create the SQLContext).
+
+
+             val SQLContext = new SQLContext(sc)
+
+             import sqlContext.implicits._
+             import sqlContext._
+
+
+
+            val schema = StructType(Array(
+                           | StructField("dt",TimestampType,true),
+                           | StructField("lat",DoubleType,true),
+                           | StructField("lon",DoubleType,true),
+                           | StructField("base",StringType,true)
+                          | ))
+
+
+
+
+
+
 
 
