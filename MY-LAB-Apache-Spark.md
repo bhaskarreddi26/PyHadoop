@@ -28,6 +28,10 @@ We specify the schema with a Spark Structype (Please note that if you are using 
 
 
 
+Using Spark 2.0 and --packages com.databricks:spark-csv_2.10:1.5.0, we create a DataFrame from a CSV file data source and apply the schema. 
+
+Create C
+
 
 
 
