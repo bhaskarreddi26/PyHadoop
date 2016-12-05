@@ -38,8 +38,15 @@ Create same in csv file and keep your local.
 ****Load Data****
 
                 val df=spark.read.format("com.databricks.spark.csv").
-                option("header","false").schema(schema).
-                csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv")
+                        option("header","false").schema(schema).
+                        csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv")
+
+               or
+
+
+               val df=spark.read..option("header","false").
+                      schema(schema).
+                      csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv") 
 
 
 Data :+1: Download "Uber-Jan-Feb-FOIL.csv"
