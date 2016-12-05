@@ -77,3 +77,15 @@ In order for the features to be used by a machine learning algorithm, the featur
 https://github.com/vaquarkhan/spark-ml-kmeans-uber/tree/master/data
 
 https://www.mapr.com/blog/monitoring-real-time-uber-data-using-spark-machine-learning-streaming-and-kafka-api-part-1
+
+Please save data as uber.csv
+
+
+``
+
+
+
+
+
+
+
