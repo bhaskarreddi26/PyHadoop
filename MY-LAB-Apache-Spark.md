@@ -41,8 +41,9 @@ Create same in csv file and keep your local.
           option("header:false).schema(schema).
           csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv")
 
+Data :+1: Download "Uber-Jan-Feb-FOIL.csv"
 
-
+https://github.com/vaquarkhan/uber-tlc-foil-response
 
 
 
