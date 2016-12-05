@@ -30,10 +30,20 @@ We specify the schema with a Spark Structype (Please note that if you are using 
 
 Using Spark 2.0 and --packages com.databricks:spark-csv_2.10:1.5.0, we create a DataFrame from a CSV file data source and apply the schema. 
 
-Create C
+![](https://www.mapr.com/sites/default/files/otherpageimages/112816blog/7.png)
+
+Create same in csv file and keep your local.
+
+
+****Load Data****
+
+          val df=sqlConext.read.format("com.databricks.spark.csv").
+          option("header:false).schema(schema).
+          csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv")
 
 
 
 
 
 
+https://www.mapr.com/blog/monitoring-real-time-uber-data-using-spark-machine-learning-streaming-and-kafka-api-part-1
