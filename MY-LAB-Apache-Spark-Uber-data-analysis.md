@@ -44,14 +44,26 @@ Create same in csv file and keep your local.
                or
 
 
-               val df=spark.read..option("header","false").
-                      schema(schema).
-                      csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv") 
+               val df1=spark.read.option("header","false")
+                       .schema(schema)
+                       .csv("///home/osboxes/Sparkdatafile/Uber-Jan-Feb-FOIL.csv") 
+
 
 
 Data :+1: Download "Uber-Jan-Feb-FOIL.csv"
 
 https://github.com/vaquarkhan/uber-tlc-foil-response
+
+Show Schema
+
+                    df.printSchema
+
+
+
+DataFrame show() displays the first 20 rows:
+
+                    df.cache
+                    df.show
 
 
 
