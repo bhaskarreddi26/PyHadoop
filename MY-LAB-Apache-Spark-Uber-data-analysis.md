@@ -66,6 +66,12 @@ DataFrame show() displays the first 20 rows:
                     df.show
 
 
+****Define Features Array****
+
+In order for the features to be used by a machine learning algorithm, the features are transformed and put into Feature Vectors, which are vectors of numbers representing the value for each feature. Below, a VectorAssembler is used to transform and return a new DataFrame with all of the feature columns in a vector column.
+
+![](https://www.mapr.com/sites/default/files/otherpageimages/112816blog/12.png)
+
 
 
 https://github.com/vaquarkhan/spark-ml-kmeans-uber/tree/master/data
