@@ -73,7 +73,7 @@ In order for the features to be used by a machine learning algorithm, the featur
 
 
            val featureCols=Array("lat","lon")
-           val assembler = new VectorAssembler().setInputCols(featureCols).setOutputCols("features")
+           val assembler = new VectorAssembler().setInputCols(featureCols)//.setOutputCols("features")
 
            val df2=assembler.transform(df)
            df2.show
@@ -87,7 +87,14 @@ Next, we create a KMeans object, set the parameters to define the number of clus
 ![](https://www.mapr.com/sites/default/files/otherpageimages/112816blog/15.png)
 
 
+             val Array(trainingData,testData) = df2.randomSplit(Array(0.7,0.3),5043)
 
+             val kmeans= new KMeans().set(8).setFeaturesCol("features").setPredication("predication")
+
+             val model = kmeans.fit(df2)
+
+              println("Final Centers")
+              model.clusterCenters.foreach(println) 
 
 
 https://github.com/vaquarkhan/spark-ml-kmeans-uber/tree/master/data
