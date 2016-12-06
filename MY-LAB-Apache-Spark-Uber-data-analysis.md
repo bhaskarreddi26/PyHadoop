@@ -89,7 +89,7 @@ Next, we create a KMeans object, set the parameters to define the number of clus
 
              val Array(trainingData,testData) = df2.randomSplit(Array(0.7,0.3),5043)
 
-             val kmeans= new KMeans().set(8).setFeaturesCol("features").setPredication("predication")
+             val kmeans= new KMeans().setK(8).setFeaturesCol("features").setPredictionCol("predication")
 
              val model = kmeans.fit(df2)
 
