@@ -79,8 +79,14 @@ In order for the features to be used by a machine learning algorithm, the featur
            df2.show
 
 
-
 ![](https://www.mapr.com/sites/default/files/otherpageimages/112816blog/12.png)
+
+
+Next, we create a KMeans object, set the parameters to define the number of clusters and the maximum number of iterations to determine the clusters, and then we fit the model to the input data.
+
+![](https://www.mapr.com/sites/default/files/otherpageimages/112816blog/15.png)
+
+
 
 
 
