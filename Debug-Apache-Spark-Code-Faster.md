@@ -1,4 +1,4 @@
-we all write perfect Apache Spark code and everything runs perfectly all the time, right?we know that working with large datasets is hardly ever that easy – there is inevitably some data point that will expose any corner cases with your code.
+We all write perfect Apache Spark code and everything runs perfectly all the time, right?we know that working with large datasets is hardly ever that easy – there is inevitably some data point that will expose any corner cases with your code.
 
 Use count() to call actions on intermediary RDDs/Dataframes .
 
