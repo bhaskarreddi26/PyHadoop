@@ -10,7 +10,7 @@ Versatility	Real-time & machine learning applications	Not optimized for real-tim
 
 
 **2.What is Apache Spark?**
-Spark is a fast, easy-to-use and flexible data processing framework. It has an advanced execution engine supporting cyclic data  flow and in-memory computing. Spark can run on Hadoop, standalone or in the cloud and is capable of accessing diverse data sources including HDFS, HBase, Cassandra and others. Learn more in this Apache Spark Tutorial .
+Spark is a fast, easy-to-use and flexible data processing framework. It has an advanced execution engine supporting cyclic data  flow and in-memory computing. Spark can run on Hadoop, standalone or in the cloud and is capable of accessing diverse data sources including HDFS, HBase, Cassandra and others. 
 
 
 **3.Explain key features of Spark.**
@@ -32,7 +32,6 @@ Spark Engine is responsible for scheduling, distributing and monitoring the data
 
 
 **6.Define Partitions?**
-Wish to Learn Spark? Click Here
 
 **7.What operations RDD support?**
 • Transformations
@@ -70,7 +69,7 @@ Hive on Spark supports Spark on yarn mode by default.
 
 
 **14.Name commonly-used Spark Ecosystems.**
-• Spark SQL (Shark)- for developers
+• Spark SQL- for developers
 • Spark Streaming for processing live data streams
 • GraphX for generating and computing graphs
 • MLlib (Machine Learning Algorithms)
@@ -90,7 +89,7 @@ MLlib is scalable machine learning library provided by Spark. It aims at making 
 
 
 **18.What is Spark SQL?**
-SQL Spark, better known as Shark is a novel module introduced in Spark to work with structured data and perform structured data processing. Through this module, Spark executes relational SQL queries on the data. The core of the component supports an altogether different RDD called SchemaRDD, composed of rows objects and schema objects defining data type of each column in the row. It is similar to a table in relational database.
+SQL Spark is a novel module introduced in Spark to work with structured data and perform structured data processing. Through this module, Spark executes relational SQL queries on the data. The core of the component supports an altogether different RDD called SchemaRDD, composed of rows objects and schema objects defining data type of each column in the row. It is similar to a table in relational database.
 
 
 **19.What is a Parquet file?**
@@ -98,7 +97,7 @@ Parquet is a columnar format file supported by many other data processing system
 
 
 **20.What file systems Spark support?**
-• Hadoop Distributed File System (HDFS). Learn more about HDFS in these Top Interview questions.
+• Hadoop Distributed File System (HDFS). 
 • Local File system
 • S3
 
@@ -156,3 +155,16 @@ Since Spark utilizes more storage space compared to Hadoop and MapReduce, there 
 Spark provides two methods to create RDD:• By parallelizing a collection in your Driver program. This makes use of SparkContext’s ‘parallelize’ methodval IntellipaatData = Array(2,4,6,8,10)
 val distIntellipaatData = sc.parallelize(IntellipaatData)• By loading an external dataset from external storage like HDFS, HBase, shared file system.
 
+-----------------------------------------------------------------------------------------------------------------
+
+What is Catalyst framework?
+
+Answer: Catalyst framework is a new optimization framework present in Spark SQL. It allows Spark to automatically transform SQL queries by adding new optimizations to build a faster processing system.
+
+Why is BlinkDB used?
+
+Answer: BlinkDB is a query engine for executing interactive SQL queries on huge volumes of data and renders query results marked with meaningful error bars. BlinkDB helps users balance ‘query accuracy’ with response time.
+
+What is a “Parquet” in Spark?
+
+Answer: “Parquet” is a columnar format file supported by many data processing systems. Spark SQL performs both read and write operations with the “Parquet” file.
