@@ -62,3 +62,4 @@ Apache Spark's first abstraction was the RDD or Resilient Distributed Dataset. E
 
 * https://dzone.com/articles/analytics-with-apache-spark-tutorial-part-2-spark
 
+* https://www.linkedin.com/today/author/0_10raswup_UGlp5PDu0cSIp?trk=prof-sm
