@@ -30,3 +30,4 @@ Spark’s range partitioning and hash partitioning techniques are ideal for vari
 * http://dev.sortable.com/spark-repartition/
 * http://www.edureka.co/blog/demystifying-partitioning-in-spark
 * http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/
+* https://stackoverflow.com/questions/31610971/spark-repartition-vs-coalesce
