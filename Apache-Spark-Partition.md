@@ -62,12 +62,25 @@ Using transformations mapValues() and flatMapValues() instead of map() and flatM
 
 
 
-
-
-
-
+* https://spark-summit.org/2013/wp-content/uploads/2013/10/Li-AEX-Spark-yahoo.pdf
 * http://dev.sortable.com/spark-repartition/
 * http://www.edureka.co/blog/demystifying-partitioning-in-spark
 * http://blog.cloudera.com/blog/2015/03/how-to-tune-your-apache-spark-jobs-part-1/
 * https://stackoverflow.com/questions/31610971/spark-repartition-vs-coalesce
 * https://0x0fff.com/spark-architecture-shuffle/
+
+
+----------------------------------------------------------------------
+
+   val ints = sc.parallelize(1 to 100, 4)
+   ints.partitions.size
+
+
+Spark can only run 1 concurrent task for every partition of an RDD, up to the number of cores in your cluster. So if you have a cluster with 50 cores, you want your RDDs to at least have 50 partitions (and probably 2-3x times that).+
+
+As far as choosing a "good" number of partitions, you generally want at least as many as the number of executors for parallelism. You can get this computed value by calling sc.defaultParallelism.+
+
+Partitions get redistributed among nodes whenever shuffle occurs. Repartitioning may cause shuffle to occur in some situations, but it is not guaranteed to occur in all cases. And it usually happens during action stage.+
+
+
+Preferred way to set up the number of partitions for an RDD is to directly pass it as the second input parameter in the call like rdd = sc.textFile("hdfs://…​/file.txt", 400), where 400 is the number of partitions. In this case, the partitioning makes for 400 splits that would be done by the Hadoop’s TextInputFormat, not Spark and it would work much faster. It’s also that the code spawns 400 concurrent tasks to try to load file.txt directly into 400 partitions
