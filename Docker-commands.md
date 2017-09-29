@@ -1,3 +1,18 @@
+Basically Docker is a tool to package an application with its operating system, creating a VM-like image, and run it in so-called "containers". 
+
+It improves the resource usage because it allows to run  multiple containers within a single VM, so you do not need to allocate a whole VM for a single service.
+
+Docker disk images are smaller than VM's ones, because the operating system packaged with the application is "just enough" to run the application. No need to provide administrative tools, user interfaces, and so on.
+
+Also, disk images are "layered" and a layer can be shared among multiple images. You can have for example an operating system core reused between multiple different images and save a lot of space.
+
+Ideally each container should run only one application. An application in a docker container is run like a process, not like a VM, with less overhead, so there is minor cpu consumption and less idle states.
+
+Also the memory used in a VM is shared between the various containers, resulting in way less memory consumption (and much more memory reuse).
+
+
+
+
 List all Docker Images
 
     docker images -a
