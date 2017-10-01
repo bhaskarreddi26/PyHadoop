@@ -16,6 +16,8 @@ Partitioning is possible only on pair RDD as partition working only key.
 
 
 
+-------------------------------------------------------
+
 
           case class CFFPurchase(customerId:Int,destination:String,price:Double)
 
@@ -31,3 +33,20 @@ Partitioning is possible only on pair RDD as partition working only key.
          val purchesePerMonth= purchasesRDD.map(p=>(p.customerId,(1,p.price))).reduceByKey((v1,v2)=>
         (v1._1+v2._1,v1._2+v2._2)).collect()
                      
+
+-------------------------------------------------------
+
+Hash partitioning :
+
+Hash partitioning distribute data as er hashcode equlaay distributed.
+p=k.hashCode() % numPartitions
+
+Then , all tuples in the same partition p are sent to the achin hosting p
+
+Range Partitioning :
+
+1) an ordering of keys
+2) a set of sorted ranges of key
+
+Note : tuples with keys in the same range apper on the same machine 
+-------------------------------------------------------
