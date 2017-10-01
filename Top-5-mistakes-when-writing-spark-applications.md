@@ -62,23 +62,37 @@ Dont have too few partitions - your job will be slow, not making use of parallel
 
 Rule of thumb ~ 128 MB per partition
 
-If partitions < 2000, but close, bump to just > 2000Mistake #3Slow jobs on Join/ShuffleYour dataset takes 20 seconds to run over a with a map job, but takes 4 hours when joined or shuffled. What went wrong?Mistake - skewSkew happens because you have a NULL key, or you have a popular value. 
+If partitions < 2000, but close, bump to just > 2000
 
-All your work will be going through a single core. Mistake - skew: answers Salting
+**Mistake #3**
+
+Slow jobs on Join/ShuffleYour dataset takes 20 seconds to run over a with a map job, but takes 4 hours when joined or shuffled. What went wrong?
+Mistake - skewSkew happens because you have a NULL key, or you have a popular value. 
+
+All your work will be going through a single core.
+
+Mistake - skew: answers Salting
 
 Normal key: 'foo'
 Salted key: 'foo' + random.nextInt(saltFactor)Managing parallelismBefore and after salting. 
 
 Two stage aggregation
 -stage one to do operations on the salted keys
--stage two to do operation access unsalted key resultsMistake - skew: isolated saltingSecond stage only required for isolated keys. Mistake - skew: isolated map joinManaging parallelismCartesian Join
+-stage two to do operation access unsalted key results
+
+Mistake - skew: isolated saltingSecond stage only required for isolated keys. 
+Mistake - skew: isolated map joinManaging parallelismCartesian Join
 
 How to fight cartesian join
 -Nested structures. 
 
 This is going to be multiple magnitudes faster than doing a Cartesian. 
 
-RepartitioningMistake #4Out of luck?Do you ever run out of memory? 
+Repartitioning
+
+**Mistake #4**
+
+Out of luck?Do you ever run out of memory? 
 
 Do you ever have more than 20 stages?
 
