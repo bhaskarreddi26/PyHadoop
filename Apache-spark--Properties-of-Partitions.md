@@ -88,3 +88,4 @@ Set of ranges :[1,200],[201,400],[401,600],[601,800]
 
 The resuts of partioning is much more balance
 
+![](https://3.bp.blogspot.com/-TZ13FtDfaGs/WdBHwQSvtbI/AAAAAAAACYA/Bian3-R2Or4ULR2Nzs49LpT09LIv_I4NQCLcBGAs/s320/Untitled.png)
