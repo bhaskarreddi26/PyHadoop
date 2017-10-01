@@ -5,3 +5,5 @@
 * https://www.sigmoid.com/apache-spark-internals/
 
 * http://data-informed.com/tuning-apache-spark-jobs-the-easy-way-web-ui-stage-detail-view/
+
+* https://www.youtube.com/watch?v=Wg2boMqLjCg
