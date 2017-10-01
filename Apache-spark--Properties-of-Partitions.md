@@ -93,3 +93,25 @@ The resuts of partioning is much more balance
 
 
 ![](https://1.bp.blogspot.com/-kns3W9VSUj0/WdBJGte3ySI/AAAAAAAACYM/wbSrh1TKjJ8a9zU_I0aCbFxN15SxlcLoACLcBGAs/s320/Untitled.png)
+
+
+
+
+-------------------------------------------------------------
+
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-Partition
+
+* https://github.com/vaquarkhan/vaquarkhan/wiki/Apache-Spark-handling-of-empty-partitions
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-Performance-Improving--With-Partitioning
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-Tuning-and-Debugging
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-programming-guide-notes-1
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/high-performance-spark---join-and-partition
+
+* https://github.com/vaquarkhan/vaquarkhan/wiki/How-to-calculate-node-and-executors-memory-in-Apache-Spark
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-DAG
