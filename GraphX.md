@@ -10,3 +10,5 @@ Graph is a data structure that consists of following two components:
 ![](http://image.slidesharecdn.com/walldisplay3dshapes-140407062304-phpapp01/95/wall-display-3dshapes-3-638.jpg)
 
 Graphs are used to represent many real life applications: Graphs are used to represent networks. The networks may include paths in a city or telephone network or circuit network. Graphs are also used in social networks like linkedIn, facebook. For example, in facebook, each person is represented with a vertex(or node). Each node is a structure and contains information like person id, name, gender and locale. See this for more applications of graph.
+
+
