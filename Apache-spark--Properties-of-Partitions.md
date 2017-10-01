@@ -49,4 +49,6 @@ Range Partitioning :
 2) a set of sorted ranges of key
 
 Note : tuples with keys in the same range apper on the same machine 
+
+
 -------------------------------------------------------
