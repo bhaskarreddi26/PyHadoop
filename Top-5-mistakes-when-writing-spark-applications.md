@@ -8,6 +8,7 @@
 
 * https://datarus.wordpress.com/2015/05/04/fighting-the-skew-in-spark/
 
+* http://blog.cloudera.com/blog/2015/07/how-to-do-data-quality-checks-using-apache-spark-dataframes/
 
 
 
