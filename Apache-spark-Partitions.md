@@ -95,7 +95,7 @@ The resuts of partioning is much more balance
 ![](https://1.bp.blogspot.com/-kns3W9VSUj0/WdBJGte3ySI/AAAAAAAACYM/wbSrh1TKjJ8a9zU_I0aCbFxN15SxlcLoACLcBGAs/s320/Untitled.png)
 
 
-
+![](https://1.bp.blogspot.com/-_oj4ywXkxKk/WdBQW8K-nXI/AAAAAAAACYc/TuOYDRNoBegGHXkA9vRDW0vLwbRKY97AQCLcBGAs/s320/Untitled.png)
 
 -------------------------------------------------------------
 
