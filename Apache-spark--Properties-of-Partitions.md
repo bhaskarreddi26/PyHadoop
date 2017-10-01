@@ -52,3 +52,39 @@ Note : tuples with keys in the same range apper on the same machine
 
 
 -------------------------------------------------------
+Example -how to choose partition
+
+8, 96, 240,400,101,800 
+
+patition 4
+
+hashCode()  n.hashCode()==n)
+
+p=k.hashCode % numPartition
+
+k%4 
+
+
+* Partition 0: [8,96,240,400,800]
+* Partition 1: [401]
+* Partition 2:
+* Partition 3:
+
+The results is a very ubalanced distribution which hurts performance.
+
+
+Now Range Partition
+
+Assumptions:
+(a) keys non negative ,
+(b) 800 is biggest key in the RDD
+
+Set of ranges :[1,200],[201,400],[401,600],[601,800]
+
+* Partition 0 : [8,96]
+* Partition 1: [240,400]
+* Partition 2:[401]
+* Partition 3:[800]
+
+The resuts of partioning is much more balance
+
