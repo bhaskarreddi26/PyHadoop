@@ -39,7 +39,7 @@ If you have lots of IO, your CPU is not the culprit. You can up your cores. Dyna
 
 But it can you dynamically figure out the number of executors you need, but not with the number of cores for each executor or the memory for each executor.
 
-** Mistake #2**
+**Mistake #2**
 
 Application failureWhy?No Spark shuffle block can be greater than 2GB. What's a shuffle block again?In MapReduce terminology, a file written from one Mapper for a Reducer. 
 
