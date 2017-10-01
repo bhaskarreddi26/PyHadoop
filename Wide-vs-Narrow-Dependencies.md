@@ -30,6 +30,11 @@ Ex GroupByKey, input not co partitions Join
 
 The scheduler will examine the type of dependencies and group the narrow dependency RDD into a unit of processing called a stage.  Wide dependencies will span across consecutive stages within the execution and require the number of partition of the child RDD to be explicitly specified.
 
+
+![](http://2.bp.blogspot.com/-5sDP78mSdlw/Ur3szYz1HpI/AAAAAAAABCo/Aak2Xn7TmnI/s400/p2.png)
+
+
+
 A typical execution sequence is as follows ...
 RDD is created originally from external data sources (e.g. HDFS, Local file ... etc)
 RDD undergoes a sequence of TRANSFORMATION (e.g. map, flatMap, filter, groupBy, join), each provide a different RDD that feed into the next transformation.
@@ -48,4 +53,3 @@ Notice that the re-execution of lost partition is exactly the same as the lazy e
 However, re-execution across wide dependencies can touch a lot of parent RDD across multiple machines and may cause re-execution of everything. To mitigate this, Spark persist the intermediate data output from a Map phase before it shuffle them to different machines executing the reduce phase.  In case of machine crash, the re-execution (from another surviving machine) just need to trace back to fetch the intermediate data from the corresponding partition of the mapper's persisted output.  Spark also provide a checkpoint API to explicitly persist intermediate RDD so re-execution (when crash) doesn't need to trace all the way back to the beginning.  In future, Spark will perform check-pointing automatically by figuring out a good balance between the latency of recovery and the overhead of check-pointing based on statistical result.
 
 
-![](http://2.bp.blogspot.com/-5sDP78mSdlw/Ur3szYz1HpI/AAAAAAAABCo/Aak2Xn7TmnI/s400/p2.png)
