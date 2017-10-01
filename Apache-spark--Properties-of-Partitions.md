@@ -6,4 +6,10 @@
 
 * The number of partitions to use is configurable .By default , it equals the total number of cores on all executor nodes.
 
+**Default no of partitions **
+
 Example if Machine have 4 core and 6 worker node means default no of partitions is 4*6 =24
+
+-------------------------------------------------------
+
+Partitioning is possible only on pair RDD as partition working only key.  
