@@ -79,9 +79,9 @@ Example
          println("merged student: " + student)
         }
 
-    //same into map throwing error without encoder
+       //same into map throwing error without encoder
         //TODO val merged = filterd.map { row => (row.getAs[String]("age"), PrintOne(row.getAs[Seq[Row]](0), 
-   row.getAs[String]
+      row.getAs[String]
        ("age"))) }
        println("------------------------------------------------------")
 
@@ -98,12 +98,12 @@ Example
                StructField("id", StringType),
                StructField("name", StringType)))))
 
-     filterd.map { row =>
-        (
+        filterd.map { row =>
+           (
             row.getAs[String]("age"),
              PrintOne(row.getAs[Seq[Row]](0), row.getAs[String]("age")))
-         }(encoder)
-     }
+          }(encoder)
+      }
 
        println("------------------------------------------------------")
 
