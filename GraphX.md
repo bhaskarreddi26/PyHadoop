@@ -16,3 +16,8 @@ Graphs are used to represent many real life applications: Graphs are used to rep
 GraphX extends the Spark RDD abstraction by introducing the Resilient Distributed Property Graph: a directed multigraph with properties attached to each vertex and edge. To support graph computation, GraphX exposes a set of fundamental operators (e.g., subgraph, joinVertices, and mapReduceTriplets) as well as an optimized variant of the Pregel API. In addition, GraphX includes a growing collection of graph algorithms and builders to simplify graph analytics tasks.
 
 
+![](http://ampcamp.berkeley.edu/big-data-mini-course/img/social_graph.png)
+
+Social network with users and their ages modeled as vertices and likes modeled as directed edges,We begin by creating the property graph from arrays of vertices and edges. 
+
+
