@@ -21,3 +21,32 @@ GraphX extends the Spark RDD abstraction by introducing the Resilient Distribute
 Social network with users and their ages modeled as vertices and likes modeled as directed edges,We begin by creating the property graph from arrays of vertices and edges. 
 
 
+     import org.apache.spark.graphx._
+     import org.apache.spark.rdd.RDD
+
+      val vertexArray = Array(
+            (1L, ("Alice", 28)),
+            (2L, ("Bob", 27)),
+            (3L, ("Charlie", 65)),
+            (4L, ("David", 42)),
+            (5L, ("Ed", 55)),
+            (6L, ("Fran", 50))
+           )
+        val edgeArray = Array(
+            Edge(2L, 1L, 7),
+            Edge(2L, 4L, 2),
+            Edge(3L, 2L, 4),
+            Edge(3L, 6L, 3),
+            Edge(4L, 1L, 1),
+            Edge(5L, 2L, 2),
+            Edge(5L, 3L, 8),
+            Edge(5L, 6L, 3)
+             )
+
+
+Results 
+
+import org.apache.spark.graphx._
+import org.apache.spark.rdd.RDD
+vertexArray: Array[(Long, (String, Int))] = Array((1,(Alice,28)), (2,(Bob,27)), (3,(Charlie,65)), (4,(David,42)), (5,(Ed,55)), (6,(Fran,50)))
+edgeArray: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(2,1,7), Edge(2,4,2), Edge(3,2,4), Edge(3,6,3), Edge(4,1,1), Edge(5,2,2), Edge(5,3,8), Edge(5,6,3))
