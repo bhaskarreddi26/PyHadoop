@@ -1,4 +1,5 @@
 * https://www.youtube.com/watch?v=mKEn9C5bRck
+* https://databricks.com/blog/2016/03/03/introducing-graphframes.html
 
 **Graph and its representations**
 
@@ -77,3 +78,9 @@ Here we use the Edge class. Edges have a srcId and a dstId corresponding to the 
 
      val edges:RDD[Edge[String]] = sc.parallelize(List(Edge(1L,2L,"coworker"),Edge(2L,3L,"friend")))
      val graph = Graph(vertices,edges)
+
+------------------------------------------
+
+**Graph Operations:**
+
+
