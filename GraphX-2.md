@@ -75,3 +75,33 @@ Results
     Ed likes Bob
     Ed likes Charlie
     Ed likes Fran
+
+
+Number of followers: Every user in our graph has a different number of followers. Let us look at all the followers for every user.
+
+
+
+       // Defining a class to more clearly model the user property
+       case class User(name: String, age: Int, inDeg: Int, outDeg: Int)
+       // Creating a user Graph
+       val initialUserGraph: Graph[User, Int] = graph.mapVertices{ case (id, (name, age)) => User(name, age, 0, 0) }
+ 
+      // Filling in the degree information
+       val userGraph = initialUserGraph.outerJoinVertices(initialUserGraph.inDegrees) {
+      case (id, u, inDegOpt) => User(u.name, u.age, inDegOpt.getOrElse(0), u.outDeg)
+     }.outerJoinVertices(initialUserGraph.outDegrees) {
+     case (id, u, outDegOpt) => User(u.name, u.age, u.inDeg, outDegOpt.getOrElse(0))
+     }
+
+      for ((id, property) <- userGraph.vertices.collect) {
+      println(s"User $id is called ${property.name} and is liked by ${property.inDeg} people.")
+     }
+
+Results 
+
+      User 1 is called Alice and is liked by 2 people.
+      User 2 is called Bob and is liked by 2 people.
+      User 3 is called Charlie and is liked by 1 people.
+      User 4 is called David and is liked by 1 people.
+      User 5 is called Ed and is liked by 0 people.
+      User 6 is called Fran and is liked by 2 people.
