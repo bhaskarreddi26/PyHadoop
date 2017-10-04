@@ -9,6 +9,9 @@
 Graph is a data structure that consists of following two components:
 
 ![](https://www.mathsisfun.com/geometry/images/vertex-edge-face.svg)
+
+![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/Graph-Concepts-Spark-GraphX-Tutorial-Edureka.png)
+
 1. A finite set of vertices also called as nodes.
 2. A finite set of ordered pair of the form (u, v) called as edge. The pair is ordered because (u, v) is not same as (v, u) in case of directed graph(di-graph). The pair of form (u, v) indicates that there is an edge from vertex u to vertex v. The edges may contain weight/value/cost.
 
