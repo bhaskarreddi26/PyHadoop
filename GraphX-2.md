@@ -35,6 +35,8 @@ Looking at the graph, we can extract information about the people (vertices) and
 
     var graph: Graph[(String, Int), Int] = Graph(vertexRDD, edgeRDD)
 
+     //Displaying Vertices: Further, we will now display all the names and ages of the users (vertices).
+
 
        graph.vertices.filter { case (id, (name, age)) => age > 30 }
              .collect.foreach { case (id, (name, age)) => println(s"$name is $age")}
