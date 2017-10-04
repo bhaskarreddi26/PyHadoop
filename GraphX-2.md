@@ -112,10 +112,24 @@ Results
 Oldest Followers: We can also sort the followers by their characteristics. Let us find the oldest followers of each user by age.
 
 
-       // Finding the oldest follower for each user
-      val oldestFollower: VertexRDD[(String, Int)] = userGraph.mapReduceTriplets[(String, Int)](
+      // Finding the oldest follower for each user
+      val oldestFollower: VertexRDD[(String, Int)] = userGraph.aggregateMessages[(String, Int)](
       // For each edge send a message to the destination vertex with the attribute of the source vertex
       edge => Iterator((edge.dstId, (edge.srcAttr.name, edge.srcAttr.age))),
-      // To combine messages take the message for the older follower
+       // To combine messages take the message for the older follower
       (a, b) => if (a._2 > b._2) a else b
       )
+      userGraph.vertices.leftJoin(oldestFollower) { (id, user, optOldestFollower) =>
+      optOldestFollower match {
+       case None => s"${user.name} does not have any followers."
+       case Some((name, age)) => s"${name} is the oldest follower of ${user.name}."
+       }
+       }.foreach { case (id, str) => println(str) }
+
+Result
+
+TODO 
+
+
+
+
