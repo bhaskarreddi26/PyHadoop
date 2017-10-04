@@ -1,6 +1,6 @@
 * https://bcourses.berkeley.edu/courses/1267848/pages/lab-11
 
-![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/GraphX-Example-Spark-GraphX-Tutorial-Edureka.png) (edeurka example)
+![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/GraphX-Example-Spark-GraphX-Tutorial-Edureka.png)
 
 Looking at the graph, we can extract information about the people (vertices) and the relations between them (edges). The graph here represents the Twitter users and whom they follow on Twitter. For e.g. Bob follows Davide and Alice on Twitter.
 
