@@ -1,4 +1,5 @@
 * https://bcourses.berkeley.edu/courses/1267848/pages/lab-11
+* http://ampcamp.berkeley.edu/5/exercises/graph-analytics-with-graphx.html
 
 ![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/GraphX-Example-Spark-GraphX-Tutorial-Edureka.png)
 
