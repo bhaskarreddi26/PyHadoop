@@ -55,3 +55,23 @@ Results
 
      edgeArray: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(2,1,7), Edge(2,4,2), Edge(3,2,4), Edge(3,6,3), 
      Edge(4,1,1), Edge(5,2,2), Edge(5,3,8), Edge(5,6,3))
+
+
+
+Displaying Edges: Let us look at which person likes whom on Twitter.
+
+
+       for (triplet <- graph.triplets.collect){
+       println(s"${triplet.srcAttr._1} likes ${triplet.dstAttr._1}")
+       }
+
+Results 
+
+    Bob likes Alice
+    Bob likes David
+    Charlie likes Bob
+    Charlie likes Fran
+    David likes Alice
+    Ed likes Bob
+    Ed likes Charlie
+    Ed likes Fran
