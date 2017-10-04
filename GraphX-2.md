@@ -38,3 +38,17 @@ Looking at the graph, we can extract information about the people (vertices) and
 
        graph.vertices.filter { case (id, (name, age)) => age > 30 }
              .collect.foreach { case (id, (name, age)) => println(s"$name is $age")}
+
+Results 
+
+
+     Charlie is 65
+     David is 42
+     Ed is 55
+     Fran is 50
+
+     vertexArray: Array[(Long, (String, Int))] = Array((1,(Alice,28)), (2,(Bob,27)), (3,(Charlie,65)), (4,(David,42)), (5,
+      (Ed,55)), (6,(Fran,50)))
+
+     edgeArray: Array[org.apache.spark.graphx.Edge[Int]] = Array(Edge(2,1,7), Edge(2,4,2), Edge(3,2,4), Edge(3,6,3), 
+     Edge(4,1,1), Edge(5,2,2), Edge(5,3,8), Edge(5,6,3))
