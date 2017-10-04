@@ -2,9 +2,9 @@
 
 Looking at the graph, we can extract information about the people (vertices) and the relations between them (edges). The graph here represents the Twitter users and whom they follow on Twitter. For e.g. Bob follows Davide and Alice on Twitter.
 
-   import org.apache.spark._
-   import org.apache.spark.rdd.RDD
-   import org.apache.spark.util.IntParam
-   import org.apache.spark.graphx._
-   import org.apache.spark.graphx.Edge
-   import org.apache.spark.graphx.util.GraphGenerators
+     import org.apache.spark._
+     import org.apache.spark.rdd.RDD
+     import org.apache.spark.util.IntParam
+     import org.apache.spark.graphx._
+     import org.apache.spark.graphx.Edge
+     import org.apache.spark.graphx.util.GraphGenerators
