@@ -1,6 +1,8 @@
 * https://www.youtube.com/watch?v=mKEn9C5bRck
 * https://databricks.com/blog/2016/03/03/introducing-graphframes.html
 * https://stanford.edu/~rezab/nips2014workshop/slides/ankur.pdf
+* https://www.edureka.co/blog/spark-graphx/
+
 
 **Graph and its representations**
 
