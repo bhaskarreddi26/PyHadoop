@@ -52,3 +52,28 @@ Social network with users and their ages modeled as vertices and likes modeled a
 
 Here we use the Edge class. Edges have a srcId and a dstId corresponding to the source and destination vertex identifiers. In addition, the Edge class has an attr member which stores the edge property (in this case the number of likes).
 
+
+**Creating a Graph:**
+
+
+![](https://3.bp.blogspot.com/-ZDO-brJ8CUc/WdRUySkn0RI/AAAAAAAACZg/A4K9X9X43ncOvW8SPbCAW0cIMeWLvyA6wCLcBGAs/s320/Capture.PNG)
+
+
+    type VertexId=Long
+
+    val vertices: RDD[(VertexId,String)]= sc.parallelize(List((1L,"Alice"),(2L,"Bob"),(3L,"Charlie")))
+
+
+
+      class Edge[ED](
+      val srcId:VertexId,
+      val dstId:VertexId,
+      val attr:ED)
+
+
+     import org.apache.spark.graphx._
+     import org.apache.spark.graphx.Edge
+
+
+     val edges:RDD[Edge[String]] = sc.parallelize(List(Edge(1L,2L,"coworker"),Edge(2L,3L,"friend")))
+     val graph = Graph(vertices,edges)
