@@ -11,6 +11,8 @@ Graph is a data structure that consists of following two components:
 
 Graphs are used to represent many real life applications: Graphs are used to represent networks. The networks may include paths in a city or telephone network or circuit network. Graphs are also used in social networks like linkedIn, facebook. For example, in facebook, each person is represented with a vertex(or node). Each node is a structure and contains information like person id, name, gender and locale. See this for more applications of graph.
 
+![](https://4.bp.blogspot.com/-A6Yd01RvYM8/WdRPf0lFrKI/AAAAAAAACZI/GTdDkctYzKImgJ6qiVQkwqWol_FUx26IACLcBGAs/s320/Capture.PNG)
+
 -----------------------------------------------
 
 GraphX extends the Spark RDD abstraction by introducing the Resilient Distributed Property Graph: a directed multigraph with properties attached to each vertex and edge. To support graph computation, GraphX exposes a set of fundamental operators (e.g., subgraph, joinVertices, and mapReduceTriplets) as well as an optimized variant of the Pregel API. In addition, GraphX includes a growing collection of graph algorithms and builders to simplify graph analytics tasks.
