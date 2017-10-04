@@ -1,3 +1,5 @@
+* https://bcourses.berkeley.edu/courses/1267848/pages/lab-11
+
 ![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/GraphX-Example-Spark-GraphX-Tutorial-Edureka.png) (edeurka example)
 
 Looking at the graph, we can extract information about the people (vertices) and the relations between them (edges). The graph here represents the Twitter users and whom they follow on Twitter. For e.g. Bob follows Davide and Alice on Twitter.
@@ -105,3 +107,15 @@ Results
       User 4 is called David and is liked by 1 people.
       User 5 is called Ed and is liked by 0 people.
       User 6 is called Fran and is liked by 2 people.
+
+
+Oldest Followers: We can also sort the followers by their characteristics. Let us find the oldest followers of each user by age.
+
+
+       // Finding the oldest follower for each user
+      val oldestFollower: VertexRDD[(String, Int)] = userGraph.mapReduceTriplets[(String, Int)](
+      // For each edge send a message to the destination vertex with the attribute of the source vertex
+      edge => Iterator((edge.dstId, (edge.srcAttr.name, edge.srcAttr.age))),
+      // To combine messages take the message for the older follower
+      (a, b) => if (a._2 > b._2) a else b
+      )
