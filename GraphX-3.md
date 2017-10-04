@@ -1,6 +1,7 @@
 **Flight Data Analysis using Spark GraphX**
 
-*https://www.javacodegeeks.com/2016/03/get-started-using-apache-spark-graphx-scala.html
+* https://www.javacodegeeks.com/2016/03/get-started-using-apache-spark-graphx-scala.html
+* https://www.javacodegeeks.com/2016/03/get-started-using-apache-spark-graphx-scala.html
 
 Problem Statement: To analyze Real-Time Flight data using Spark GraphX, provide near real-time computation results and visualize the results using Google Data Studio.
 
