@@ -13,3 +13,6 @@ Problem Statement: To analyze Real-Time Flight data using Spark GraphX, provide 
 We will use Spark GraphX for the above computations and visualize the results using Google Data Studio.
 
 **[Download dataset](https://drive.google.com/file/d/0B7Yoht-ttAeuaWdGZkRsSkVkN00/view)**
+
+
+![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/Flow-Diagram-Spark-GraphX-Edureka.gif)
