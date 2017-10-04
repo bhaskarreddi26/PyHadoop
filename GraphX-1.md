@@ -15,7 +15,7 @@ Graphs are used to represent many real life applications: Graphs are used to rep
 ![](https://4.bp.blogspot.com/-A6Yd01RvYM8/WdRPf0lFrKI/AAAAAAAACZI/GTdDkctYzKImgJ6qiVQkwqWol_FUx26IACLcBGAs/s320/Capture.PNG)
 
 
-https://4.bp.blogspot.com/--Sf9jx5yq94/WdRP_d4t3BI/AAAAAAAACZQ/x_E_5KPSt7YbGZrqb_S40NRuRMOtS7LKgCLcBGAs/s640/Capture.PNG
+![](https://4.bp.blogspot.com/--Sf9jx5yq94/WdRP_d4t3BI/AAAAAAAACZQ/x_E_5KPSt7YbGZrqb_S40NRuRMOtS7LKgCLcBGAs/s640/Capture.PNG)
 
 -----------------------------------------------
 
