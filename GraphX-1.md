@@ -24,6 +24,12 @@ Graphs are used to represent many real life applications: Graphs are used to rep
 
 ![](https://4.bp.blogspot.com/--Sf9jx5yq94/WdRP_d4t3BI/AAAAAAAACZQ/x_E_5KPSt7YbGZrqb_S40NRuRMOtS7LKgCLcBGAs/s640/Capture.PNG)
 
+
+
+* A directed graph is a graph where the edges have a direction associated with them. An example of a directed graph is a Twitter follower. User Bob can follow user Carol without implying that user Carol follows user Bob.
+
+* regular graph is a graph where each vertex has the same number of edges. An example of a regular graph is Facebook friends. If Bob is a friend of Carol, then Carol is also a friend of Bob.
+
 -----------------------------------------------
 
 GraphX extends the Spark RDD abstraction by introducing the Resilient Distributed Property Graph: a directed multigraph with properties attached to each vertex and edge. To support graph computation, GraphX exposes a set of fundamental operators (e.g., subgraph, joinVertices, and mapReduceTriplets) as well as an optimized variant of the Pregel API. In addition, GraphX includes a growing collection of graph algorithms and builders to simplify graph analytics tasks.
