@@ -14,6 +14,8 @@ In Graph.scala,  it defines a abstract class Graph, representing a graph in whic
 
 Graph contains mainly three objects, vertices, edges and triplets. The triplet is a three-node complete graph. VD is the vertex attribute type, and ED is the edge attribute type. These three objects contain several sub-objects (vertex, edge and triplet), and are returned as RDDs. They are marked as @transient, which means they can’t be serialized.
 
+![](https://spark.apache.org/docs/1.1.0/img/triplet.png)
+
 `abstract class Graph[VD: ClassTag, ED: ClassTag] protected () extends Serializable {`
   `@transient val vertices: VertexRDD[VD]`
   `@transient val edges: EdgeRDD[ED]`
