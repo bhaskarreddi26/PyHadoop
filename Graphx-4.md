@@ -60,7 +60,8 @@ GraphOps.scala contains additional functionality for Graph. It provides the API 
   `implicit protected def vdTag: ClassTag[VD]`
   `private[graphx] def partitionsRDD: RDD[ShippableVertexPartition[VD]]`
   `override protected def getPartitions: Array[Partition] = partitionsRDD.partitions`
-  ...
+  
+
 VertexRDD inherits from RDD with two parameters. VertexID is the ID of vertex, and VD is the type of vertex attribute. Class VertexRDD defines some methods such as mapVertexPartitions, mapValues and filter.
 
 EdgeRDD.scala defines EdgeRDD, which inherits from RDD with three parameters, ED (the type of edge attribute), sc (source vertex) and deps (dependencies of the edges, e.g. destination vertices).
