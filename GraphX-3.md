@@ -55,14 +55,14 @@ As a starting simple example, we will analyze three flights. For each flight, we
      vRDD.take(1)
      // Array((1,SFO)) 
      // Defining a default vertex called nowhere
-     val nowhere = "nowhere"
+      val nowhere = "nowhere"
 
 
-    // create routes RDD with srcid, destid, distance
-    val edges = Array(Edge(1L,2L,1800),Edge(2L,3L,800),Edge(3L,1L,1400))
-    val eRDD= sc.parallelize(edges) 
-    eRDD.take(2)
-   // Array(Edge(1,2,1800), Edge(2,3,800))
+      // create routes RDD with srcid, destid, distance
+      val edges = Array(Edge(1L,2L,1800),Edge(2L,3L,800),Edge(3L,1L,1400))
+      val eRDD= sc.parallelize(edges) 
+      eRDD.take(2)
+     // Array(Edge(1,2,1800), Edge(2,3,800))
 
 
 
@@ -72,9 +72,9 @@ As a starting simple example, we will analyze three flights. For each flight, we
        graph.vertices.collect.foreach(println)
       // (2,ORD)
       // (1,SFO)
-     // (3,DFW) 
-    // graph edges
-    graph.edges.collect.foreach(println) 
-   // Edge(1,2,1800)
-   // Edge(2,3,800)
-   // Edge(3,1,1400)
+      // (3,DFW) 
+      // graph edges
+      graph.edges.collect.foreach(println) 
+     // Edge(1,2,1800)
+     // Edge(2,3,800)
+    // Edge(3,1,1400)
