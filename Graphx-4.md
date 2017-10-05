@@ -24,6 +24,12 @@ The property graph is a directed multigraph with user defined objects attached t
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TN4_kl9dqYQsUB-8amHQYMzn2L5_6Rwv5NbPM_6GKFBWJJn1wQ)
 
 
+> import org.apache.spark._
+> import org.apache.spark.graphx._
+> // To make some of the examples work we will also need RDD
+> import org.apache.spark.rdd.RDD
+
+
 
 `abstract class Graph[VD: ClassTag, ED: ClassTag] protected () extends Serializable {`
   `@transient val vertices: VertexRDD[VD]`
