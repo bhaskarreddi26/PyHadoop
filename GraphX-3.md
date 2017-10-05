@@ -87,23 +87,23 @@ As a starting simple example, we will analyze three flights. For each flight, we
       //2. How many routes are there?
       val numroutes = graph.numEdges
 
-     //3. which routes > 1000 miles distance?
+      //3. which routes > 1000 miles distance?
      // routes > 1000 miles distance?
-     graph.edges.filter { case Edge(src, dst, prop) => prop > 1000 }.collect.foreach(println)
-    // Edge(1,2,1800)
-    // Edge(3,1,1400)
+      graph.edges.filter { case Edge(src, dst, prop) => prop > 1000 }.collect.foreach(println)
+      // Edge(1,2,1800)
+      // Edge(3,1,1400)
 
-    //4. The EdgeTriplet class extends the Edge class by adding the srcAttr and dstAttr members which contain the source 
+      //4. The EdgeTriplet class extends the Edge class by adding the srcAttr and dstAttr members which contain the source 
     and destination properties, respectively.
     // triplets
     graph.triplets.take(3).foreach(println)
     //((1,SFO),(2,ORD),1800)
     //((2,ORD),(3,DFW),800)
-   //((3,DFW),(1,SFO),1400)
+    //((3,DFW),(1,SFO),1400)
 
     //5. Sort and print out the longest distance routes
     // print out longest routes
-    graph.triplets.sortBy(_.attr, ascending=false).map(triplet =>
+     graph.triplets.sortBy(_.attr, ascending=false).map(triplet =>
      "Distance " + triplet.attr.toString + " from " + triplet.srcAttr + " to " + triplet.dstAttr + 
      ".").collect.foreach(println) 
      //Distance 1800 from SFO to ORD.
