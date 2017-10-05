@@ -128,4 +128,5 @@ The SQL style of such join operation is shown as following:
 Reference
 
 [1] Scala Annotations, http://www.artima.com/pins1ed/annotations.html
+
 [2] Spark GraphX docs, https://spark.apache.org/docs/0.9.0/graphx-programming-guide.html#example-property-graph
