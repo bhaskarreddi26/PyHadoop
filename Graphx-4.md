@@ -1,3 +1,5 @@
+https://spark.apache.org/docs/0.9.0/graphx-programming-guide.html#example-property-graph
+
 **Graph Elements in GraphX**
 ![](https://spark.apache.org/docs/0.9.0/img/graphx_logo.png)
 
