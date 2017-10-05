@@ -78,7 +78,8 @@ Let’s have a look at Edge.scala, where the basic class Edge is defined. srcId 
     `var dstId: VertexId = 0,`
     `var attr: ED = null.asInstanceOf[ED])`
   `extends Serializable {`
-  ...
+
+
 EdgeTriplet is defined in EdgeTriplet.scala. srcAttr is the source vertex attribute, dstAttr is the destination vertex attribute. Therefore, EdgeTriplet contains those five (three are inherited from Edge) basic attributes.
 
 `class EdgeTriplet[VD, ED] extends Edge[ED] {`
@@ -92,6 +93,8 @@ EdgeTriplet is defined in EdgeTriplet.scala. srcAttr is the source vertex attrib
     `this`
   `}`
   `...`
+
+
 Actually, EdgeTriplet equals to Vertex join Edge, which makes EdgeTriplet contains both information of vertices and edges. So it’s useful especially when we want to use the attributes of both the vertex and its connected edges.
 Edge Triplet
 
