@@ -20,4 +20,7 @@ We will use Spark GraphX for the above computations and visualize the results us
 ![](https://cdn.edureka.co/blog/wp-content/uploads/2017/05/Flow-Diagram-Spark-GraphX-Edureka.gif)
 
 
-The property graph is a directed multigraph which can have multiple edges in parallel. Every edge and vertex has user defined properties associated with it. The parallel edges allow multiple relationships between the same vertices.
+The property graph isa directed multigraph which can have multiple edges in parallel. Every edge and vertex has user defined properties associated with it. The parallel edges allow multiple relationships between the same vertices.
+
+
+![](https://www.javacodegeeks.com/wp-content/uploads/2016/03/image01_flight-relationship.png)
