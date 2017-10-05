@@ -17,6 +17,14 @@ Graph contains mainly three objects, vertices, edges and triplets. The triplet i
 
 ![](https://spark.apache.org/docs/1.1.0/img/triplet.png)
 
+**The Property Graph**
+
+The property graph is a directed multigraph with user defined objects attached to each vertex and edge. A directed multigraph is a directed graph with potentially multiple parallel edges sharing the same source and destination vertex. The ability to support parallel edges simplifies modeling scenarios where there can be multiple relationships (e.g., co-worker and friend) between the same vertices. Each vertex is keyed by a unique 64-bit long identifier (VertexID). GraphX does not impose any ordering constraints on the vertex identifiers. Similarly, edges have corresponding source and destination vertex identifiers.
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TN4_kl9dqYQsUB-8amHQYMzn2L5_6Rwv5NbPM_6GKFBWJJn1wQ)
+
+
+
 `abstract class Graph[VD: ClassTag, ED: ClassTag] protected () extends Serializable {`
   `@transient val vertices: VertexRDD[VD]`
   `@transient val edges: EdgeRDD[ED]`
