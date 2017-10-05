@@ -36,3 +36,45 @@ As a starting simple example, we will analyze three flights. For each flight, we
 
 
 ![](https://www.javacodegeeks.com/wp-content/uploads/2016/03/image04_3-vertex-relationship.png)
+
+
+
+
+///FileStore/tables/2ko1cy131507093159673/USA_Flight_Datset___Spark_Tutorial___Edureka-c5240.csv
+
+
+      import org.apache.spark._
+      import org.apache.spark.rdd.RDD
+      import org.apache.spark.graphx._
+
+
+
+     // create vertices RDD with ID and Name
+     val vertices=Array((1L, ("SFO")),(2L, ("ORD")),(3L,("DFW")))
+     val vRDD= sc.parallelize(vertices)
+     vRDD.take(1)
+     // Array((1,SFO)) 
+     // Defining a default vertex called nowhere
+     val nowhere = "nowhere"
+
+
+    // create routes RDD with srcid, destid, distance
+    val edges = Array(Edge(1L,2L,1800),Edge(2L,3L,800),Edge(3L,1L,1400))
+    val eRDD= sc.parallelize(edges) 
+    eRDD.take(2)
+   // Array(Edge(1,2,1800), Edge(2,3,800))
+
+
+
+       // define the graph
+        val graph = Graph(vRDD,eRDD, nowhere)
+       // graph vertices
+       graph.vertices.collect.foreach(println)
+      // (2,ORD)
+      // (1,SFO)
+     // (3,DFW) 
+    // graph edges
+    graph.edges.collect.foreach(println) 
+   // Edge(1,2,1800)
+   // Edge(2,3,800)
+   // Edge(3,1,1400)
