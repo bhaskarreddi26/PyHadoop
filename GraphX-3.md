@@ -24,3 +24,11 @@ The property graph isa directed multigraph which can have multiple edges in para
 
 
 ![](https://www.javacodegeeks.com/wp-content/uploads/2016/03/image01_flight-relationship.png)
+
+
+As a starting simple example, we will analyze three flights. For each flight, we have the following information:
+
+        Originating Airport	Destination Airport	Distance
+        SFO	                ORD	                1800 miles
+        ORD	                DFW	                800 miles
+        DFW	                SFO              	1400 miles
