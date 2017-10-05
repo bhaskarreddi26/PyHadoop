@@ -32,3 +32,7 @@ As a starting simple example, we will analyze three flights. For each flight, we
         SFO	                ORD	                1800 miles
         ORD	                DFW	                800 miles
         DFW	                SFO              	1400 miles
+
+
+
+![](https://www.javacodegeeks.com/wp-content/uploads/2016/03/image04_3-vertex-relationship.png)
