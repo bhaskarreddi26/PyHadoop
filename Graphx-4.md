@@ -1,4 +1,5 @@
 **Graph Elements in GraphX**
+![](https://spark.apache.org/docs/0.9.0/img/graphx_logo.png)
 
 In Graph.scala,  it defines a abstract class Graph, representing a graph in which vertices and edges can be associate with arbitrary objects. The comments for Graph is as following:
 
