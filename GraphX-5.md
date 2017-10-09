@@ -9,20 +9,23 @@ Disclaimer: This is very old data ( from 2004 ) , which is stale and it serves h
 
 
 `mysql> describe us2004_companies;`
-`+-------------+--------------+------+-----+---------+----------------+`
-`| Field       | Type         | Null | Key | Default | Extra          |`
-`+-------------+--------------+------+-----+---------+----------------+`
-`| id          | int(11)      | NO   | PRI | NULL    | auto_increment |`
-`| companyname | varchar(128) | NO   |     |         |                |`
-`| bod         | varchar(255) | NO   |     |         |                |`
-`| url         | varchar(255) | NO   |     |         |                |`
-`| objects     | mediumtext   | NO   |     | NULL    |                |`
-`| BOD_URL     | varchar(255) | NO   |     |         |                |`
-`| symbol      | varchar(50)  | NO   |     |         |                |`
-`+-------------+--------------+------+-----+---------+----------------+`
+
+   `+-------------+--------------+------+-----+---------+----------------+`
+   `| Field       | Type         | Null | Key | Default | Extra          |`
+   `+-------------+--------------+------+-----+---------+----------------+`
+   `| id          | int(11)      | NO   | PRI | NULL    | auto_increment |`
+   `| companyname | varchar(128) | NO   |     |         |                |`
+   `| bod         | varchar(255) | NO   |     |         |                |`
+   `| url         | varchar(255) | NO   |     |         |                |`
+   `| objects     | mediumtext   | NO   |     | NULL    |                |`
+   `| BOD_URL     | varchar(255) | NO   |     |         |                |`
+   `| symbol      | varchar(50)  | NO   |     |         |                |`
+    `+-------------+--------------+------+-----+---------+----------------+`
+
 `7 rows in set (0.01 sec)`
 
 `mysql> describe us2004_directors;`
+
 `+--------------+--------------+------+-----+---------+----------------+`
 `| Field        | Type         | Null | Key | Default | Extra          |`
 `+--------------+--------------+------+-----+---------+----------------+`
@@ -34,6 +37,7 @@ Disclaimer: This is very old data ( from 2004 ) , which is stale and it serves h
 `| url          | varchar(255) | NO   |     |         |                |`
 `| institutions | varchar(255) | NO   |     |         |                |`
 `+--------------+--------------+------+-----+---------+----------------+`
+
 `7 rows in set (0.00 sec)`
 
 
