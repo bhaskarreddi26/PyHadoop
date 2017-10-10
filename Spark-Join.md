@@ -1,0 +1,1 @@
+![](http://kirillpavlov.com/images/join-types.png)
