@@ -9,7 +9,7 @@ We get Iterator as an argument for mapPartition, through which we can iterate th
 In this example, we will use mapPartitionsWithIndex(), which apart from similar to mapPartitions() also provides an index to track the Partition No
 
 
-`scala> val rdd1 =  sc.parallelize(`
+    `scala> val rdd1 =  sc.parallelize(`
      `|                List(`
      `|                   "yellow",   "red",`
      `|                   "blue",     "cyan",`
@@ -17,11 +17,11 @@ In this example, we will use mapPartitionsWithIndex(), which apart from similar 
      `|                ),`
      `|                3`
      `|             )`
-`rdd1: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[10] at parallelize at :21`
+      `rdd1: org.apache.spark.rdd.RDD[String] = ParallelCollectionRDD[10] at parallelize at :21`
 
-`scala>`
+      `scala>`
 
-`scala> val mapped =   rdd1.mapPartitionsWithIndex{`
+      `scala> val mapped =   rdd1.mapPartitionsWithIndex{`
      `|                   // 'index' represents the Partition No`
      `|                   // 'iterator' to iterate through all elements`
      `|                   //                         in the partition`
@@ -34,11 +34,11 @@ In this example, we will use mapPartitionsWithIndex(), which apart from similar 
      `|                      myList.map(x => x + " -> " + index).iterator`
      `|                   }`
      `|                }`
-`mapped: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[11] at mapPartitionsWithIndex at :23`
+      `mapped: org.apache.spark.rdd.RDD[String] = MapPartitionsRDD[11] at mapPartitionsWithIndex at :23`
 
-`scala>`
+      `scala>`
      `| mapped.collect()`
-`Called in Partition -> 1`
-`Called in Partition -> 2`
-`Called in Partition -> 0`
-`res7: Array[String] = Array(yellow -> 0, red -> 1, blue -> 1, cyan -> 2, black -> 2)`
+      `Called in Partition -> 1`
+      `Called in Partition -> 2`
+       `Called in Partition -> 0`
+       `res7: Array[String] = Array(yellow -> 0, red -> 1, blue -> 1, cyan -> 2, black -> 2)`
