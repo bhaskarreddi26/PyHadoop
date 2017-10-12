@@ -32,37 +32,37 @@ combineByKey takes 3 function arguments:
 */
 
 
-    val rdd = sc.parallelize(List(
-    ("A", 3), 
-    ("A", 9), 
-    ("A", 12), 
-    ("A", 0), 
-    ("A", 5),
-    ("B", 4),
-    ("B", 10), 
-    ("B", 11),
-    ("B", 20), 
-    ("B", 25),
-    ("C", 32), 
-    ("C", 91),
-    ("C", 122), 
-    ("C", 3), 
-    ("C", 55)
+      val rdd = sc.parallelize(List(
+      ("A", 3), 
+      ("A", 9), 
+      ("A", 12), 
+      ("A", 0), 
+      ("A", 5),
+      ("B", 4),
+      ("B", 10), 
+      ("B", 11),
+      ("B", 20), 
+      ("B", 25),
+      ("C", 32), 
+      ("C", 91),
+      ("C", 122), 
+      ("C", 3), 
+      ("C", 55)
            ), 2)
-    /*
-    Logic:
-    1.(x:Int) => (x, 1),(acc:(Int, Int), x) 
-    //created key (A,B,C) withvalue 1 so every time will get in RDD plus one in results
+       /*
+       Logic:
+       1.(x:Int) => (x, 1),(acc:(Int, Int), x) 
+       //created key (A,B,C) withvalue 1 so every time will get in RDD plus one in results
 
-   2.   => (acc._1 + x, acc._2 + 1),
+       2.   => (acc._1 + x, acc._2 + 1),
              (acc1:(Int, Int), acc2:(Int, Int))
           => (acc1._1 + acc2._1, acc1._2 + acc2._2)
           
-    //adding key with key and value with value
-   */
+       //adding key with key and value with value
+     */
 
-    val workCountcombinebykey = rdd.combineByKey(
-     (x:Int) => (x, 1),(acc:(Int, Int), x) 
+       val workCountcombinebykey = rdd.combineByKey(
+          (x:Int) => (x, 1),(acc:(Int, Int), x) 
           => (acc._1 + x, acc._2 + 1),
              (acc1:(Int, Int), acc2:(Int, Int))
           => (acc1._1 + acc2._1, acc1._2 + acc2._2)
