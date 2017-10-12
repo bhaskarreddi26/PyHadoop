@@ -73,3 +73,32 @@ Creating Dataframe
      amount.ClientCode=client.ClientCode GROUP BY client.ClientName")
 
      result.show()
+
+
+         +----------+----------+
+         |ClientName|ClientCode|
+         +----------+----------+
+         |  Abhishek|        C1|
+         |    XUELAN|        C2|
+         |     Xahir|        C3|
+         +----------+----------+
+
+         +----------+-------------+--------+
+         |ClientCode|OperationCode|opAmount|
+         +----------+-------------+--------+
+         |        C1|          C11|    3122|
+         |        C1|          C12|    4312|
+         |        C2|          C21|   21431|
+         |        C2|          C31|   87588|
+         |        C3|          C32|   98769|
+         |        C3|          C33|   86567|
+         |        C3|          C34|   23112|
+         +----------+-------------+--------+
+
+       +----------+-----------------+
+       |clientName|          average|
+       +----------+-----------------+
+       |  Abhishek|           3717.0|
+       |     Xahir|69482.66666666667|
+       |    XUELAN|          54509.5|
+       +----------+-----------------+
