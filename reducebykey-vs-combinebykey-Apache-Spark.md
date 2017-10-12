@@ -15,7 +15,7 @@ Please follow the following links
 
 -----------------------
 
-/*
+
 CombineByKey() is very similar to combiner of the mapreduce framework. In the MR framework, the combiner function is called in the map phase to do a local reduction and this value is then eventually sent over to reducer, this results in large savings if network bandwith.
 
 In SPARK, groupByKey() doesnt do any local aggregation while computing on the partition’s data, this is where combineByKey() comes in handy.
@@ -29,7 +29,7 @@ combineByKey takes 3 function arguments:
 - mergeValue: This function is called to add the new value to the existing accumulator of that key(which was created by createCombiner)
 
 - mergeCombiners: This Function is called to combine values of a key across multiple partitions
-*/
+
 
 
       val rdd = sc.parallelize(List(
@@ -59,7 +59,7 @@ combineByKey takes 3 function arguments:
           => (acc1._1 + acc2._1, acc1._2 + acc2._2)
           
        //adding key with key and value with value
-     */
+        */
 
        val workCountcombinebykey = rdd.combineByKey(
           (x:Int) => (x, 1),(acc:(Int, Int), x) 
