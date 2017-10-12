@@ -62,17 +62,17 @@ Creating Dataframe
      dfAverage.show()
 
 
-     import sqlContext.implicits._
-     import org.apache.spark.sql._
-     import org.apache.spark.sql.functions._
+        import sqlContext.implicits._
+        import org.apache.spark.sql._
+        import org.apache.spark.sql.functions._
      
-      client.createOrReplaceTempView("client")
-      amount.createOrReplaceTempView("amount")
+         client.createOrReplaceTempView("client")
+         amount.createOrReplaceTempView("amount")
 
-     val result = spark.sqlContext.sql("SELECT client.ClientName,avg(amount.opAmount)as average FROM amount JOIN client on 
-     amount.ClientCode=client.ClientCode GROUP BY client.ClientName")
+         val result = spark.sqlContext.sql("SELECT client.ClientName,avg(amount.opAmount)as average FROM amount JOIN client on 
+       amount.ClientCode=client.ClientCode GROUP BY client.ClientName")
 
-     result.show()
+       result.show()
 
 
          +----------+----------+
