@@ -179,3 +179,11 @@ http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Da
               val path = "/FileStore/tables/eqfgreea1507828581573/people.json"
               val peopleDS = spark.read.json(path).as[Person]
              peopleDS.show()
+
+
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-SQL-programming-guide-notes-1
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/How-do-I-flatten-JSON-blobs-into-a-Data-Frame-using-Spark-Spark-SQL
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Problems-Spark-SQL-solves
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-and-dataset-type
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-links
