@@ -140,8 +140,7 @@ Creating Dataframe
      sqlDF.show()
  
 
-
-**Note **
+**Note**
 
 Temporary views in Spark SQL are session-scoped and will disappear if the session that creates it terminates. If you want to have a temporary view that is shared among all sessions and keep alive until the Spark application terminates, you can create a global temporary view. Global temporary view is tied to a system preserved database global_temp, 
 
