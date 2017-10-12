@@ -157,4 +157,7 @@ Temporary views in Spark SQL are session-scoped and will disappear if the sessio
        spark.newSession().sql("SELECT * FROM global_temp.people1").show()
 
 -------------------------------------
+**Datasets** 
+
+Datasets are similar to RDDs, however, instead of using Java serialization or Kryo they use a specialized [Encoder](http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.Encoder)to serialize the objects for processing or transmitting over the network.
 
