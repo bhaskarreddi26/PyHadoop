@@ -55,11 +55,11 @@ Creating Dataframe
     amount.show()
 
 
-   val dfAverage = amount.join(client,"clientCode") .groupBy(client("clientName"))
-     .agg(avg(amount("opAmount")).as("average"))
-       .select("clientName","average")
+      val dfAverage = amount.join(client,"clientCode") .groupBy(client("clientName"))
+       .agg(avg(amount("opAmount")).as("average"))
+        .select("clientName","average")
 
-     dfAverage.show()
+       dfAverage.show()
 
 
         import sqlContext.implicits._
