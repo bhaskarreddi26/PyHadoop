@@ -1,3 +1,5 @@
+in Spark 2.0, DataFrames are just Dataset of Rows in Scala and Java API. These operations are also referred as “untyped transformations” in contrast to “typed transformations” come with strongly typed Scala/Java Datasets.
+
 **Starting Point: SparkSession**
 
     import org.apache.spark.sql.SparkSession
