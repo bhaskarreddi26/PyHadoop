@@ -147,3 +147,14 @@ Temporary views in Spark SQL are session-scoped and will disappear if the sessio
       // Register the DataFrame as a global temporary view
       df.createGlobalTempView("people")
 
+
+
+       // Register the DataFrame as a global temporary view
+        df.createGlobalTempView("people1")
+
+        spark.sql("SELECT * FROM global_temp.people1").show()
+
+       spark.newSession().sql("SELECT * FROM global_temp.people1").show()
+
+-------------------------------------
+
