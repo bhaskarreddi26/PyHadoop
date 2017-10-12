@@ -104,3 +104,25 @@ Creating Dataframe
        |     Xahir|69482.66666666667|
        |    XUELAN|          54509.5|
        +----------+-----------------+
+
+------------------------------------------
+
+
+
+
+      val df = spark.read.json("/FileStore/tables/eqfgreea1507828581573/people.json")
+      //
+      df.show()
+      //
+      import spark.implicits._
+      //
+      df.printSchema()
+      //
+     //select
+     df.select("name","age").show()
+    //add +1
+    df.select($"name", $"age" + 1).show()
+    //filter
+    df.filter($"age" > 21).show()
+    //
+    df.groupBy("age").count().show()
