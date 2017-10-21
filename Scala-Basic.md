@@ -154,3 +154,7 @@ or
         return (x+y)
       }
 
+
+or 
+
+         def add(x:Int ,y:Int) return (x+y) 
