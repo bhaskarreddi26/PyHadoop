@@ -100,3 +100,25 @@ Note : var a = 0 then only execute at least once but while not execute once
 Not using in scala as we can achive same using function programming
 
 -------------------------------------------------
+- For loop
+
+       var result ="";
+       for(a <- 1 to  100){
+       result = result +a
+       if( a < 1000 result=result +","
+       }
+       println(result)
+
+or 
+
+    val xs= List(1,2,3,4)
+    var result=List[Int]()  //since List is empty we need to add List[Int]() to make it Int List
+
+    result = result :+ (a + 1)
+    println(result)
+
+or functional for loop
+
+   val xs = List(1,2,3,4)
+   val result =for9 a<- xs) yield( a + 1)
+   println(result)
