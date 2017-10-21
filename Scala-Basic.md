@@ -19,3 +19,43 @@
 Valid OPCHAR : Unicode Character from \u0020-\u007F
 
 http://unicode.org/charats/PDF/U000.pdf
+
+
+---------------------------------------------------
+
+If Else If
+
+Example 1:
+
+      val num =10;
+      val reult ="";
+
+      if(num<10){
+        result ="less then 10";
+       }else if(num >10){
+        result ="greter then 10";
+       }else{
+        result ="is 10";
+       }
+
+
+Example 2:
+
+      val num =10;
+      val reult ="";
+
+      if(num<10)  result ="less then 10";
+      else if(num >10)  result ="greter then 10";
+      else result ="is 10";
+      
+
+Example 3:
+
+      val num =10;
+      val reult =   if(num<10)  "less then 10";
+      else if(num >10)  "greter then 10";
+      else "is 10";
+
+--------------------------------------------------------------------
+
+
