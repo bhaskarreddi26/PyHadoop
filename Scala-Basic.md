@@ -147,9 +147,10 @@ or
           return (x+y)
           }
 
-def <method start > (x:int< input param namr>,y:Int) : Int <mehod return type > =<suppose to return something>{
+      
+      def <method start > (x:int< input param namr>,y:Int) : Int <mehod return type > =<suppose to return something>{
        
        //method body
         return (x+y)
-}
+      }
 
