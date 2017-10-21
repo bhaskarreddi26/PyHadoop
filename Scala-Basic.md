@@ -23,7 +23,7 @@ http://unicode.org/charats/PDF/U000.pdf
 
 ---------------------------------------------------
 
-If Else If
+- If Else If
 
 Example 1:
 
@@ -57,7 +57,7 @@ Example 3:
       else "is 10";
 
 --------------------------------------------------------------------
-While 
+- While 
 
      var a=100;
      var result ="";
@@ -83,7 +83,7 @@ or
 
 -------------------------------------------------
 
-Do while 
+- Do while 
        var a=100
        var result=""
        do{
