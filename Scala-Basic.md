@@ -83,6 +83,7 @@ or
 
 -------------------------------------------------
 
+Do while 
        var a=100
        var result=""
        do{
@@ -91,3 +92,9 @@ or
         a=a-1
           }while (a >0)
          println(result)
+
+
+Note : var a = 0 then only execute at least once but while not execute once
+Not using in scala as we can achive same using function programming
+
+-------------------------------------------------
