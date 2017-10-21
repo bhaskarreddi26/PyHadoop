@@ -57,5 +57,37 @@ Example 3:
       else "is 10";
 
 --------------------------------------------------------------------
+While 
+
+     var a=100;
+     var result ="";
+
+     while(a > 0){
+     result =result +a;
+     if(a < 0) result =result +",";
+     a=a-1;
+     }
+
+    print(result)
+
+or 
 
 
+        val result =( 1 to 100).reverse.mkString(",")
+       println(result )
+
+or 
+
+       println(( 100 to 1 by -1 ).reverse.mkString(","))
+      
+
+-------------------------------------------------
+
+       var a=100
+       var result=""
+       do{
+        result =result +a
+        if(a > 1)   result = result +","
+        a=a-1
+          }while (a >0)
+         println(result)
