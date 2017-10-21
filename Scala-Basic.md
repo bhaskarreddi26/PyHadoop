@@ -14,3 +14,8 @@
 - Any subsequent call to the val will return the same value when initially called upon
 - There is no such initially called upon 
 - lazy val can  be forgivingif an excetion happends 
+
+
+Valid OPCHAR : Unicode Character from \u0020-\u007F
+
+http://unicode.org/charats/PDF/U000.pdf
