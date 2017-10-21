@@ -122,3 +122,34 @@ or functional for loop
       val xs = List(1,2,3,4)
       val result =for ( a<- xs) yield( a + 1)
       println(result)
+
+-------------------------------------------------------
+
+String Interpolation
+
+       val a= 99
+        print( s" {$a} test String interpolation")
+
+
+or 
+
+       val a= 99
+        print( s" $a test String interpolation")
+
+
+
+--------------------------------------------------------
+
+- Method
+
+         def add(x:Int ,y:Int) :int = {
+         //body of the method
+          return (x+y)
+          }
+
+def <method start > (x:int< input param namr>,y:Int) : Int <mehod return type > =<suppose to return something>{
+       
+       //method body
+        return (x+y)
+}
+
