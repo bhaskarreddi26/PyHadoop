@@ -10,7 +10,7 @@
            a: Int = <lazy>
            res1: Int = 5
 
--lazy val will not evaluated until referenced 
--Any subsequent call to the val will return the same value when initially called upon
--There is no such initially called upon 
--lazy val can  be forgivingif an excetion happends 
+- lazy val will not evaluated until referenced 
+- Any subsequent call to the val will return the same value when initially called upon
+- There is no such initially called upon 
+- lazy val can  be forgivingif an excetion happends 
