@@ -1,2 +1,3 @@
-Val is not reassignable 
+Val is not reassignable.
+ 
 Var is reassiganable (rarley used)
