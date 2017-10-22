@@ -163,3 +163,10 @@ or
 
 
 ![](https://3.bp.blogspot.com/-g5jr3Rdgd_s/WevrAA3vueI/AAAAAAAAADI/usKPAH3ba_ohr3lHZnoYo2sW0O_5oY6wwCLcBGAs/s640/Capture.PNG)
+
+
+- Types returned from a method are inferred
+- Type inferencer will make the best judgment
+- If types are diffrent it will find a common ancestor
+
+------------------------------------------------------------------------------
