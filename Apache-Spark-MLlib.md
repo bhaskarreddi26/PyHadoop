@@ -96,5 +96,8 @@ Result :+1:
 
 
 -------------------------------------------------------------
+https://github.com/vaquarkhan/Apache-Spark-2x-Machine-Learning-Cookbook
+
+
 
 https://mapr.com/blog/using-apache-spark-sql-explore-sp-500-and-oil-stock-prices/
