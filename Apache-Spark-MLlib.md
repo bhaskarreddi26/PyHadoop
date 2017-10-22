@@ -96,3 +96,5 @@ Result :+1:
 
 
 -------------------------------------------------------------
+
+https://mapr.com/blog/using-apache-spark-sql-explore-sp-500-and-oil-stock-prices/
