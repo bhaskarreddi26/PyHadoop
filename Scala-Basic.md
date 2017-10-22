@@ -170,3 +170,10 @@ or
 - If types are diffrent it will find a common ancestor
 
 ------------------------------------------------------------------------------
+
+- Unit :  
+
+     val g = ()
+     q:Unit=()
+
+Unit will get when nothing to get , as compare to java  "Unit =Void " 
