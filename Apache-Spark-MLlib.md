@@ -38,3 +38,61 @@ For example, sales might increase when the marketing spends more on TV advertise
 
 -----------------------------------------------------------------
 
+         import org.apache.spark.ml.linalg.{Matrix, Vectors}
+         import org.apache.spark.ml.stat.Correlation
+         import org.apache.spark.sql.Row
+
+         val data = Seq(
+         Vectors.sparse(4, Seq((0, 1.0), (3, -2.0))),
+         Vectors.dense(4.0, 5.0, 0.0, 3.0),
+         Vectors.dense(6.0, 7.0, 0.0, 8.0),
+         Vectors.sparse(4, Seq((0, 9.0), (3, 1.0)))
+          )
+
+        val df = data.map(Tuple1.apply).toDF("features")
+        val Row(coeff1: Matrix) = Correlation.corr(df, "features").head
+        println("Pearson correlation matrix:\n" + coeff1.toString)
+
+        val Row(coeff2: Matrix) = Correlation.corr(df, "features", "spearman").head
+        println("Spearman correlation matrix:\n" + coeff2.toString)
+
+
+
+Result :+1: 
+
+                    Pearson correlation matrix:
+                    1.0                   0.055641488407465814  NaN  0.4004714203168137  
+                    0.055641488407465814  1.0                   NaN  0.9135958615342522  
+                    NaN                   NaN                   1.0  NaN                 
+                    0.4004714203168137    0.9135958615342522    NaN  1.0                 
+                    Spearman correlation matrix:
+                    1.0                  0.10540925533894532  NaN  0.40000000000000174  
+                    0.10540925533894532  1.0                  NaN  0.9486832980505141   
+                    NaN                  NaN                  1.0  NaN                  
+                    0.40000000000000174  0.9486832980505141   NaN  1.0   
+               
+                 import org.apache.spark.ml.linalg.{Matrix, Vectors}
+                 import org.apache.spark.ml.stat.Correlation
+                 import org.apache.spark.sql.Row
+                 data: Seq[org.apache.spark.ml.linalg.Vector] =
+                 List(
+                 (4,[0,3],[1.0,-2.0]),
+                    [4.0,5.0,0.0,3.0], 
+                    [6.0,7.0,0.0,8.0], 
+                 (4,[0,3],[9.0,1.0]))
+
+                 df: org.apache.spark.sql.DataFrame = [features: vector]
+                 coeff1: org.apache.spark.ml.linalg.Matrix =
+                 1.0                   0.055641488407465814  NaN  0.4004714203168137
+                 0.055641488407465814  1.0                   NaN  0.9135958615342522
+                 NaN                   NaN                   1.0  NaN
+                0.4004714203168137    0.9135958615342522    NaN  1.0
+
+               coeff2: org.apache.spark.ml.linalg.Matrix =
+               1.0                  0.10540925533894532  NaN  0.40000000000000174
+               0.10540925533894532  1.0                  NaN  0.9486832980505141
+               NaN                  NaN                  1.0  NaN
+              0.40000000000000174  0.9486832980505141   NaN  1.0
+
+
+-------------------------------------------------------------
