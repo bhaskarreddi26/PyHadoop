@@ -24,3 +24,27 @@ Joining data between DataFrames is one of the most common multi-DataFrame transf
 
 
 https://techmagie.wordpress.com/2015/12/19/understanding-spark-partitioning/
+
+
+
+**How many Partitions are good ?**
+
+Having too few and too large number of partitions has certain advantages and disadvantages.So it is recommended to partition judiciously depending upon your cluster configuration and requirements.
+
+**Disadvantages of too few partitions**
+
+- Less concurrency – You are not using advantages of parallelism. There could be worker nodes which are sitting ideal.
+Data skewing and improper resource utilization – Your data might be skewed on one partition and hence your one worker might be doing more than other workers and hence resource issues might come at that worker.
+
+
+**Disadvantages of too many partitions**
+
+- Task scheduling may take more time than actual execution time.
+
+So there is trade off between number of partitions.Below is recommended guideline –
+
+**Usually between 100 and 10K partitions depending upon cluster size and data.**
+
+> Lower bound – 2 X number of cores in cluster available to application
+
+> Upper bound – task should take 100+ ms time to execute.If it is taking less time than your partitioned data is too small and your application might be spending more time in scheduling the tasks.
