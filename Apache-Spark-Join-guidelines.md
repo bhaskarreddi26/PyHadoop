@@ -48,3 +48,6 @@ So there is trade off between number of partitions.Below is recommended guidelin
 > Lower bound – 2 X number of cores in cluster available to application
 
 > Upper bound – task should take 100+ ms time to execute.If it is taking less time than your partitioned data is too small and your application might be spending more time in scheduling the tasks.
+
+
+https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
