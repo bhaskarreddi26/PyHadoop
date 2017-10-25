@@ -15,4 +15,10 @@
 2. One of the datasets is small enough to fit in memory, in which case we can do a broadcast hash join (we will explain what this is later).
 
 > **Note that if the RDDs are colocated the network transfer can be avoided, along with the shuffle.**
+> **Always persist after repartitioning.**
+
+- DataFrame Joins
+Joining data between DataFrames is one of the most common multi-DataFrame transformations. The standard SQL join types are all supported and can be specified as the joinType in df.join(otherDf, sqlCondition, joinType) when performing a join. As with joins between RDDs, joining with nonunique keys will result in the cross product (so if the left table has R1 and R2 with key1 and the right table has R3 and R5 with key1 you will get (R1, R3), (R1, R5), (R2, R3), (R2, R5)) in the output. 
+
+> Using a self join and a lit(true), you can produce the cartesian product of your Dataset, which can be useful but also illustrates how joins (especially self joins) can easily result in unworkable data sizes.
 
