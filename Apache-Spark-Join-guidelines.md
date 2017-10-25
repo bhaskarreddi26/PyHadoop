@@ -75,4 +75,4 @@ Side note: I say "appending" above because in production I never use SaveMode.Ap
 
 
 
-
+https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html
