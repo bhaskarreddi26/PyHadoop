@@ -53,6 +53,10 @@ So there is trade off between number of partitions.Below is recommended guidelin
 https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
 
 
+
+
+**What is an optimized way of joining large tables in Spark SQL**
+
 - Use a broadcast join if you can (see this notebook). 
 
 - Consider using a very large cluster (it's cheaper that you may think).
@@ -66,3 +70,9 @@ https://stackoverflow.com/questions/28395376/does-a-join-of-co-partitioned-rdds-
   -  join sub-partitions serially in a loop, "appending" to the same final result table.
 
 Side note: I say "appending" above because in production I never use SaveMode.Append. It is not idempotent and that's a dangerous thing. I use SaveMode.Overwrite deep into the subtree of a partitioned table tree structure. Prior to 2.0.0 and 1.6.2 you'll have to delete _SUCCESS or metadata files or dynamic partition discovery will choke.
+
+
+
+
+
+
