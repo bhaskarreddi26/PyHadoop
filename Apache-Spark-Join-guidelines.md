@@ -22,3 +22,5 @@ Joining data between DataFrames is one of the most common multi-DataFrame transf
 
 > Using a self join and a lit(true), you can produce the cartesian product of your Dataset, which can be useful but also illustrates how joins (especially self joins) can easily result in unworkable data sizes.
 
+
+https://techmagie.wordpress.com/2015/12/19/understanding-spark-partitioning/
