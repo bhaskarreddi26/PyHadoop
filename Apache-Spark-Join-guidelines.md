@@ -14,5 +14,5 @@
 
 2. One of the datasets is small enough to fit in memory, in which case we can do a broadcast hash join (we will explain what this is later).
 
-**> Note that if the RDDs are colocated the network transfer can be avoided, along with the shuffle.**
+> ** Note that if the RDDs are colocated the network transfer can be avoided, along with the shuffle.**
 
