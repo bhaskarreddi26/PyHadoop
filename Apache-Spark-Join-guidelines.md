@@ -79,3 +79,35 @@ https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-bill
 
 
 https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/avoiding_shuffle_less_stage,_more_fast/joining-a-large-and-a-small-rdd.html
+
+----------------------------------------------------------
+
+Spark will have better read performance when data is filtered at data source.
+
+However, just adding any predicates against Cassandra table columns will guarantee that data will be filtered at Cassandra data source. There are certain predicate pushdown rules apply to Spark-SQL. These rules depend on the data source behind each table. I will be covering Cassandra predicate pushdown rules in a separate post.
+
+Optimization Rule #2:  Minimize number of spark tasks in scan/read phase
+
+Spark plan creates multiple stages in read phase to read each table. There is a separate stage for each table. The number of tasks in each stage depends on the number of data partitions spark has to read into memory. By having efficient partitioning strategy on tables and utilizing proper predicates against partitions you can minimize the number of tasks in read stage.
+
+For example, Single partition scans using = operator will create fewer tasks than multi-partition scans using “IN” operator.
+
+Optimization Rule #3:  Order of tables in FROM clause matters. Keep the table with the largest size at the top.
+
+Spark table is based on Dataframe which is based on RDD. In simple terms, RDD is a distribute collection. Spark SQL JOIN operation is very similar to fold left operation on a collection.
+
+This post is not about Scala or functional programming concepts. However, it helps to know how fold left operation works on a collection. Refer to below link for the explanation of fold left. http://alvinalexander.com/scala/how-to-walk-scala-collections-reduceleft-foldright-cookbook
+
+As you can see in the picture of Spark plan JOIN operation requires shuffling data from second table executors to first table executors to perform JOIN operation. Shuffle is very expensive operation on IO & CPU. This operation is repeated until all tables to the right are merged with the result on the left.
+
+By keeping the table with largest data size in join operation at the top you are avoiding shuffling largest data.
+
+Optimization Rule #4:  Keep consistent partitioning strategy across JOINing tables 
+
+By having common partition keys it makes it easier to write queries with filters that can be applied across many of the joining tables.
+
+Optimization Rule #5:  Minimize the number of tables in JOIN.
+
+As you can see in the timeline of the plan picture, reads are parallel operations. However, JOINs are sequential steps. That means every join step adds to the timeline of the total execution of the query.
+
+Use proper denormalization techniques to reduce the number of tables in your data model.
