@@ -76,3 +76,6 @@ Side note: I say "appending" above because in production I never use SaveMode.Ap
 
 
 https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html
+
+
+https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/avoiding_shuffle_less_stage,_more_fast/joining-a-large-and-a-small-rdd.html
