@@ -136,3 +136,6 @@ If the medium size RDD does not fit fully into memory but its key set does, it i
      reducedRDD.join(mediumRDD)
 
 It is important to note that the efficiency gain here depends on the filter operation actually reducing the size of the larger RDD. If there are not a lot of entries lost here (e.g., because the medium size RDD is some king of large dimension table), there is nothing to be gained with this strategy
+
+
+
