@@ -426,6 +426,5 @@ inputForeach.foreach(x => println(x + 1))
 ```
 ![each.png](https://github.com/rklick-solutions/spark-tutorial/wiki/images/each.png)
 
-[Spark SQL](https://github.com/rklick-solutions/spark-tutorial/wiki/Spark-SQL)
 
 
