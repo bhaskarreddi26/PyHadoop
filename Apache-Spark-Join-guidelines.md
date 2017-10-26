@@ -111,3 +111,28 @@ Optimization Rule #5:  Minimize the number of tables in JOIN.
 As you can see in the timeline of the plan picture, reads are parallel operations. However, JOINs are sequential steps. That means every join step adds to the timeline of the total execution of the query.
 
 Use proper denormalization techniques to reduce the number of tables in your data model.
+
+
+-----------------------------------------------------------
+
+**Joining a large and a small RDD**
+
+If the small RDD is small enough to fit into the memory of each worker we can turn it into a broadcast variable and turn the entire operation into a so called map side join for the larger RDD [23]. In this way the larger RDD does not need to be shuffled at all. This can easily happen if the smaller RDD is a dimension table.
+
+      val smallLookup = sc.broadcast(smallRDD.collect.toMap)
+      largeRDD.flatMap { case(key, value) =>
+      smallLookup.value.get(key).map { otherValue =>
+      (key, (value, otherValue))
+       }
+       }
+
+
+  **Joining a large and a medium size RDD**
+
+If the medium size RDD does not fit fully into memory but its key set does, it is possible to exploit this [23]. As a join will discard all elements of the larger RDD that do not have a matching partner in the medium size RDD, we can use the medium key set to do this before the shuffle. If there is a significant amount of entries that gets discarded this way, the resulting shuffle will need to transfer a lot less data.
+
+     val keys = sc.broadcast(mediumRDD.map(_._1).collect.toSet)
+     val reducedRDD = largeRDD.filter{ case(key, value) => keys.value.contains(key) }
+     reducedRDD.join(mediumRDD)
+
+It is important to note that the efficiency gain here depends on the filter operation actually reducing the size of the larger RDD. If there are not a lot of entries lost here (e.g., because the medium size RDD is some king of large dimension table), there is nothing to be gained with this strategy
