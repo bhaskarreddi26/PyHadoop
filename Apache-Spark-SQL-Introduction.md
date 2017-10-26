@@ -967,3 +967,4 @@ object CreatingDatasets {
 * https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-and-dataset-type
 * https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-links
 * https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html
+* https://cwiki.apache.org/confluence/display/SPARK/Spark+SQL+Internals
