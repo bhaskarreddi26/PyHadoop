@@ -53,5 +53,6 @@ https://jaceklaskowski.gitbooks.io/mastering-apache-spark/content/spark-dagsched
 
 * [http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd](http://stackoverflow.com/questions/25836316/where-to-learn-how-dag-works-under-the-covers-in-rdd)
 
+* https://stackoverflow.com/questions/25836316/how-dag-works-under-the-covers-in-rdd
 
 * [https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark](https://www.quora.com/As-it-is-mentioned-Apache-Spark-follows-a-DAG-Directed-Acyclic-Graph-execution-engine-for-execution-What-is-the-whole-concept-about-it-and-the-overall-architecture-of-the-Spark)
