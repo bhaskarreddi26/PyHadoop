@@ -958,4 +958,11 @@ object CreatingDatasets {
 
 
 
+--------------------------------------------
 
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-SQL
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-SQL-programming-guide-notes-1
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/How-do-I-flatten-JSON-blobs-into-a-Data-Frame-using-Spark-Spark-SQL
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Problems-Spark-SQL-solves
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-and-dataset-type
+* https://github.com/vaquarkhan/vk-wiki-notes/wiki/Spark-SQL-links
