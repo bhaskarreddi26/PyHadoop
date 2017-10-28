@@ -143,3 +143,4 @@ It is important to note that the efficiency gain here depends on the filter oper
 * http://www.treselle.com/blog/apache-spark-on-yarn-performance-and-bottlenecks/
 * https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/avoiding_shuffle_less_stage,_more_fast/joining-a-large-and-a-medium-size-rdd.html
 * https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
+* https://dzone.com/articles/apache-spark-performance-tuning-degree-of-parallel
