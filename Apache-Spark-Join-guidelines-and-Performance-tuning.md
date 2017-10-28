@@ -198,3 +198,8 @@ Example : input dataset size is about 1.5 GB (1500 MB) and going with 128 MB per
 
 **Total input dataset size / partition size => 1500 / 128 = 11.71 = ~12 partitions**
 
+
+
+**“Stragglers” are tasks within a stage that take much longer to execute than other tasks.**
+
+http://www.treselle.com/blog/apache-spark-performance-tuning-straggler-tasks/
