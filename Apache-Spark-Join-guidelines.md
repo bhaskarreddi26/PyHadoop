@@ -138,4 +138,8 @@ If the medium size RDD does not fit fully into memory but its key set does, it i
 It is important to note that the efficiency gain here depends on the filter operation actually reducing the size of the larger RDD. If there are not a lot of entries lost here (e.g., because the medium size RDD is some king of large dimension table), there is nothing to be gained with this strategy
 
 
+----------------------------
 
+* http://www.treselle.com/blog/apache-spark-on-yarn-performance-and-bottlenecks/
+* https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/avoiding_shuffle_less_stage,_more_fast/joining-a-large-and-a-medium-size-rdd.html
+* https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
