@@ -138,9 +138,25 @@ If the medium size RDD does not fit fully into memory but its key set does, it i
 It is important to note that the efficiency gain here depends on the filter operation actually reducing the size of the larger RDD. If there are not a lot of entries lost here (e.g., because the medium size RDD is some king of large dimension table), there is nothing to be gained with this strategy
 
 
-----------------------------
+--------------------------------------------------------------
 
 * http://www.treselle.com/blog/apache-spark-on-yarn-performance-and-bottlenecks/
 * https://umbertogriffo.gitbooks.io/apache-spark-best-practices-and-tuning/content/avoiding_shuffle_less_stage,_more_fast/joining-a-large-and-a-medium-size-rdd.html
 * https://databricks.gitbooks.io/databricks-spark-knowledge-base/content/performance_optimization/how_many_partitions_does_an_rdd_have.html
 * https://dzone.com/articles/apache-spark-performance-tuning-degree-of-parallel
+
+------------------------------------------------------------------------
+- PROCESS_LOCAL means data is in the same JVM as the code that's running, so
+ it's really fast.
+
+- NODE_LOCAL means that a block is being read on this node, therefore the "network" part is omitted, therefore NODE_LOCAL in general should be faster(might mean that the data is in HDFS on the  same node, or in another executor on the same node, so is a little slower because the data has to travel across an IPC connection.) .
+
+- RACK_LOCAL means that a block is being read from an HDD on a remote node and then is passed over network(data is on a different server so needs to be sent over the network.).
+
+
+> The main tunable option is how far long the scheduler waits before  starting to move data rather than code.  Those are the spark.locality.
+
+> * settings here: http://spark.apache.org/docs/latest/configuration.html
+>  If you want to prevent this from happening entirely, you can set the  values to ridiculously high numbers.  The documentation also mentions that "0" has special meaning, so you can try that as well.
+
+ 
