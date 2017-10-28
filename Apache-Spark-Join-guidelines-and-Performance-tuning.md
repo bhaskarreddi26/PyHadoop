@@ -190,4 +190,11 @@ Wait time is configured by spark job configuration:
 The wait timeout for fallback between each level can be configured individually or all together in one parameter; see the spark.locality parameters on the configuration page for details.
 See class org.apache.spark.scheduler.TaskSetManager for mode detailed logic of recalculating locality levels available for execution.
 
-**> spark.locality.wait to 0 to insure that all tasks are being worked on immediately**
+> ** spark.locality.wait to 0 to insure that all tasks are being worked on immediately**
+
+> The Thumb Rule to decide the partition size while working with HDFS is 128 MB.
+
+Example : input dataset size is about 1.5 GB (1500 MB) and going with 128 MB per partition, the number of partitions will be:
+
+**Total input dataset size / partition size => 1500 / 128 = 11.71 = ~12 partitions**
+
