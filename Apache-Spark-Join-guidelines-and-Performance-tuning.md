@@ -153,6 +153,9 @@ It is important to note that the efficiency gain here depends on the filter oper
 
 - RACK_LOCAL means that a block is being read from an HDD on a remote node and then is passed over network(data is on a different server so needs to be sent over the network.).
 
+> Spark switches to lower locality levels when there's no unprocessed data on a node that has idle CPUs.  In that situation you have two options: wait  until the busy CPUs free up so you can start another task that uses data on
+> that server, or start a new task on a farther away server that needs to  bring data from that remote place.  What Spark typically does is wait a bit in the hopes that a busy CPU frees up.  Once that timeout expires, it  starts moving the data from far away to the free CPU.
+
 
 > The main tunable option is how far long the scheduler waits before  starting to move data rather than code.  Those are the spark.locality.
 
