@@ -190,3 +190,4 @@ Wait time is configured by spark job configuration:
 The wait timeout for fallback between each level can be configured individually or all together in one parameter; see the spark.locality parameters on the configuration page for details.
 See class org.apache.spark.scheduler.TaskSetManager for mode detailed logic of recalculating locality levels available for execution.
 
+**> spark.locality.wait to 0 to insure that all tasks are being worked on immediately**
