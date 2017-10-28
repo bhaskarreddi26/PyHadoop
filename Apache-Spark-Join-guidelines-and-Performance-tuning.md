@@ -162,4 +162,31 @@ It is important to note that the efficiency gain here depends on the filter oper
 > * settings here: http://spark.apache.org/docs/latest/configuration.html
 >  If you want to prevent this from happening entirely, you can set the  values to ridiculously high numbers.  The documentation also mentions that "0" has special meaning, so you can try that as well.
 
- 
+ -------------------------------------------------------------------------------------
+
+**Spark Data Locality**
+
+What is data locality
+
+Data locality is used to describe how spark maps tasks and input data. It is done to minimize overhead to transfer input data to task. Here you can find detaied post how Spark calculates data locality for RDD.
+
+according to spark documentation there are 5 types of data locality:
+
+* PROCESS_LOCAL
+* NODE_LOCAL
+* NO_PREF
+* RACK_LOCAL
+* ANY
+
+After some node finished current work, Spark starts look for new task for it. Going though all pending tasks Spark tries to find task with data locality not greater than the current MaxDataLocality. MaxDataLocality is calculated based on diff between current time and last launch time: curTime - lastLaunchTime >= localityWaits(currentLocalityIndex).
+
+Wait time is configured by spark job configuration:
+
+* spark.locality.wait (change wait time for all cases)
+* spark.locality.wait.node (for NODE_LOCAL)
+* spark.locality.wait.process (for PROCESS_LOCAL)
+* spark.locality.wait.rack (for RACK_LOCAL)
+
+The wait timeout for fallback between each level can be configured individually or all together in one parameter; see the spark.locality parameters on the configuration page for details.
+See class org.apache.spark.scheduler.TaskSetManager for mode detailed logic of recalculating locality levels available for execution.
+
