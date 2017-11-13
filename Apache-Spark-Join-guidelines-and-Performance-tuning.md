@@ -204,3 +204,7 @@ Example : input dataset size is about 1.5 GB (1500 MB) and going with 128 MB per
 
 * http://www.treselle.com/blog/apache-spark-performance-tuning-straggler-tasks/
 * https://spark.apache.org/docs/latest/tuning.html
+
+
+
+- https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-Tuning-and-Debugging
