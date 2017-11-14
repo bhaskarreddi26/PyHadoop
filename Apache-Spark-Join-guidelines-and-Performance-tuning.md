@@ -206,5 +206,8 @@ Example : input dataset size is about 1.5 GB (1500 MB) and going with 128 MB per
 * https://spark.apache.org/docs/latest/tuning.html
 
 
+Other Pages:
 
 - https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-Tuning-and-Debugging
+- https://github.com/vaquarkhan/vk-wiki-notes/wiki/Apache-Spark-Performance-tuning
+- https://github.com/vaquarkhan/vk-wiki-notes/wiki/Tuning-and-Debugging-Apache-Spark
