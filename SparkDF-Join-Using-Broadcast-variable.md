@@ -1,59 +1,92 @@
-// Hive Tables
-hive> select * from customer;
-OK
-`1	Ramesh	32	Ahmedabad	000`
-`2	Khilan	25	Delhi	1500`
-`3	kaushik	23	Kota	2000 `
-`4	Chaitali	25	Mumbai	6500 `
-`5	Hardik	27	Bhopal	8500 `
-`6	Komal	22	MP	4500 `
-`Time taken: 0.568 seconds, Fetched: 6 row(s)`
+https://gist.github.com/rajkrrsingh/47fd073674eb5e2977c017acdb538d23
 
-`hive> select * from orders;`
-`OK`
-`102	2009-10-08 00:00:00	3	3000`
-`100	2009-10-08 00:00:00	3	1500`
-`101	2009-11-20 00:00:00	2	1560`
-`103	2008-05-20 00:00:00	4	2060`
-`Time taken: 0.185 seconds, Fetched: 4 row(s)`
 
-`// Spark Shell`
+Example:
 
-`scala> sc.getConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")`
-`res0: org.apache.spark.SparkConf = org.apache.spark.SparkConf@46c6541f`
 
-`scala> import org.apache.spark.sql.hive.HiveContext`
-`import org.apache.spark.sql.hive.HiveContext`
+`package com.vk.example1`
 
-`scala> val hiveCtx = new HiveContext(sc)`
-`hiveCtx: org.apache.spark.sql.hive.HiveContext = org.apache.spark.sql.hive.HiveContext@54139bd3`
+`import org.apache.spark.SparkContext`
+`import org.apache.log4j._`
+`import org.apache.spark.sql.SQLContext`
+`import org.apache.spark.sql.functions._`
+`import org.apache.spark.sql.types.IntegerType`
+`import org.apache.spark.sql.types.StringType`
 
-`scala> val custtable = hiveCtx.sql("select * from customer");`
-`custtable: org.apache.spark.sql.DataFrame = [id: string, name: string, age: string, address: string, salary: string]`
-`scala> custtable.show`
-`+---+--------+---+---------+------+`
-`| id|    name|age|  address|salary|`
-`+---+--------+---+---------+------+`
-`|  1|  Ramesh| 32|Ahmedabad|   000|`
-`|  2|  Khilan| 25|    Delhi|  1500|`
-`|  3| kaushik| 23|     Kota| 2000 |`
-`|  4|Chaitali| 25|   Mumbai| 6500 |`
-`|  5|  Hardik| 27|   Bhopal| 8500 |`
-`|  6|   Komal| 22|       MP| 4500 |`
-`+---+--------+---+---------+------+`
 
-`scala> val bcast_cust_table=sc.broadcast(custtable);`
-`bcast_cust_table: org.apache.spark.broadcast.Broadcast[org.apache.spark.sql.DataFrame] = Broadcast(2)`
+`object Test11 {`
+  
+  `def main(rgs:Array[String]){`
+`//`
+    `Logger.getLogger("org").setLevel(Level.ERROR)`
+    
+    `val sc = new SparkContext("local[*]","Test10")`
+    
+   
+    `val sqlContext = new SQLContext(sc)`
+    `val input = sqlContext.read.text("../ScalaSparkProject/src/ml-100k/u.data")`
+    `//input.show()`
+  
+   `//----------------------------------------------------------------------------------------------------------------------`
+  `// Split logic 1`
+  `//----------------------------------------------------------------------------------------------------------------------`
+    
+   `val movieDF= input.withColumn("UserId", split(col("value"), "\\W+").getItem(0).cast(IntegerType))`
+                     `.withColumn("MovieId", split(col("value"), "\\W+").getItem(1).cast(IntegerType))`
+                     `.withColumn("Rating", split(col("value"), "\\W+").getItem(2).cast(IntegerType))`
+                     `.withColumn("Timestamp", split(col("value"), "\\W+").getItem(3).cast(IntegerType))`
+                     `.drop("value")`
 
-`scala> val ordertable=hiveCtx.sql("select * from orders");`
-`ordertable: org.apache.spark.sql.DataFrame = [oid: string, odate: string, customer_id: string, amount: string]`
+  
+   `movieDF.show()`
+   
+   `movieDF.printSchema()`
+  `//----------------------------------------------------------------------------------------------------------------------`
+  `// Split logic 2`
+  `//----------------------------------------------------------------------------------------------------------------------`
+    `import sqlContext.implicits._`
+   
+    `val movieDF1= input.withColumn("value", split($"value", "\\W+")).select(`
+                       `$"value".getItem(0).as("UserId"),`
+                       `$"value".getItem(1).as("MovieId"),`
+                       `$"value".getItem(2).as("Rating"),`
+                       `$"value".getItem(3).as("Timestamp")`
+`).drop("value")`
 
-`val join_table=ordertable.join(bcast_cust_table.value,ordertable("customer_id")<=>bcast_cust_table.value("id") ,"inner")`
-`+---+-------------------+-----------+------+---+--------+---+-------+------+`
-`|oid|              odate|customer_id|amount| id|    name|age|address|salary|`
-`+---+-------------------+-----------+------+---+--------+---+-------+------+`
-`|102|2009-10-08 00:00:00|          3|  3000|  3| kaushik| 23|   Kota| 2000 |`
-`|100|2009-10-08 00:00:00|          3|  1500|  3| kaushik| 23|   Kota| 2000 |`
-`|101|2009-11-20 00:00:00|          2|  1560|  2|  Khilan| 25|  Delhi|  1500|`
-`|103|2008-05-20 00:00:00|          4|  2060|  4|Chaitali| 25| Mumbai| 6500 |`
-`+---+-------------------+-----------+------+---+--------+---+-------+------+`
+`//movieDF1.show()`
+`//----------------------------------------------------------------------------------------------------------------------  `
+     
+`val MovieIdDF=movieDF.select($"Rating",$"MovieId").groupBy("MovieId").count()`
+
+`val newMovieIdDF=MovieIdDF.sort($"count".desc)`
+
+`println("----------------------------------Most populer Movie id-----------------------------------------------------") `
+
+`newMovieIdDF.show()`
+ 
+`println("----------------------------------Most populer Movie name-----------------------------------------------------") `
+
+`//loading file name file`
+
+ `val movieName = sqlContext.read.text("../ScalaSparkProject/src/ml-100k/u.item")`
+ 
+  `val movieNameDF= movieName.withColumn("id", split(col("value"), "\\|").getItem(0).cast(IntegerType))`
+                     `.withColumn("name", split(col("value"), "\\|").getItem(1).cast(StringType))`
+                     `.drop("value")`
+ 
+ `movieNameDF.show(50,false)`
+ `//brodcast `
+`val brodcastMovieDF= sc.broadcast(movieNameDF)`
+ 
+ `println("----------------------------------join-----------------------------------------------------") `
+ `import org.apache.spark.sql.functions.broadcast`
+
+ 
+`val finalDF= movieDF.join(brodcastMovieDF.value,movieDF.col("MovieId")===movieNameDF.col("id"))`
+
+`val printFinalDF=finalDF.select($"Rating",$"MovieId",$"name")`
+`printFinalDF.show(120,false)`
+
+  `}`
+  
+`}`
