@@ -46,3 +46,6 @@ You can clearly see what I meant in above paragraph. Instead of doing this, user
    –conf spark.yarn.executor.memoryOverhead=8192 \
 
  
+
+
+https://thebipalace.com/2017/09/11/spark-error-coarsegrainedexecutorbackend-driver-disassociated-shutting-down/
