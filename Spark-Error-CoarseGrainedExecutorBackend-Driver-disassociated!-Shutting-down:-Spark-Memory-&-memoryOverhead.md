@@ -1,3 +1,7 @@
+https://thebipalace.com/2017/09/11/spark-error-coarsegrainedexecutorbackend-driver-disassociated-shutting-down/
+
+
+
 7/08/31 15:58:07 WARN CoarseGrainedExecutorBackend: An unknown (datanode-022:43969) driver disconnected.
 
 17/08/31 15:58:07 ERROR CoarseGrainedExecutorBackend: Driver 10.1.1.111:43969 disassociated! Shutting down.
@@ -46,6 +50,3 @@ You can clearly see what I meant in above paragraph. Instead of doing this, user
    –conf spark.yarn.executor.memoryOverhead=8192 \
 
  
-
-
-https://thebipalace.com/2017/09/11/spark-error-coarsegrainedexecutorbackend-driver-disassociated-shutting-down/
