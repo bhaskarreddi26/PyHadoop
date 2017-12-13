@@ -115,3 +115,9 @@ In this case, you should use bulk load via Map-Reduce [https://phoenix.apache.or
 ------------------------------------------------------
 Code example:
 
+* https://github.com/petetian/hbase-web-service
+* https://github.com/lessc0de/rest-phoenix
+* https://community.hortonworks.com/articles/56642/creating-a-spring-boot-java-8-microservice-to-read.html
+* http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_data-access/content/ch_using-phoenix.html
+* https://community.hortonworks.com/articles/19016/connect-to-phoenix-hbase-using-dbvisualizer.html
+* https://netkiller.github.io/java/spring/boot/phoenix.html
