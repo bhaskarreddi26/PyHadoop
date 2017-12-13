@@ -110,8 +110,9 @@ In this case, you should use bulk load via Map-Reduce [https://phoenix.apache.or
 ------------------------------------------------------
 **Primary and secondry index **
 
-
-
+* https://community.hortonworks.com/articles/61705/art-of-phoenix-secondary-indexes.html
+* https://community.hortonworks.com/questions/46769/is-there-a-limitation-on-a-number-of-secondary-ind.html
+* https://phoenix.apache.org/secondary_indexing.html
 ------------------------------------------------------
 Code example:
 
